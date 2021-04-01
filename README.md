@@ -20,9 +20,7 @@
 - 秋田県内の、人材不足の問題を抱える企業や、住む人がいなくなった空き家の持ち主などが、働き手や買い手を探す
 
 ## 設計書
-- 機能一覧
-- ER図　https://drive.google.com/file/d/1fhrd2kYdKUxzfg0od7ub8Q-1Z2TyDAwf/view?usp=sharing
-https://docs.google.com/spreadsheets/d/13f-reAN8reLsiWaB7LFaXRv2Lym13XBno6BJ74tf9xc/edit?usp=sharing
+- 機能一覧 https://docs.google.com/spreadsheets/d/13f-reAN8reLsiWaB7LFaXRv2Lym13XBno6BJ74tf9xc/edit?usp=sharing
 
 ## 開発環境
 - OS：Linux(CentOS)
