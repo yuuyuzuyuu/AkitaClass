@@ -1,0 +1,35 @@
+<p class="title">会員情報編集<p>
+  <%= form_with model: @user, url: users_edit_path, local: true do |f| %>
+  <table>
+    <tr>
+      <td>氏名</td>
+      <td><%= f.text_field :last_name %></td>
+      <td><%= f.text_field :first_name %></td>
+    </tr>
+    <tr>
+      <td>フリガナ</td>
+      <td><%= f.text_field :last_name_kana %></td>
+      <td><%= f.text_field :first_name_kana %></td>
+    </tr>
+    <tr>
+      <td>メールアドレス</td>
+      <td><%= f.email_field :email %></td>
+    </tr>
+    <tr>
+      <td>ニックネーム</td>
+      <td><%= f.text_field :nickname %></td>
+    </tr>
+    <tr>
+      <td>自己紹介</td>
+      <td><%= f.text_area :introduce %></td>
+    </tr>
+    <tr>
+      <td>生年月日</td>
+      <td><%= f.date_select(:birth_date, start_year: 1900, end_year: (Time.now.year), default: Date.new(1990, 1, 1)) %></td>
+    </tr>
+    <tr>
+      <td><%= f.submit "編集内容を保存" %></td>
+      <td><%= link_to "退会する", customers_unsubscribe_path %></td>
+    </tr>
+  </table>
+  <% end %>

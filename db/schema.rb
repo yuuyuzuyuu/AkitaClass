@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 2021_04_02_051726) do
     t.integer "genre_id"
     t.string "title"
     t.text "body"
-    t.string "post_image"
+    t.string "post_image_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -67,8 +67,7 @@ ActiveRecord::Schema.define(version: 2021_04_02_051726) do
     t.string "first_name_kana", null: false
     t.string "nickname", null: false
     t.string "introduce"
-    t.date "birth_date", null: false
-    t.string "password", null: false
+    t.date "birth_date"
     t.string "profile_image"
     t.string "phone_number"
     t.string "address"
