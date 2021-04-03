@@ -12,5 +12,5 @@ class User < ApplicationRecord
   validates :first_name_kana, presence: true
   validates :nickname, presence: true
   validates :email, presence: true, uniqueness: true
-
+  attachment :profile_image
 end
