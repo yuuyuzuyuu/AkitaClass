@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
   
+  get 'homes/top'
+  get 'homes/about'
   devise_for :admins, controllers: {
     sessions: 'admins/sessions',
   }
   
   namespace :admins do
-    resources :users, only: [:index, :show, :edit, :update]
+    resources :members, only: [:index, :show, :edit, :update]
     resources :genres, only: [:index, :create, :edit, :update]
   end
   
@@ -16,11 +18,11 @@ Rails.application.routes.draw do
   
   scope module: :users do
     root to: "homes#top"
-    get '/users/mypage' => 'users#show'
-    get "/users/unsubscribe" => "users#unsubscribe"
-    patch "/users/withdraw" => "users#withdraw"
-    get "/users/mypage/edit" => "users#edit"
-    patch "/users/mypage" => "users#update"
+    get '/members/mypage' => 'members#show'
+    get "/members/unsubscribe" => "members#unsubscribe"
+    patch "/members/withdraw" => "members#withdraw"
+    get "/members/mypage/edit" => "members#edit"
+    patch "/members/mypage" => "members#update"
     
     resources :comments
     resources :posts

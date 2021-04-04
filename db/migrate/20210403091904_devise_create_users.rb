@@ -40,8 +40,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string :introduce
       t.date :birth_date, null: false
       t.string :email, null: false
-      t.string :password, null: false
-      t.string :profile_image
+      t.string :profile_image_id
       t.string :phone_number
       t.string :address
       t.boolean :withdraw_status, null: false, default: true

@@ -37,8 +37,7 @@ ActiveRecord::Schema.define(version: 2021_04_03_091911) do
     t.string "nickname", null: false
     t.string "introduce"
     t.date "birth_date", null: false
-    t.string "password", null: false
-    t.string "profile_image"
+    t.string "profile_image_id"
     t.string "phone_number"
     t.string "address"
     t.boolean "withdraw_status", default: true, null: false
