@@ -1,0 +1,2 @@
+class HelpPost < ApplicationRecord
+end

@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
   
-  get 'homes/top'
-  get 'homes/about'
   devise_for :admins, controllers: {
     sessions: 'admins/sessions',
   }
@@ -18,6 +16,7 @@ Rails.application.routes.draw do
   
   scope module: :users do
     root to: "homes#top"
+    get 'homes/about'
     get '/members/mypage' => 'members#show'
     get "/members/unsubscribe" => "members#unsubscribe"
     patch "/members/withdraw" => "members#withdraw"
@@ -25,7 +24,8 @@ Rails.application.routes.draw do
     patch "/members/mypage" => "members#update"
     
     resources :comments
-    resources :posts
+    resources :help_posts
+    resources :want_posts
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
