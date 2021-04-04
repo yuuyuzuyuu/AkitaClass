@@ -1,0 +1,2 @@
+module Users::HelpPostsHelper
+end
