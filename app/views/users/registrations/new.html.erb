@@ -1,6 +1,6 @@
 <h2>新規会員登録</h2>
 
-<%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
+<%= form_with model: @user, url: user_registration_path, local: true do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
   <table class="table">
     <tbody>
@@ -23,7 +23,7 @@
         <td colspan="2"><%= f.text_field :nickname, placeholder: "わんこ" %></td>
       </tr>
       <tr>
-        <td><%= f.label :profile_image, "プロフィール画像" %></td>
+        <td><%= f.label :profile_image_id, "プロフィール画像" %></td>
         <td><%= f.attachment_field :profile_image %></td>
       </tr>
       <tr>
