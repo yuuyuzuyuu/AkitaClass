@@ -1,42 +1,62 @@
-<h3>マイページ</h3>
-<table>
-  <tr>
-    <td>氏名</td>
-    <td><%= @user.last_name+@user.first_name %></td>
-  </tr>
-  <tr>
-    <td>カナ</td>
-    <td><%= @user.last_name_kana+@user.first_name_kana %></td>
-  </tr>
-  <tr>
-    <td>メールアドレス</td>
-    <td><%= @user.email %></td>
-  </tr>
-  <tr>
-    <td>ニックネーム</td>
-    <td><%= @user.nickname %></td>
-  </tr>
-  <tr>
-    <td>プロフィール画像</td>
-    <td><%= attachment_image_tag @user, :profile_image, size: "150x150"%></td>
-  </tr>
-  <tr>
-    <td>自己紹介</td>
-    <td><%= @user.introduce %></td>
-  </tr>
-  <tr>
-    <td>誕生日</td>
-    <td><%= @user.birth_date %></td>
-  </tr>
-  <tr>
-    <td>電話番号</td>
-    <td><%= @user.phone_number %></td>
-  </tr>
-  <tr>
-    <td>住所（県名）</td>
-    <td><%= @user.address %></td>
-  </tr>
-  <tr>
-    <td><%= link_to '編集', members_mypage_edit_path %></td>
-  </tr>
-</table>
+<div class="container">
+  <div class="row">
+    <h3>マイページ</h3>
+    
+    <table class="table">
+      <tr>
+        <td>氏名</td>
+        <td><%= @user.last_name+@user.first_name %></td>
+      </tr>
+      <tr>
+        <td>カナ</td>
+        <td><%= @user.last_name_kana+@user.first_name_kana %></td>
+      </tr>
+      <tr>
+        <td>メールアドレス</td>
+        <td><%= @user.email %></td>
+      </tr>
+      <tr>
+        <td>ニックネーム</td>
+        <td><%= @user.nickname %></td>
+      </tr>
+      <tr>
+        <td>プロフィール画像</td>
+        <td><%= attachment_image_tag @user, :profile_image, size: "150x150"%></td>
+      </tr>
+      <tr>
+        <td>自己紹介</td>
+        <td><%= @user.introduce %></td>
+      </tr>
+      <tr>
+        <td>誕生日</td>
+        <td><%= @user.birth_date %></td>
+      </tr>
+      <tr>
+        <td>電話番号</td>
+        <td><%= @user.phone_number %></td>
+      </tr>
+      <tr>
+        <td>住所（県名）</td>
+        <td><%= @user.address %></td>
+      </tr>
+      <tr>
+        <td><%= link_to '編集', members_mypage_edit_path %></td>
+        <td></td>
+      </tr>
+    </table>
+    
+    <table class="table">
+      <h4>投稿一覧</h4>
+      <% @help_posts.each do |help_post| %>
+        <tr>
+          <td><%= link_to help_post.title, help_post_path(help_post) %></td>
+          <td><%= help_post.body %></td>
+          <td><%= link_to '削除', help_post_path(help_post), method: :delete %></td>
+        </tr>
+      <% end %>
+    </table>
+    
+  </div>
+</div>
+
+
