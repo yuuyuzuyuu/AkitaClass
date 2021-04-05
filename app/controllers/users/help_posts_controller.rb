@@ -32,12 +32,15 @@ class Users::HelpPostsController < ApplicationController
     end
   end
 
-  def destroy
+  def destroy    
+    @help_post = HelpPost.find(params[:id])
+    @help_post.destroy
+    redirect_to help_posts_path
   end
 
   private
 
   def help_post_params
-    params.require(:help_post).permit(:title, :body)
+    params.require(:help_post).permit(:title, :body, :post_image)
   end
 end

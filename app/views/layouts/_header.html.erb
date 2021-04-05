@@ -2,8 +2,9 @@
   logo
   <% if admin_signed_in? %>
     <ul>
-      <li><%= link_to '会員一覧', admins_users_path %></li>
+      <li><%= link_to '会員一覧', admins_members_path %></li>
       <li><%= link_to 'ジャンル', admins_genres_path %></li>
+      <li><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %></li>
     </ul>
   <% elsif user_signed_in? %>
     <ul>

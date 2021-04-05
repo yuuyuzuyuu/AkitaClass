@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 2021_04_05_014013) do
     t.integer "genre_id"
     t.string "title", null: false
     t.text "body", null: false
+    t.string "post_image_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -63,6 +64,12 @@ ActiveRecord::Schema.define(version: 2021_04_05_014013) do
   end
 
   create_table "want_posts", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "genre_id"
+    t.string "title", null: false
+    t.text "body", null: false
+    t.text "requirement"
+    t.string "post_image_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
