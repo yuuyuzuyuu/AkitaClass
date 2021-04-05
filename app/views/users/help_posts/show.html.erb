@@ -17,5 +17,6 @@
   
   <% @help_post.help_comments.each do |help_comment| %>
     <%= attachment_image_tag help_comment.user, :profile_image, size: "50x50" %>
+    <%= link_to help_comment.user.nickname, members_mypage_path %>
     <%= help_comment.comment %>
   <% end %>

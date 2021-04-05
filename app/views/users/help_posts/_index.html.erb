@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row">
+    <table class="table">
+      <% @help_posts.each do |help_post| %>
+        <tr>
+          <td><%= attachment_image_tag help_post.user, :profile_image, size: "30x30" %></td>
+          <td><%= help_post.user.nickname %></td>
+          <td><%= link_to help_post.title, help_post_path(help_post) %></td>
+          <td><%= help_post.body %></td>
+          <td><%= link_to '削除', help_post_path(help_post), method: :delete %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
