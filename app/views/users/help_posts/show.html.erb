@@ -4,5 +4,6 @@
 <p><%= attachment_image_tag @help_post, :post_image %></p>
 <p><%= @help_post.title %></p>
 <p><%= @help_post.body %></p>
+<p><%= @help_post.genre.name %></p>
 <%= link_to '編集', edit_help_post_path %>
 <%= link_to '削除', help_post_path(@help_post), method: :delete %>
