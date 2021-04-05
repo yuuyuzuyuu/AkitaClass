@@ -23,9 +23,13 @@ Rails.application.routes.draw do
     get "/members/mypage/edit" => "members#edit"
     patch "/members/mypage" => "members#update"
     
-    resources :comments
-    resources :help_posts
-    resources :want_posts
+   
+    resources :help_posts do
+      resources :help_comments
+    end
+    resources :want_posts do
+      resources :want_comments
+    end
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
