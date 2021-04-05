@@ -1,0 +1,11 @@
+<h4>ジャンル一覧</h4>
+  <% @genres.each do |genre| %>
+    <%= genre.name %>
+    <%= link_to '編集する', edit_admins_genre_path(genre) %>
+    <%= link_to '削除する', admins_genre_path(genre), method: :delete %>
+  <% end %>
+<h4>ジャンル追加</h4>
+<%= form_with model: [:admins, @genre], local: true do |f| %>
+  <%= f.text_field :name, placeholder: "ジャンル名" %>
+  <%= f.submit %>
+<% end %>
