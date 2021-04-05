@@ -10,7 +10,7 @@ class Users::MembersController < ApplicationController
   def update
     @user = current_user
     if @user.update(user_params)
-      redirect_to mypage_path
+      redirect_to members_mypage_path
     else
       render "edit"
     end
