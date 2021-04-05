@@ -1,3 +1,6 @@
+<h2>秋田に、住んでみたい人へ</h2>
+検索機能
+<%= link_to '新規登録', new_help_post_path %>
 <%= @help_posts.each do |help_post| %>
   <p><%= link_to help_post.title, help_post_path(help_post) %></p>
   <p><%= help_post.body %></p>
