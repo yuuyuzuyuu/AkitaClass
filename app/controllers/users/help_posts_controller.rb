@@ -20,9 +20,16 @@ class Users::HelpPostsController < ApplicationController
   end
 
   def edit
+    @help_post = HelpPost.find(params[:id])
   end
 
   def update
+    @help_post = HelpPost.find(params[:id])
+    if @help_post.update(help_post_params)
+      redirect_to help_post_path
+    else
+      render :edit
+    end
   end
 
   def destroy
