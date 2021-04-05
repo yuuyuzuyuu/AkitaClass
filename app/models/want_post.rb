@@ -1,0 +1,2 @@
+class WantPost < ApplicationRecord
+end

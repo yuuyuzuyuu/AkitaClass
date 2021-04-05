@@ -1,0 +1,4 @@
+<%= @help_posts.each do |help_post| %>
+  <p><%= link_to help_post.title, help_post_path(help_post) %></p>
+  <p><%= help_post.body %></p>
+<% end %>
