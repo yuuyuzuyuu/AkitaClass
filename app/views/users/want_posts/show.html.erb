@@ -1,0 +1,27 @@
+<h4>投稿詳細</h4>
+<table>
+  <p><%= @want_post.user.nickname %></p>
+  <p><%= attachment_image_tag @want_post.user, :profile_image, size: "150x150" %></p>
+  <p><%= attachment_image_tag @want_post, :post_image, size: "270x150" %></p>
+  <p><%= @want_post.title %></p>
+  <p><%= @want_post.body %></p>
+  <p><%= @want_post.requirement %>
+  </p>
+  <p><%= @want_post.genre.name %></p>
+  <%= link_to '編集', edit_want_post_path %>
+  <%= link_to '削除', want_post_path(@want_post), method: :delete %>
+</table>
+
+  <%= form_with model:[@want_post, @want_comment], local: true do |f| %>
+    <%= f.text_area :comment %>
+    <%= f.submit '送信'%>
+  <% end %>
+  
+  <% @want_post.want_comments.each do |want_comment| %>
+    <%= attachment_image_tag want_comment.user, :profile_image, size: "50x50" %>
+    <%= link_to want_comment.user.nickname, members_mypage_path %>
+    <%= want_comment.comment %>
+    <% if want_comment.user == current_user %>
+      <%= link_to '削除', want_post_want_comment_path(want_comment), method: :delete %>
+    <% end %>
+  <% end %>
