@@ -19,4 +19,7 @@
     <%= attachment_image_tag help_comment.user, :profile_image, size: "50x50" %>
     <%= link_to help_comment.user.nickname, members_mypage_path %>
     <%= help_comment.comment %>
+    <% if help_comment.user == current_user %>
+      <%= link_to '削除', help_post_help_comment_path(help_comment), method: :delete %>
+    <% end %>
   <% end %>
