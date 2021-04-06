@@ -8,6 +8,21 @@
   <p><%= @want_post.requirement %>
   </p>
   <p><%= @want_post.genre.name %></p>
+  
+  <% if @want_post.liked_by?(current_user) %>
+    <p>
+      <%= link_to want_post_want_likes_path(@want_post), method: :delete do %>
+        ♥<%= @want_post.want_likes.count %>いいね
+      <% end %>
+    </p>
+  <% else %>
+    <p>
+      <%= link_to want_post_want_likes_path(@want_post), method: :post do %>
+        ♡<%= @want_post.want_likes.count %>いいね
+      <% end %>
+    </p>
+  <% end %>
+  
   <%= link_to '編集', edit_want_post_path %>
   <%= link_to '削除', want_post_path(@want_post), method: :delete %>
 </table>

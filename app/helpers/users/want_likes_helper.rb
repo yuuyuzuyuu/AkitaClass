@@ -1,0 +1,2 @@
+module Users::WantLikesHelper
+end
