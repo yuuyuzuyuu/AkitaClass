@@ -1,4 +1,4 @@
 <h2>秋田に、住んでほしい人へ</h2>
 検索機能
-<%= link_to '新規登録', new_want_post_path %>
+<%= link_to '新規登録', new_want_post_path, data: {"turbolinks" => false} %>
 <%= render 'index', want_posts: @want_posts %>
