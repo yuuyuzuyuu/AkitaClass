@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row">
+    <table class="table">
+      <% @want_posts.each do |want_post| %>
+        <tr>
+          <td><%= attachment_image_tag want_post.user, :profile_image, size: "30x30" %></td>
+          <td><%= want_post.user.nickname %></td>
+          <td><%= link_to want_post.title, want_post_path(want_post) %></td>
+          <td><%= want_post.body %></td>
+          <td><%= link_to '削除', want_post_path(want_post), method: :delete %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
