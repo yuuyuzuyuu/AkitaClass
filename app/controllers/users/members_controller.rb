@@ -1,6 +1,7 @@
 class Users::MembersController < ApplicationController
   def show
     @user = current_user
+    @help_posts = HelpPost.all
   end
   
   def edit 

@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   
   namespace :admins do
     resources :members, only: [:index, :show, :edit, :update]
-    resources :genres, only: [:index, :create, :edit, :update]
+    resources :genres, only: [:index, :create, :edit, :update, :destroy]
   end
   
   devise_for :users, controllers: {
@@ -23,9 +23,15 @@ Rails.application.routes.draw do
     get "/members/mypage/edit" => "members#edit"
     patch "/members/mypage" => "members#update"
     
-    resources :comments
-    resources :help_posts
-    resources :want_posts
+   
+    resources :help_posts do
+      resources :help_comments
+      resource :likes, only: [:create, :destroy]
+    end
+    resources :want_posts do
+      resources :want_comments
+      resource :likes, only: [:create, :destroy]
+    end
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

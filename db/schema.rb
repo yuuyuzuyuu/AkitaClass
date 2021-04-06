@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_04_045457) do
+ActiveRecord::Schema.define(version: 2021_04_05_061209) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -24,11 +24,26 @@ ActiveRecord::Schema.define(version: 2021_04_04_045457) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
+  create_table "genres", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "help_comments", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "help_post_id"
+    t.text "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "help_posts", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "genre_id"
     t.string "title", null: false
     t.text "body", null: false
+    t.string "post_image_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -56,7 +71,21 @@ ActiveRecord::Schema.define(version: 2021_04_04_045457) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "want_comments", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "want_post_id"
+    t.text "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "want_posts", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "genre_id"
+    t.string "title", null: false
+    t.text "body", null: false
+    t.text "requirement"
+    t.string "post_image_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

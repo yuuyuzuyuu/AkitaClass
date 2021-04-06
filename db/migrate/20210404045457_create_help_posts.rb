@@ -6,6 +6,7 @@ class CreateHelpPosts < ActiveRecord::Migration[5.2]
       t.integer :genre_id
       t.string :title, null: false
       t.text :body, null: false
+      t.string :post_image_id
 
       t.timestamps
     end

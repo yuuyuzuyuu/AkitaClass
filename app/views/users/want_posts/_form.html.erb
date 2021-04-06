@@ -1,0 +1,13 @@
+<%= form_with model:@want_post, local:true do |f| %>
+  <h4>投稿画像</h4>
+  <%= f.attachment_field :post_image %>
+  <h4>タイトル</h4>
+  <%= f.text_field :title %>
+  <h4>本文</h4>
+  <%= f.text_area :body %>
+  <h4>募集要項</h4>
+  <%= f.text_area :requirement %>
+  <h4>ジャンル</h4>
+  <td><%= f.collection_select :genre_id, Genre.all, :id, :name,:prompt => "選択してください", size: 50 %></td>
+  <%= f.submit '新規投稿' %>
+<% end %>
