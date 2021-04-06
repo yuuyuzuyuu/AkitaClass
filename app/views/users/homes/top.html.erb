@@ -7,19 +7,22 @@
 
 <main>
   <div class="wrapper">
+    
     <div class="top-help">
       住んでみたい方はこちら
-      <div class="help-popular-posts">
+      <div class="popular-post">
         <h3>人気投稿</h3>
       </div>
         <h3>最新投稿</h3>
-        <div class="help-new-post">
+        <div class="new-post">
           <% @help_posts.each do |help_post| %>
-            <div class="help-new-post-content">
-              <div class="help-new-post-image">
-                <%= attachment_image_tag help_post, :post_image, size: "150x100" %><br>
+            <div class="new-post-content">
+              <div class="new-post-image">
+                <%= link_to help_post_path(help_post) do %>
+                  <%= attachment_image_tag help_post, :post_image, size: "150x100" %><br>
+                <% end %>
               </div>
-              <div class="help-new-post-body">
+              <div class="new-post-body">
                 <%= link_to help_post.title, help_post_path(help_post) %>
                 ♡<%= help_post.help_likes.count %><br>
                 <%= attachment_image_tag help_post.user, :profile_image, size: "50x50" %>
@@ -32,12 +35,29 @@
     
     <div class="top-want">
       地域の方はこちら
-      <div class="want-popular-posts">
+      <div class="popular-post">
         <h3>人気投稿</h3>
       </div>
-      <div class="want-new-posts">
         <h3>最新投稿</h3>
+        <div class="new-post">
+          <% @want_posts.each do |want_post| %>
+            <div class="new-post-content">
+              <div class="new-post-image">
+                <%= link_to want_post_path(want_post) do %>
+                  <%= attachment_image_tag want_post, :post_image, size: "150x100" %><br>
+                <% end %>
+              </div>
+              <div class="new-post-body">
+                <%= link_to want_post.title, want_post_path(want_post) %>
+                ♡<%= want_post.want_likes.count %><br>
+                <%= attachment_image_tag want_post.user, :profile_image, size: "50x50" %>
+                <%= want_post.user.nickname %><br>
+              </div>
+            </div>
+          <% end %>
+        </div>
       </div>
     </div>
+    
   </div>
 </main>
