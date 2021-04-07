@@ -26,11 +26,11 @@ Rails.application.routes.draw do
     
    
     resources :help_posts do
-      resources :help_comments
+      resources :help_comments, only: [:create, :destroy]
       resource :help_likes, only: [:create, :destroy]
     end
     resources :want_posts do
-      resources :want_comments
+      resources :want_comments, only: [:create, :destroy]
       resource :want_likes, only: [:create, :destroy]
     end
   end

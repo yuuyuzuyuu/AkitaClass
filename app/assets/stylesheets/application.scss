@@ -15,8 +15,9 @@
  */
 @import "bootstrap";
 
+// グローバルナビゲーション
+
 #g-nav{
-    /*position:fixed;にし、z-indexの数値を大きくして前面へ*/
     position:fixed;
     z-index: 999;
     /*ナビのスタート位置と形状*/
@@ -29,7 +30,6 @@
 	transition: all 0.6s;
 }
 
-/*アクティブクラスがついたら位置を0に*/
 #g-nav.panelactive{
     right: 0;
 }
@@ -125,7 +125,17 @@
   width: 30%;
 }
 
-// topのレイアウト
+// 全体
+
+p, a {
+  font-family: 'Kiwi Maru', serif;
+}
+
+a:link, a:visited, a:hover, a:active {
+  color: #000000;
+}
+
+// トップページ
 
 .wrapper {
   display: flex;
@@ -166,18 +176,30 @@
   border-radius: 9px;
 }
 
-// 投稿詳細のレイアウト
-
-p {
-  font-family: 'Kiwi Maru', serif;
+.new-post-image {  
+  position: relative;
 }
+
+.new-post-image p {
+  background: rgba(255, 255, 255, 0.7);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.post-title {
+  font-weight: bold;
+}
+
+// 投稿詳細
+
 
 .post {
   width: 60%;
   margin: 0 auto;
 }
 
-.post-title {
+.title {
   font-size: 30px;
   text-align: center;
 }
@@ -206,4 +228,14 @@ p {
 
 .comment-delete {
   text-align: right;
+}
+
+// 投稿一覧
+
+.post-content {
+  display: inline-block;
+}
+
+.post-content {
+  background: #f0e5d8;
 }
