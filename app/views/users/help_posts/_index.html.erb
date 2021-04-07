@@ -1,18 +1,37 @@
 <div class="post-index">
-  <% user.help_posts.each do |help_post| %>
-    <div class="post-content">
-      <div class="post-image">
-        <%= link_to help_post_path(help_post) do %>
-          <%= attachment_image_tag help_post, :post_image, size: "300x200" %>
-          <p><%= help_post.user.address %>
-        ♡<%= help_post.help_likes.count %></p>
-        <% end %><br>
+  <% if @user %>
+    <% user.help_posts.each do |help_post| %>
+      <div class="post-content">
+        <div class="post-image">
+          <%= link_to help_post_path(help_post) do %>
+            <%= attachment_image_tag help_post, :post_image, size: "300x200" %>
+            <p><%= help_post.user.address %>
+          ♡<%= help_post.help_likes.count %></p>
+          <% end %><br>
+        </div>
+        <div class="post-body">
+          <a class="post-title"><%= link_to help_post.title, help_post_path(help_post) %></a><br>
+          <a class="post-user"><%= attachment_image_tag help_post.user, :profile_image, size: "50x50" %>
+          <a><%= link_to help_post.user.nickname, profile_path(help_post.user), data: {"turbolinks" => false} %></a><br>
+        </div>
       </div>
-      <div class="post-body">
-        <a class="post-title"><%= link_to help_post.title, help_post_path(help_post) %></a><br>
-        <a class="post-user"><%= attachment_image_tag help_post.user, :profile_image, size: "50x50" %>
-        <a><%= link_to help_post.user.nickname, profile_path(help_post.user), data: {"turbolinks" => false} %></a><br>
+    <% end %>
+  <% else %>
+    <% help_posts.each do |help_post| %>
+      <div class="post-content">
+        <div class="post-image">
+          <%= link_to help_post_path(help_post) do %>
+            <%= attachment_image_tag help_post, :post_image, size: "300x200" %>
+            <p><%= help_post.user.address %>
+          ♡<%= help_post.help_likes.count %></p>
+          <% end %><br>
+        </div>
+        <div class="post-body">
+          <a class="post-title"><%= link_to help_post.title, help_post_path(help_post) %></a><br>
+          <a class="post-user"><%= attachment_image_tag help_post.user, :profile_image, size: "50x50" %>
+          <a><%= link_to help_post.user.nickname, profile_path(help_post.user), data: {"turbolinks" => false} %></a><br>
+        </div>
       </div>
-    </div>
+    <% end %>
   <% end %>
 </div>
