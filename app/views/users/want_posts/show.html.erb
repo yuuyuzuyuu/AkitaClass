@@ -2,8 +2,8 @@
   <p class="post-image"><%= attachment_image_tag @want_post, :post_image, size: "900x500" %></p>
   <p class="post-created-at">公開日：<%= @want_post.created_at.strftime('%Y/%m/%d') %></p>
   <p class="post-genre"><%= @want_post.genre.name %></p>
-  <p class="post-title"><%= @want_post.title %></p>
-  <p class="post-user-image"><%= attachment_image_tag @want_post.user, :profile_image, size: "50x50" %><%= @want_post.user.nickname %></p>
+  <p class="title"><%= @want_post.title %></p>
+  <p class="post-user-image"><%= attachment_image_tag @want_post.user, :profile_image, size: "50x50" %><%= link_to @want_post.user.nickname, profile_path, data: {"turbolinks" => false} %></p>
   <p class="post-like">気になる！<%= render "users/want_likes/like", want_post: @want_post %></p>
   <p><%= @want_post.body %></p>
   <p><%= @want_post.requirement %></p>
