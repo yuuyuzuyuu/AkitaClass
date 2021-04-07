@@ -17,7 +17,7 @@
         <div class="new-post">
           <% @help_posts.each do |help_post| %>
             <div class="new-post-content">
-              <div class="new-post-image">
+              <div class="post-image">
                 <%= link_to help_post_path(help_post), data: {"turbolinks" => false} do %>
                   <%= attachment_image_tag help_post, :post_image, size: "200x160" %>
                   <p>
@@ -46,16 +46,20 @@
         <div class="new-post">
           <% @want_posts.each do |want_post| %>
             <div class="new-post-content">
-              <div class="new-post-image">
+              <div class="post-image">
                 <%= link_to want_post_path(want_post), data: {"turbolinks" => false} do %>
-                  <%= attachment_image_tag want_post, :post_image, size: "170x120" %><br>
-                <% end %>
+                  <%= attachment_image_tag want_post, :post_image, size: "200x160" %>
+                  <p>
+                    <i class="fas fa-location-arrow"></i>
+                    <%= want_post.user.address %>
+                    ♡<%= want_post.want_likes.count %>
+                  </p>
+                <% end %><br>
               </div>
               <div class="new-post-body">
-                <%= link_to want_post.title, want_post_path(want_post), data: {"turbolinks" => false} %>
-                ♡<%= want_post.want_likes.count %><br>
-                <%= attachment_image_tag want_post.user, :profile_image, size: "30x30" %>
-                <%= want_post.user.nickname %><br>
+                <a class="post-title"><%= link_to want_post.title, want_post_path(want_post), data: {"turbolinks" => false} %></a><br>
+                <a class="post-user"><%= attachment_image_tag want_post.user, :profile_image, size: "30x30" %>
+                <a><%= want_post.user.nickname %></a><br>
               </div>
             </div>
           <% end %>
