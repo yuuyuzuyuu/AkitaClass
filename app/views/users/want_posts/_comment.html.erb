@@ -8,7 +8,7 @@
     
     <% want_post.want_comments.each do |want_comment| %>
       <%= attachment_image_tag want_comment.user, :profile_image, size: "50x50" %>
-      <p><%= link_to want_comment.user.nickname, members_mypage_path %>&nbsp;&nbsp;&nbsp;&nbsp;<%= want_comment.created_at.strftime('%Y/%m/%d') %></p>
+      <p><%= link_to want_comment.user.nickname, profile_path %>&nbsp;&nbsp;&nbsp;&nbsp;<%= want_comment.created_at.strftime('%Y/%m/%d') %></p>
       <p><%= want_comment.comment %></p>
       <p class="comment-delete">
         <% if want_comment.user == current_user %>

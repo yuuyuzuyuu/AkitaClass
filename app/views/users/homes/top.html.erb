@@ -11,9 +11,9 @@
     <div class="top-help">
       住んでみたい方はこちら
       <div class="popular-post">
-        <h3>人気投稿</h3>
+        <p class="top-title">人気投稿</p>
       </div>
-        <h3>最新投稿</h3>
+        <p class="top-title">最新投稿</p>
         <div class="new-post">
           <% @help_posts.each do |help_post| %>
             <div class="new-post-content">
@@ -30,19 +30,20 @@
               <div class="new-post-body">
                 <a class="post-title"><%= link_to help_post.title, help_post_path(help_post), data: {"turbolinks" => false} %></a><br>
                 <a class="post-user"><%= attachment_image_tag help_post.user, :profile_image, size: "30x30" %>
-                <a><%= help_post.user.nickname %></a><br>
+                <a><%= link_to help_post.user.nickname, profile_path(help_post.user), data: {"turbolinks" => false} %></a><br>
               </div>
             </div>
           <% end %>
         </div>
+        <p class="more"><i class="fas fa-hand-point-right"></i><%= link_to 'more', help_posts_path %></p>
     </div>
 
     <div class="top-want">
       地域の方はこちら
       <div class="popular-post">
-        <h3>人気投稿</h3>
+        <p class="top-title">人気投稿</p>
       </div>
-        <h3>最新投稿</h3>
+        <p class="top-title">最新投稿</p>
         <div class="new-post">
           <% @want_posts.each do |want_post| %>
             <div class="new-post-content">
@@ -59,13 +60,14 @@
               <div class="new-post-body">
                 <a class="post-title"><%= link_to want_post.title, want_post_path(want_post), data: {"turbolinks" => false} %></a><br>
                 <a class="post-user"><%= attachment_image_tag want_post.user, :profile_image, size: "30x30" %>
-                <a><%= want_post.user.nickname %></a><br>
+                <a><%= link_to want_post.user.nickname, profile_path(want_post.user), data: {"turbolinks" => false} %></a><br>
               </div>
             </div>
           <% end %>
         </div>
+        <p class="more"><i class="fas fa-hand-point-right"></i><%= link_to 'more', want_posts_path %></p>
       </div>
+
     </div>
 
-  </div>
 </main>

@@ -1,4 +1,6 @@
-<h2>秋田に、住んでほしい人へ</h2>
-検索機能
-<%= link_to '新規登録', new_want_post_path, data: {"turbolinks" => false} %>
-<%= render 'index', want_posts: @want_posts %>
+<div class="index">
+  <p class="title">秋田に、住んでほしい人へ</p>
+  <p>検索機能</p>
+  <%= link_to '新規登録', new_want_post_path, data: {"turbolinks" => false} %>
+  <%= render 'index', want_posts: @want_posts %>
+</div>
