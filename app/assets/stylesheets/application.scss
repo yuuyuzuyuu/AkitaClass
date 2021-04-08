@@ -277,11 +277,11 @@ a:link, a:visited, a:hover, a:active {
   margin: 0 auto;
 }
 
-// 新規登録、ログイン、プロフィール編集
+// 新規登録、ログイン、プロフィール編集、新規投稿、投稿編集
 
-.registrations-new, .sessions-new, .member-edit {
+.registrations-new, .sessions-new, .member-edit, .post-new, .post-edit {
   width: 50%;
-  margin: 80px auto;
+  margin: 50px auto;
   padding: 10px 10px;
   font-weight: bold;
   border: solid 3px #000000;

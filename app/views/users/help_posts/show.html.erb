@@ -9,7 +9,7 @@
 　<hr>
   <p class="post-edit-delete">
     <% if @help_post.user == current_user %>
-      <%= link_to '編集', edit_help_post_path %>/
+      <%= link_to '編集', edit_help_post_path(@help_post), data: {"turbolinks" => false} %>/
       <%= link_to '削除', help_post_path(@help_post), method: :delete %>
       <hr>
     <% end %>

@@ -45,4 +45,9 @@ class Users::HelpPostsController < ApplicationController
   def help_post_params
     params.require(:help_post).permit(:title, :body, :post_image, :genre_id)
   end
+  
+  def post_params
+    params.require(:post).permit(:title, :body, :tag_list)
+  end
+  
 end
