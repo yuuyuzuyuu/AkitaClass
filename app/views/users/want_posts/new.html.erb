@@ -1,2 +1,5 @@
-<h1>新規投稿</h1>
-<%= render 'form', want_post: @want_post %>
+<div class="post-new">
+  <p class="title">新規投稿</p>
+  <%= render 'form', want_post: @want_post %>
+  <p class="text-center"><%= link_to '投稿一覧にもどる', want_posts_path, data: {"turbolinks" => false} %></p>
+</div>

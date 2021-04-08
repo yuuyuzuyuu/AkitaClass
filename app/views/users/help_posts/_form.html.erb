@@ -1,11 +1,28 @@
-<%= form_with model:@help_post, local:true do |f| %>
-  <h4>投稿画像</h4>
-  <%= f.attachment_field :post_image %>
-  <h4>タイトル</h4>
-  <%= f.text_field :title %>
-  <h4>本文</h4>
-  <%= f.text_area :body %>
-  <h4>ジャンル</h4>
-  <td><%= f.collection_select :genre_id, Genre.all, :id, :name,:prompt => "選択してください", size: 50 %></td>
-  <%= f.submit '投稿' %>
+<%= form_with model:help_post, local:true do |f| %>
+  <table class="table table-borderless">
+    <tr>
+      <td style="width: 20%">投稿画像</td>
+      <td><%= f.attachment_field :post_image %></td>
+    </tr>
+    <tr>
+      <td>タイトル</td>
+      <td><%= f.text_field :title, size: 53 %></td>
+    </tr>
+    <tr>
+      <td>本文</td>
+      <td><%= f.text_area :body, size: "53x5" %></td>
+    </tr>
+    <tr>
+      <td>ラベル</td>
+      <td><%= f.text_field :tag_list, value: @help_post.tag_list.join(','), size: 53 %></td>
+    </tr>
+    <tr>
+      <td>ジャンル</td>
+      <td><%= f.collection_select :genre_id, Genre.all, :id, :name,:prompt => "選択してください", size: 50 %></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><%= f.submit '投稿' %></td>
+    </tr>
+  </table>
 <% end %>
