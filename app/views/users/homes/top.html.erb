@@ -10,13 +10,11 @@
 
     <div class="top-help">
       住んでみたい方はこちら
+      
+      <p class="top-title">人気投稿</p>
       <div class="popular-post">
-        <p class="top-title">人気投稿</p>
-      </div>
-        <p class="top-title">最新投稿</p>
-        <div class="new-post">
-          <% @help_posts.each do |help_post| %>
-            <div class="new-post-content">
+        <% @help_ranks.each do |help_post| %>
+            <div class="popular-post-content">
               <div class="post-image">
                 <%= link_to help_post_path(help_post), data: {"turbolinks" => false} do %>
                   <%= attachment_image_tag help_post, :post_image, size: "200x160" %>
@@ -33,19 +31,64 @@
                 <a><%= link_to help_post.user.nickname, profile_path(help_post.user), data: {"turbolinks" => false} %></a><br>
               </div>
             </div>
-          <% end %>
-        </div>
-        <p class="more"><i class="fas fa-hand-point-right"></i><%= link_to 'more', help_posts_path %></p>
+        <% end %>
+      </div>
+
+      <p class="top-title">最新投稿</p>
+      <div class="new-post">
+        <% @help_posts.each do |help_post| %>
+          <div class="new-post-content">
+            <div class="post-image">
+              <%= link_to help_post_path(help_post), data: {"turbolinks" => false} do %>
+                <%= attachment_image_tag help_post, :post_image, size: "200x160" %>
+                <p>
+                  <i class="fas fa-location-arrow"></i>
+                  <%= help_post.user.address %>
+                  ♡<%= help_post.help_likes.count %>
+                </p>
+              <% end %><br>
+            </div>
+            <div class="new-post-body">
+              <a class="post-title"><%= link_to help_post.title, help_post_path(help_post), data: {"turbolinks" => false} %></a><br>
+              <a class="post-user"><%= attachment_image_tag help_post.user, :profile_image, size: "30x30" %>
+              <a><%= link_to help_post.user.nickname, profile_path(help_post.user), data: {"turbolinks" => false} %></a><br>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <p class="more"><i class="fas fa-hand-point-right"></i><%= link_to 'more', help_posts_path %></p>
+   
     </div>
 
     <div class="top-want">
       地域の方はこちら
-      <div class="popular-post">
+      
         <p class="top-title">人気投稿</p>
-      </div>
+          <% @want_posts.each do |want_post| %>
+            <div class="new-post-content">
+              <div class="post-image">
+                <%= link_to want_post_path(want_post), data: {"turbolinks" => false} do %>
+                  <%= attachment_image_tag want_post, :post_image, size: "200x160" %>
+                  <p>
+                    <i class="fas fa-location-arrow"></i>
+                    <%= want_post.user.address %>
+                    ♡<%= want_post.want_likes.count %>
+                  </p>
+                <% end %><br>
+              </div>
+              <div class="new-post-body">
+                <a class="post-title"><%= link_to want_post.title, want_post_path(want_post), data: {"turbolinks" => false} %></a><br>
+                <a class="post-user"><%= attachment_image_tag want_post.user, :profile_image, size: "30x30" %>
+                <a><%= link_to want_post.user.nickname, profile_path(want_post.user), data: {"turbolinks" => false} %></a><br>
+              </div>
+            </div>
+          <% end %>
+        <div class="popular-post">
+        </div>
+        
         <p class="top-title">最新投稿</p>
         <div class="new-post">
-          <% @want_posts.each do |want_post| %>
+          <% @want_ranks.each do |want_post| %>
             <div class="new-post-content">
               <div class="post-image">
                 <%= link_to want_post_path(want_post), data: {"turbolinks" => false} do %>

@@ -127,7 +127,7 @@
 
 // 全体
 
-p, a {
+p, a, table {
   font-family: 'Kiwi Maru', serif;
 }
 
@@ -166,11 +166,11 @@ a:link, a:visited, a:hover, a:active {
   padding-top: 190px;
 }
 
-.new-post {
+.new-post, .popular-post {
   display: flex;
 }
 
-.new-post-content {
+.new-post-content, .popular-post-content {
   background: #fff;
   width: 90%;
   padding: 10px;
@@ -274,5 +274,15 @@ a:link, a:visited, a:hover, a:active {
 
 .profile-post {
   width: 70%;
-  margin:0 auto;
+  margin: 0 auto;
+}
+
+// 新規登録、ログイン
+
+.registrations-new, .sessions-new {
+  width: 50%;
+  margin: 80px auto;
+  padding: 10px 10px;
+  font-weight: bold;
+  border: solid 3px #000000;
 }
