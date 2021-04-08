@@ -1,7 +1,7 @@
 <div class="profile">
   <p class="title">プロフィール</p>
     <div class="user">
-      <%= attachment_image_tag @user, :profile_image, size: "300x200"%>
+      <%= attachment_image_tag @user, :profile_image, size: "250x250" %>
       <p class="nickname"><%= @user.nickname %></p>
       <div class="user-content">
         <p><%= @user.introduce %></p><br>
