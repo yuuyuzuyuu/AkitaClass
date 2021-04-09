@@ -3,8 +3,8 @@
       <%= f.text_area :comment, size: "50" %>
       <%= f.submit '送信'%>
     <% end %>
-    <hr class="line">
       <p><%= help_post.help_comments.count %> comments!</p>
+    <hr class="line">
     <p>
       <% help_post.help_comments.each do |help_comment| %>
         <%= attachment_image_tag help_comment.user, :profile_image, size: "50x50" %>

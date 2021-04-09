@@ -4,7 +4,7 @@ class Users::MembersController < ApplicationController
     @user = User.find(params[:id])
     @help_posts = HelpPost.all
     @want_posts = WantPost.all
-    @help_likes = HelpLike.where(user_id: @user.id).all
+    @help_likes = HelpLike.where(user_id: @user.id)
   end
 
   def edit

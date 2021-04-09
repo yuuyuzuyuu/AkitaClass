@@ -274,7 +274,6 @@ a:link, a:visited, a:hover, a:active {
 }
 
 .user-content {
-  color: #ffc478;
   text-align: left;
 }
 
@@ -283,9 +282,9 @@ a:link, a:visited, a:hover, a:active {
   margin: 0 auto;
 }
 
-// 新規登録、ログイン、プロフィール編集、新規投稿、投稿編集、ジャンル一覧
+// 新規登録、ログイン、プロフィール編集、新規投稿、投稿編集、ジャンル一覧、（管理者）ユーザー一覧・詳細、
 
-.registrations-new, .sessions-new, .member-edit, .post-new, .post-edit, .genre-index {
+.registrations-new, .sessions-new, .member-edit, .post-new, .post-edit, .genre-index, .admin-user-index {
   width: 50%;
   margin: 50px auto;
   padding: 10px 10px;

@@ -4,7 +4,7 @@ class HelpPost < ApplicationRecord
   belongs_to :genre
   has_many :help_comments, dependent: :destroy
   has_many :help_likes, dependent: :destroy
-  
+
   validates :title, presence: true
   validates :body, presence: true
   attachment :post_image
