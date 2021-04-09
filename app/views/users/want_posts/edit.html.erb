@@ -1,2 +1,5 @@
-<h4>編集画面</h4>
-<%= render 'form', help_post: @want_post %>
+<div class="post-edit">
+  <p class="title">新規投稿</p>
+  <%= render 'form', want_post: @want_post %>
+  <p class="text-center"><%= link_to '投稿にもどる', want_post_path(@want_post), data: {"turbolinks" => false} %></p>
+</div>

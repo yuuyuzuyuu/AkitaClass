@@ -14,3 +14,280 @@
  *= require_self
  */
 @import "bootstrap";
+
+// グローバルナビゲーション
+
+#g-nav{
+    position:fixed;
+    z-index: 999;
+    /*ナビのスタート位置と形状*/
+	top:0;
+    right: -120%;
+	width:100%;
+    height: 100vh;/*ナビの高さ*/
+	background:#bbdfc8;
+    /*動き*/
+	transition: all 0.6s;
+}
+
+#g-nav.panelactive{
+    right: 0;
+}
+
+/*ナビゲーションの縦スクロール*/
+#g-nav.panelactive #g-nav-list{
+    /*ナビの数が増えた場合縦スクロール*/
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+    height: 100vh;/*表示する高さ*/
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/*ナビゲーション*/
+#g-nav ul {
+    /*ナビゲーション天地中央揃え*/
+    position: absolute;
+    z-index: 999;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+}
+
+/*リストのレイアウト設定*/
+
+#g-nav li{
+	list-style: none;
+  text-align: center;
+}
+
+#g-nav li a{
+	color: #333;
+	text-decoration: none;
+	padding:10px;
+	display: block;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	font-weight: bold;
+}
+
+/*========= ボタンのためのCSS ===============*/
+.openbtn{
+	position:fixed;
+  z-index: 9999;/*ボタンを最前面に*/
+	top:10px;
+	right: 10px;
+	cursor: pointer;
+  width: 50px;
+  height:50px;
+}
+
+/*×に変化*/
+.openbtn span{
+  display: inline-block;
+  transition: all .4s;
+  position: absolute;
+  left: 14px;
+  height: 3px;
+  border-radius: 2px;
+	background-color: #75cfb8;
+  width: 45%;
+  }
+
+.openbtn span:nth-of-type(1) {
+	top:15px;
+}
+
+.openbtn span:nth-of-type(2) {
+	top:23px;
+}
+
+.openbtn span:nth-of-type(3) {
+	top:31px;
+}
+
+.openbtn.active span:nth-of-type(1) {
+  top: 18px;
+  left: 18px;
+  transform: translateY(6px) rotate(-45deg);
+  width: 30%;
+}
+
+.openbtn.active span:nth-of-type(2) {
+	opacity: 0;
+}
+
+.openbtn.active span:nth-of-type(3){
+  top: 30px;
+  left: 18px;
+  transform: translateY(-6px) rotate(45deg);
+  width: 30%;
+}
+
+// 全体
+
+p, a, table {
+  font-family: 'Kiwi Maru', serif;
+}
+
+a:link, a:visited, a:hover, a:active {
+  color: #000000;
+}
+
+.line {
+  border-width: 1px 0 0 0;
+  border-style: dashed;
+  border-color: #bbdfc8;
+}
+
+// トップページ
+
+.wrapper {
+  display: flex;
+}
+
+.top-want {
+  width: 100%;
+  padding: 10px;
+  background-color: #f0e5d8;
+}
+
+.top-help {
+  width: 100%;
+  padding: 10px;
+  background-color: #bbdfc8;
+}
+
+.main-visual {
+  width: 100%;
+  height: 500px;
+  background-size: cover;
+  background-color: #ffc478;
+}
+
+.main-visual-content {
+  color: white;
+  text-align: center;
+  padding-top: 190px;
+}
+
+.new-post, .popular-post {
+  display: flex;
+}
+
+.new-post-content, .popular-post-content {
+  background: #fff;
+  width: 90%;
+  padding: 10px;
+  margin: 0 1% 17px;
+  border-radius: 9px;
+}
+
+.post-image {
+  position: relative;
+}
+
+.post-image p {
+  background: rgba(255, 255, 255, 0.7);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.post-title {
+  font-weight: bold;
+}
+
+.top-title {
+  font-size: 30px;
+}
+
+.more {
+  text-align: right;
+}
+
+// 投稿詳細
+
+.post {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 30px;
+  text-align: center;
+}
+
+.post-genre {
+  font-size: 7px;
+  text-align: right;
+}
+
+.post-created-at {
+  text-align: right;
+}
+
+.post-edit-delete {
+  text-align: center;
+}
+
+.post-like {
+  text-align: center;
+  padding: 0.2em 0.5em;
+  margin: 2em 0;
+  background: #f0e5d8;
+  box-shadow: 0px 0px 0px 10px #f0e5d8;
+  border: dashed 2px white;
+}
+
+.comment-delete {
+  text-align: right;
+}
+
+// 投稿一覧
+
+.index {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.post-content {
+  margin: 10px;
+  display: inline-block;
+  background: #f0e5d8;
+}
+
+// プロフィール
+
+.profile {
+  width: 30%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.nickname {
+  font-size: 30px;
+}
+
+.introduce {
+}
+
+.user-content {
+  text-align: left;
+}
+
+.profile-post {
+  width: 70%;
+  margin: 0 auto;
+}
+
+// 新規登録、ログイン、プロフィール編集、新規投稿、投稿編集、ジャンル一覧、（管理者）ユーザー一覧・詳細、
+
+.registrations-new, .sessions-new, .member-edit, .post-new, .post-edit, .genre-index, .admin-user-index {
+  width: 50%;
+  margin: 50px auto;
+  padding: 10px 10px;
+  font-weight: bold;
+  border: solid 3px #000000;
+}
