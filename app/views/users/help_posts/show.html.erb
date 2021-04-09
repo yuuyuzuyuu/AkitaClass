@@ -6,12 +6,12 @@
   <p class="post-user-image"><%= attachment_image_tag @help_post.user, :profile_image, size: "50x50" %><%= @help_post.user.nickname %></p>
   <p class="post-like">気になる！<%= render "users/help_likes/like", help_post: @help_post %></p>
   <p><%= @help_post.body %></p>
-　<hr>
+　<hr class="line">
   <p class="post-edit-delete">
     <% if @help_post.user == current_user %>
       <%= link_to '編集', edit_help_post_path(@help_post), data: {"turbolinks" => false} %>/
       <%= link_to '削除', help_post_path(@help_post), method: :delete %>
-      <hr>
+      <hr class="line">
     <% end %>
   </p>
   <p class="post-comment">
