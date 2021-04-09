@@ -1,25 +1,20 @@
-<h4>投稿詳細</h4>
-<table>
-  <p><%= @help_post.user.nickname %></p>
-  <p><%= attachment_image_tag @help_post.user, :profile_image, size: "150x150" %></p>
-  <p><%= attachment_image_tag @help_post, :post_image, size: "270x150" %></p>
-  <p><%= @help_post.title %></p>
+<div class="post">
+  <p class="post-image"><%= attachment_image_tag @help_post, :post_image, size: "900x500" %></p>
+  <p class="post-created-at">公開日：<%= @help_post.created_at.strftime('%Y/%m/%d') %></p>
+  <p class="post-genre"><%= @help_post.genre.name %></p>
+  <p class="title"><%= @help_post.title %></p>
+  <p class="post-user-image"><%= attachment_image_tag @help_post.user, :profile_image, size: "50x50" %><%= @help_post.user.nickname %></p>
+  <p class="post-like">気になる！<%= render "users/help_likes/like", help_post: @help_post %></p>
   <p><%= @help_post.body %></p>
-  <p><%= @help_post.genre.name %></p>
-  <%= link_to '編集', edit_help_post_path %>
-  <%= link_to '削除', help_post_path(@help_post), method: :delete %>
-</table>
-
-  <%= form_with model:[@help_post, @help_comment], local: true do |f| %>
-    <%= f.text_area :comment %>
-    <%= f.submit '送信'%>
-  <% end %>
-  
-  <% @help_post.help_comments.each do |help_comment| %>
-    <%= attachment_image_tag help_comment.user, :profile_image, size: "50x50" %>
-    <%= link_to help_comment.user.nickname, members_mypage_path %>
-    <%= help_comment.comment %>
-    <% if help_comment.user == current_user %>
-      <%= link_to '削除', help_post_help_comment_path(help_comment), method: :delete %>
+　<hr class="line">
+  <p class="post-edit-delete">
+    <% if @help_post.user == current_user %>
+      <%= link_to '編集', edit_help_post_path(@help_post), data: {"turbolinks" => false} %>/
+      <%= link_to '削除', help_post_path(@help_post), method: :delete %>
+      <hr class="line">
     <% end %>
-  <% end %>
+  </p>
+  <p class="post-comment">
+    <%= render "users/help_posts/comment", help_post: @help_post, help_comment: @help_comment %>
+  </p>
+</div>

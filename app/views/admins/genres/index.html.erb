@@ -1,11 +1,27 @@
-<h4>ジャンル一覧</h4>
-  <% @genres.each do |genre| %>
-    <%= genre.name %>
-    <%= link_to '編集する', edit_admins_genre_path(genre) %>
-    <%= link_to '削除する', admins_genre_path(genre), method: :delete %>
-  <% end %>
-<h4>ジャンル追加</h4>
-<%= form_with model: [:admins, @genre], local: true do |f| %>
-  <%= f.text_field :name, placeholder: "ジャンル名" %>
-  <%= f.submit %>
-<% end %>
+<div class="genre-index">
+  <p class="title">ジャンル追加</p>
+    <%= form_with model: [:admins, @genre], local: true do |f| %>
+    <table class="table table-borderless">
+      <tbody>
+        <tr>
+          <td style="width: 30%"><%= f.text_field :name, placeholder: "ジャンル名" %></td>
+          <td><%= f.submit "追加" %></td>
+        </tr>
+      </tbody>
+    </table>
+    <% end %>
+  <hr class="line">
+  <p class="title">ジャンル一覧</p>
+    <% @genres.each do |genre| %>
+    <table class="table table-borderless table-hover">
+      <tbody>
+        <tr>
+          <td style="width: 40%"><%= genre.name %></td>
+          <td><%= link_to '編集する', edit_admins_genre_path(genre), data: {"turbolinks" => false} %></td>
+          <td><%= link_to '削除する', admins_genre_path(genre), method: :delete %></td>
+        </tr>
+      </tbody>
+    </table>
+    <% end %>
+    <p class="text-right"><i class="fas fa-hand-point-right"><%= link_to "トップに戻る", admins_top_path, data: {"turbolinks" => false} %></i></p>
+</div>

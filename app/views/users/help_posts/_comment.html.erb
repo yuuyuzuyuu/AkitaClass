@@ -1,0 +1,21 @@
+  <p>コメントを残す</p>
+    <%= form_with model:[help_post, help_comment], local: true do |f| %>
+      <%= f.text_area :comment, size: "50" %>
+      <%= f.submit '送信'%>
+    <% end %>
+      <p><%= help_post.help_comments.count %> comments!</p>
+    <hr class="line">
+    <p>
+      <% help_post.help_comments.each do |help_comment| %>
+        <%= attachment_image_tag help_comment.user, :profile_image, size: "50x50" %>
+        <%= link_to help_comment.user.nickname, profile_path(help_comment.user), data: {"turbolinks" => false} %>
+        &nbsp;&nbsp;&nbsp;&nbsp;<%= help_comment.created_at.strftime('%Y/%m/%d') %><br>
+        <%= help_comment.comment %>
+        <p class="comment-delete">
+          <% if help_comment.user == current_user %>
+            <%= link_to '削除', help_post_help_comment_path(help_comment.help_post, help_comment), method: :delete %>
+          <% end %>
+        </p>
+        <hr class="line">
+      <% end %>
+    </p>

@@ -1,15 +1,18 @@
-<div class="container">
-  <div class="row">
-    <table class="table">
-      <% @want_posts.each do |want_post| %>
-        <tr>
-          <td><%= attachment_image_tag want_post.user, :profile_image, size: "30x30" %></td>
-          <td><%= want_post.user.nickname %></td>
-          <td><%= link_to want_post.title, want_post_path(want_post) %></td>
-          <td><%= want_post.body %></td>
-          <td><%= link_to '削除', want_post_path(want_post), method: :delete %></td>
-        </tr>
-      <% end %>
-    </table>
-  </div>
+<div class="post-index">
+  <% want_posts.each do |want_post| %>
+    <div class="post-content">
+      <div class="post-image">
+        <%= link_to want_post_path(want_post) do %>
+          <%= attachment_image_tag want_post, :post_image, size: "300x200" %>
+          <p><%= want_post.user.address %>
+        ♡<%= want_post.want_likes.count %></p>
+        <% end %><br>
+      </div>
+      <div class="post-body">
+        <a class="post-title"><%= link_to want_post.title, want_post_path(want_post) %></a><br>
+        <a class="post-user"><%= attachment_image_tag want_post.user, :profile_image, size: "50x50" %>
+        <a><%= link_to want_post.user.nickname, profile_path(want_post.user), data: {"turbolinks" => false} %></a><br>
+      </div>
+    </div>
+  <% end %>
 </div>

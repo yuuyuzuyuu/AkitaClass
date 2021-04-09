@@ -1,6 +1,14 @@
-<h4>ジャンル編集</h4>
-<%= form_with model: [:admins, @genre], local:true do |f| %>
-  <h4>ジャンル名</h4>
-  <%= f.text_field :name %>
-  <%= f.submit %>
-<% end %>
+<div class="genre-index">
+  <p class="title">ジャンル編集</p>
+    <%= form_with model: [:admins, @genre], local:true do |f| %>
+    <table class="table table-borderless">
+      <tbody>
+        <tr>
+          <td style="width: 30%"><%= f.text_field :name, placeholder: "ジャンル名" %></td>
+          <td><%= f.submit "編集" %></td>
+        </tr>
+      </tbody>
+    </table>
+    <% end %>
+    <p class="text-right"><i class="fas fa-hand-point-right"><%= link_to "ジャンル一覧にもどる", admins_genres_path, data: {"turbolinks" => false} %></i></p>
+</div>
