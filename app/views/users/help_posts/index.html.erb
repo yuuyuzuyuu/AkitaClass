@@ -2,5 +2,15 @@
   <p class="title">秋田に、住んでみたい人へ</p>
   <p>検索機能</p>
   <%= link_to '新規登録', new_help_post_path, data: {"turbolinks" => false} %>
-  <%= render 'index', help_posts: @help_posts %>
+  <p>タグ一覧</p>
+  <% if @tags.present? %>
+    <% @tags.each do |tag| %>
+      <%= link_to "##{tag.name}(#{tag.taggings_count})", help_posts_path(tag: tag.name) %>
+    <% end %>
+  <% else %>
+      <p>登録されているタグはありません</p>
+  <% end %>
+    <br>
+    <%= render 'index', help_posts: @help_posts %>
+    <br>
 </div>

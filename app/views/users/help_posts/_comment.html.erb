@@ -3,7 +3,7 @@
       <%= f.text_area :comment, size: "50" %>
       <%= f.submit '送信'%>
     <% end %>
-    <hr>
+    <hr class="line">
       <p><%= help_post.help_comments.count %> comments!</p>
     <p>
       <% help_post.help_comments.each do |help_comment| %>
@@ -16,6 +16,6 @@
             <%= link_to '削除', help_post_help_comment_path(help_comment.help_post, help_comment), method: :delete %>
           <% end %>
         </p>
-        <hr>
+        <hr class="line">
       <% end %>
     </p>

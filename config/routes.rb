@@ -23,7 +23,7 @@ Rails.application.routes.draw do
     patch "/members/withdraw" => "members#withdraw"
     get "/members/mypage/edit" => "members#edit"
     patch "/members/mypage" => "members#update"
-
+    get 'search' => "help_posts#search"
 
     resources :help_posts do
       resources :help_comments, only: [:create, :destroy]
