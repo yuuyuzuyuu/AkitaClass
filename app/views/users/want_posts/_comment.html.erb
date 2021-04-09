@@ -3,19 +3,20 @@
       <%= f.text_area :comment, size: "50" %>
       <%= f.submit '送信'%>
     <% end %>
-    <hr>
       <p><%= want_post.want_comments.count %> comments!</p>
-    
-    <% want_post.want_comments.each do |want_comment| %>
-      <%= attachment_image_tag want_comment.user, :profile_image, size: "50x50" %>
-      <p><%= link_to want_comment.user.nickname, profile_path(want_comment.user), data: {"turbolinks" => false} %>
-      &nbsp;&nbsp;&nbsp;&nbsp;<%= want_comment.created_at.strftime('%Y/%m/%d') %></p>
-      <p><%= want_comment.comment %></p>
-      <p class="comment-delete">
-        <% if want_comment.user == current_user %>
-          <%= link_to '削除', want_post_want_comment_path(want_comment.want_post, want_comment), method: :delete %>
-        <% end %>
-      </p>
-      <hr>
-    <% end %>
+    <hr class="line">
+    <p>
+      <% want_post.want_comments.each do |want_comment| %>
+        <%= attachment_image_tag want_comment.user, :profile_image, size: "30x30", fallback: "profile_image.jpg" %>
+        <%= link_to want_comment.user.nickname, profile_path(want_comment.user), data: {"turbolinks" => false} %>
+        &nbsp;&nbsp;&nbsp;&nbsp;<%= want_comment.created_at.strftime('%Y/%m/%d') %><br>
+        <%= want_comment.comment %>
+        <p class="comment-delete">
+          <% if want_comment.user == current_user %>
+            <%= link_to '削除', want_post_want_comment_path(want_comment.want_post, want_comment), method: :delete %>
+          <% end %>
+        </p>
+        <hr class="line">
+      <% end %>
+    </p>
   

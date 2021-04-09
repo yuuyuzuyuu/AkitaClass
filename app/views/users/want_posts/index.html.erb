@@ -1,6 +1,15 @@
 <div class="index">
-  <p class="title">秋田に、住んでほしい人へ</p>
+  <p class="title">秋田に、住んでみたい人へ</p>
   <p>検索機能</p>
   <%= link_to '新規登録', new_want_post_path, data: {"turbolinks" => false} %>
-  <%= render 'index', want_posts: @want_posts %>
+  
+  <div class="search">
+    <%= search_form_for @q do |f| %>
+      <%= f.label :body, "Keyword" %>
+      <%= f.search_field :body_cont %>
+      <%= f.submit "検索" %>
+    <% end %>
+  </div>
+    <%= render 'index', want_posts: @want_posts %>
+    <br>
 </div>

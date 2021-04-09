@@ -1,0 +1,14 @@
+<div class="index">
+  <p class="title">秋田に、住んでほしい人へ</p>
+  <%= link_to '新規登録', new_want_post_path, data: {"turbolinks" => false} %><br>
+  <% if @tags.present? %>
+    <% @tags.each do |tag| %>
+      <%= link_to "##{tag.name}(#{tag.taggings_count})", want_posts_tag_path(tag: tag.name) %>
+    <% end %>
+  <% else %>
+      <p>登録されているタグはありません</p>
+  <% end %>
+    <br>
+    <%= render 'index', want_posts: @want_posts %>
+    <br>
+</div>
