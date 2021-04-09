@@ -1,12 +1,15 @@
 Rails.application.routes.draw do
 
+  namespace :admins do
+    get 'members/index'
+  end
   devise_for :admins, controllers: {
     sessions: 'admins/sessions',
   }
 
   namespace :admins do
     get 'top' => 'homes#top'
-    resources :members, only: [:index, :show, :edit, :update]
+    resources :members, only: [:index, :show]
     resources :genres, only: [:index, :create, :edit, :update, :destroy]
   end
 

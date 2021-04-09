@@ -4,17 +4,18 @@
       <div id="g-nav-list"><!--ナビの数が増えた場合縦スクロールするため-->
         <ul>
           <% if admin_signed_in? %>
+            <li><%= link_to 'トップ', admins_top_path, class: 'nav-link text-light', data: {"turbolinks" => false} %></li>
             <li><%= link_to '会員一覧', admins_members_path, class: 'nav-link text-light', data: {"turbolinks" => false} %></li>
             <li><%= link_to 'ジャンル', admins_genres_path, class: 'nav-link text-light', data: {"turbolinks" => false} %></li>
             <li><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class: 'nav-link text-light', data: {"turbolinks" => false} %></li>
           <% elsif user_signed_in? %>
-            <li><%= link_to 'top', root_path, class: 'nav-link text-light', data: {"turbolinks" => false} %></li>
+            <li><%= link_to 'トップ', root_path, class: 'nav-link text-light', data: {"turbolinks" => false} %></li>
             <li><%= link_to 'マイページ', profile_path(current_user), class: 'nav-link text-light', data: {"turbolinks" => false} %></li>
             <li><%= link_to 'help投稿一覧', help_posts_path, class: 'nav-link text-light', data: {"turbolinks" => false} %></li>
             <li><%= link_to 'want投稿一覧', want_posts_path, class: 'nav-link text-light', data: {"turbolinks" => false} %></li>
             <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link text-light', data: {"turbolinks" => false} %></li>
           <% else %>
-            <li><%= link_to 'about', homes_about_path, class: 'nav-link text-light', data: {"turbolinks" => false} %></li>
+            <li><%= link_to 'このサイトについて', homes_about_path, class: 'nav-link text-light', data: {"turbolinks" => false} %></li>
             <li><%= link_to '会員登録', new_user_registration_path, class: 'nav-link text-light', data: {"turbolinks" => false} %></li>
             <li><%= link_to 'ログイン', user_session_path, class: 'nav-link text-light', data: {"turbolinks" => false} %></li>
           <% end %>
