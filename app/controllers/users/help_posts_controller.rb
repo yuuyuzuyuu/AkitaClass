@@ -3,6 +3,7 @@ class Users::HelpPostsController < ApplicationController
   def index
     @q = HelpPost.ransack(params[:q])
     @help_posts = @q.result(distinct: true)
+    @genres = Genre.all
   end
 
   def show

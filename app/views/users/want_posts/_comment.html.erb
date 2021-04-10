@@ -1,7 +1,7 @@
   <p>コメントを残す</p>
     <%= form_with model:[want_post, want_comment], local: true do |f| %>
-      <%= f.text_area :comment, size: "50" %>
-      <%= f.submit '送信'%>
+      <%= f.text_area :comment, size: "50" %><br>
+      <input type="submit" value="&#xf075;" class="fas" style="width:50%;">
     <% end %>
       <p><%= want_post.want_comments.count %> comments!</p>
     <hr class="line">

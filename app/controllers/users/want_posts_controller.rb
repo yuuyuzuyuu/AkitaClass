@@ -3,6 +3,7 @@ class Users::WantPostsController < ApplicationController
   def index
     @q = WantPost.ransack(params[:q])
     @want_posts = @q.result(distinct: true)
+    @genres = Genre.all
   end
 
   def show
@@ -54,7 +55,7 @@ class Users::WantPostsController < ApplicationController
   private
 
   def want_post_params
-    params.require(:want_post).permit(:title, :body, :post_image, :genre_id, :requrement, :tag_list)
+    params.require(:want_post).permit(:title, :body, :post_image, :genre_id, :requirement, :tag_list)
   end
   
 end
