@@ -88,7 +88,7 @@
         
         <p class="top-title">最新投稿</p>
         <div class="new-post">
-          <% @want_ranks.each do |want_post| %>
+          <% @want_posts.each do |want_post| %>
             <div class="new-post-content">
               <div class="post-image">
                 <%= link_to want_post_path(want_post), data: {"turbolinks" => false} do %>

@@ -127,7 +127,7 @@
 
 // 全体
 
-p, a, table {
+p, a, table, .search {
   font-family: 'Kiwi Maru', serif;
 }
 
@@ -245,17 +245,32 @@ a:link, a:visited, a:hover, a:active {
   text-align: right;
 }
 
+.fas {
+  border: 0.5px solid #000;
+  border-radius: 0;
+  background: #fff;
+}
+
+.fas:hover {
+  color: #fff;
+  background: #000;
+}
+
 // 投稿一覧
 
 .index {
   width: 80%;
-  margin: 0 auto;
+  margin: 40px auto;
 }
 
 .post-content {
   margin: 10px;
   display: inline-block;
   background: #f0e5d8;
+}
+
+.search {
+  padding: 20px 0;
 }
 
 // プロフィール
