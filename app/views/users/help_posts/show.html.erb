@@ -3,10 +3,11 @@
   <p class="post-created-at">公開日：<%= @help_post.created_at.strftime('%Y/%m/%d') %></p>
   <p class="post-genre"><%= @help_post.genre.name %></p>
   <p class="title"><%= @help_post.title %></p>
-  <p class="post-user-image"><%= attachment_image_tag @help_post.user, :profile_image, size: "50x50" %><%= @help_post.user.nickname %></p>
+  <p class="post-user-image"><%= attachment_image_tag @help_post.user, :profile_image, size: "50x50", fallback: "profile_image.jpg" %><%= @help_post.user.nickname %></p>
   <p class="post-like">気になる！<%= render "users/help_likes/like", help_post: @help_post %></p>
   <p><%= @help_post.body %></p>
 　<hr class="line">
+　<p><%= link_to '投稿一覧にもどる', help_posts_path %></p>
   <p class="post-edit-delete">
     <% if @help_post.user == current_user %>
       <%= link_to '編集', edit_help_post_path(@help_post), data: {"turbolinks" => false} %>/

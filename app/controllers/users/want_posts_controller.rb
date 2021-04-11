@@ -55,7 +55,7 @@ class Users::WantPostsController < ApplicationController
   private
 
   def want_post_params
-    params.require(:want_post).permit(:title, :body, :post_image, :genre_id, :requirement, :tag_list)
+    params.require(:want_post).permit(:title, :body, :post_image, :genre_id, :town_id, :requirement, :tag_list)
   end
   
 end

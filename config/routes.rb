@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     get 'top' => 'homes#top'
     resources :members, only: [:index, :show]
     resources :genres, only: [:index, :create, :edit, :update, :destroy]
+    resources :towns, only: [:index, :create, :edit, :update, :destroy]
   end
 
   devise_for :users, controllers: {
