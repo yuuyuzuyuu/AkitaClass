@@ -7,12 +7,12 @@
   <p class="post-like">気になる！<%= render "users/want_likes/like", want_post: @want_post %></p>
   <p><%= @want_post.body %></p>
   <p><%= @want_post.requirement %></p>
-　<hr>
+  <hr class="line">
   <p class="post-edit-delete">
     <% if @want_post.user == current_user %>
       <%= link_to '編集', edit_want_post_path %>/
       <%= link_to '削除', want_post_path(@want_post), method: :delete %>
-      <hr>
+      <hr class="line">
     <% end %>
   </p>
   <p class="post-comment">

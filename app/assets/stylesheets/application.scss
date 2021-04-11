@@ -25,7 +25,7 @@
     right: -120%;
 	width:100%;
     height: 100vh;/*ナビの高さ*/
-	background:#bbdfc8;
+	background:#fcd1d1;
     /*動き*/
 	transition: all 0.6s;
 }
@@ -91,7 +91,7 @@
   left: 14px;
   height: 3px;
   border-radius: 2px;
-	background-color: #75cfb8;
+	background-color: #aee1e1;
   width: 45%;
   }
 
@@ -132,44 +132,45 @@ p, a, table, .search {
 }
 
 a:link, a:visited, a:hover, a:active {
-  color: #000000;
+  color: #000;
 }
 
 .line {
   border-width: 1px 0 0 0;
   border-style: dashed;
-  border-color: #bbdfc8;
+  border-color: #fcd1d1;
 }
 
 // トップページ
 
 .wrapper {
+  margin: 50px 0;
+  background-color: #ece2e1;
   display: flex;
 }
 
 .top-want {
   width: 100%;
-  padding: 10px;
+  padding: 30px 10px;
 }
 
 .top-help {
   width: 100%;
-  padding: 10px;
+  padding: 30px 10px;
 }
 
 .divider {
-  margin: 0 10px;
+  margin: 0 5px;
   width: 1px;
-  background-color: #000;
+  background-color: #fff;
 }
 
 .main-visual {
   width: 100%;
-  height: 650px;
+  height: 500px;
   background-position: center;
   background-repeat: no-repeat;
   background-image: url("top.png");
-  background-color: #f0e5d8;
 }
 
 .main-visual-content {
