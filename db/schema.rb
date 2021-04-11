@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_08_024213) do
+ActiveRecord::Schema.define(version: 2021_04_11_062519) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -82,6 +82,12 @@ ActiveRecord::Schema.define(version: 2021_04_08_024213) do
     t.index ["name"], name: "index_tags_on_name", unique: true
   end
 
+  create_table "towns", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", null: false
     t.string "encrypted_password", default: "", null: false
@@ -123,6 +129,7 @@ ActiveRecord::Schema.define(version: 2021_04_08_024213) do
   create_table "want_posts", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "genre_id"
+    t.integer "town_id"
     t.string "title", null: false
     t.text "body", null: false
     t.text "requirement"

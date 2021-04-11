@@ -2,6 +2,7 @@ class WantPost < ApplicationRecord
   
   belongs_to :user
   belongs_to :genre
+  belongs_to :town
   has_many :want_comments, dependent: :destroy
   has_many :want_likes, dependent: :destroy
   

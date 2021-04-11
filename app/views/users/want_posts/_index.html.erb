@@ -3,7 +3,7 @@
     <div class="post-content">
       <div class="post-image">
         <%= link_to want_post_path(want_post), data: {"turbolinks" => false} do %>
-          <%= attachment_image_tag want_post, :post_image, size: "300x200" %>
+          <%= attachment_image_tag want_post, :post_image, size: "350x210" %>
           <p>
             <i class="fas fa-location-arrow"></i>
             <%= want_post.user.address %>
