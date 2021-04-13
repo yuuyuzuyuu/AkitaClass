@@ -29,6 +29,7 @@ Rails.application.routes.draw do
     patch "/members/mypage" => "members#update"
     get "help_posts/tag" => "help_posts#tag"
     get "want_posts/tag" => "want_posts#tag"
+    get "want_posts/town" => "want_posts#town"
 
     resources :help_posts do
       resources :help_comments, only: [:create, :destroy]
