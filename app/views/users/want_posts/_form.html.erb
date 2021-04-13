@@ -13,12 +13,20 @@
       <td><%= f.text_area :body, size: "53x5" %></td>
     </tr>
     <tr>
-      <td>ラベル</td>
-      <td><%= f.text_field :tag_list, value: @want_post.tag_list.join(','), size: 53 %></td>
+      <td>募集要項</td>
+      <td><%= f.text_area :requirement, size: "53x5" %></td>
     </tr>
     <tr>
+       <td>タグ</td>
+      <td><%= f.text_field :tag_list, value: @want_post.tag_list.join(','), size: 53, placeholder: "複数登録することができます（例:秋田市,建築）" %></td>
+   </tr>
+    <tr>
       <td>ジャンル</td>
-      <td><%= f.collection_select :genre_id, Genre.all, :id, :name,:prompt => "選択してください", size: 50 %></td>
+      <td><%= f.collection_select :genre_id, Genre.all, :id, :name, :prompt => "選択してください", size: 50 %></td>
+    </tr>
+    <tr>
+      <td>市町村</td>
+      <td><%= f.collection_select :town_id, Town.all, :id, :name, :prompt => "選択してください", size: 50 %></td>
     </tr>
     <tr>
       <td></td>

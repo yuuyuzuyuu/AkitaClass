@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     get 'top' => 'homes#top'
     resources :members, only: [:index, :show]
     resources :genres, only: [:index, :create, :edit, :update, :destroy]
+    resources :towns, only: [:index, :create, :edit, :update, :destroy]
   end
 
   devise_for :users, controllers: {
@@ -26,7 +27,9 @@ Rails.application.routes.draw do
     patch "/members/withdraw" => "members#withdraw"
     get "/members/mypage/edit" => "members#edit"
     patch "/members/mypage" => "members#update"
-    get 'search' => "help_posts#search"
+    get "help_posts/tag" => "help_posts#tag"
+    get "want_posts/tag" => "want_posts#tag"
+    get "want_posts/town" => "want_posts#town"
 
     resources :help_posts do
       resources :help_comments, only: [:create, :destroy]
@@ -36,6 +39,7 @@ Rails.application.routes.draw do
       resources :want_comments, only: [:create, :destroy]
       resource :want_likes, only: [:create, :destroy]
     end
+    
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

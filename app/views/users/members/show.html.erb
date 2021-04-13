@@ -1,10 +1,10 @@
 <div class="profile">
   <p class="title">プロフィール</p>
     <div class="user">
-      <%= attachment_image_tag @user, :profile_image, size: "250x250" %>
+      <%= attachment_image_tag @user, :profile_image, size: "250x250", fallback: "profile_image.jpeg" %>
       <p class="nickname"><%= @user.nickname %></p>
       <div class="user-content">
-        <p><%= @user.introduce %></p><br>
+        <p><%= simple_format(@user.introduce) %></p><br>
         <p>Name:<%= @user.last_name+@user.first_name %>(<%= @user.last_name_kana+@user.first_name_kana %>)</p>
         <p>Address:<%= @user.address %></p>
         <p>Email:<%= @user.email %></p>
@@ -18,6 +18,14 @@
 </div>
 
 <div class="profile-post">
+  <% if @user == current_user %>
+    <hr class="line">
+    <div class="new-post-link">
+      <p class="title">投稿する</p>
+      <%= link_to '新規登録', new_want_post_path, data: {"turbolinks" => false} %>
+      <%= link_to '新規登録', new_help_post_path, data: {"turbolinks" => false} %>
+    </div>
+  <% end %>
   <hr class="line">
   <p class="title">わたしの投稿一覧</p>
     <div class="post-index">
@@ -25,14 +33,17 @@
         <div class="post-content">
           <div class="post-image">
             <%= link_to help_post_path(help_post) do %>
-              <%= attachment_image_tag help_post, :post_image, size: "300x200" %>
-              <p><%= help_post.user.address %>
-            ♡<%= help_post.help_likes.count %></p>
+              <%= attachment_image_tag help_post, :post_image, size: "350x210" %>
+              <p>
+                <i class="fas fa-location-arrow"></i>
+                <%= help_post.user.address %>
+                ♡<%= help_post.help_likes.count %>
+              </p>
             <% end %><br>
           </div>
           <div class="post-body">
             <a class="post-title"><%= link_to help_post.title, help_post_path(help_post) %></a><br>
-            <a class="post-user"><%= attachment_image_tag help_post.user, :profile_image, size: "50x50" %>
+            <a class="post-user"><%= attachment_image_tag help_post.user, :profile_image, size: "30x30", fallback: "profile_image.jpg" %>
             <a><%= link_to help_post.user.nickname, profile_path(help_post.user), data: {"turbolinks" => false} %></a><br>
           </div>
         </div>
@@ -43,14 +54,17 @@
         <div class="post-content">
           <div class="post-image">
             <%= link_to want_post_path(want_post) do %>
-              <%= attachment_image_tag want_post, :post_image, size: "300x200" %>
-              <p><%= want_post.user.address %>
-            ♡<%= want_post.want_likes.count %></p>
+              <%= attachment_image_tag want_post, :post_image, size: "350x210" %>
+              <p>
+                <i class="fas fa-location-arrow"></i>
+                <%= want_post.user.address %>
+                ♡<%= want_post.want_likes.count %>
+              </p>
             <% end %><br>
           </div>
           <div class="post-body">
             <a class="post-title"><%= link_to want_post.title, want_post_path(want_post) %></a><br>
-            <a class="post-user"><%= attachment_image_tag want_post.user, :profile_image, size: "50x50" %>
+            <a class="post-user"><%= attachment_image_tag want_post.user, :profile_image, size: "30x30", fallback: "profile_image.jpg" %>
             <a><%= link_to want_post.user.nickname, profile_path(want_post.user), data: {"turbolinks" => false} %></a><br>
           </div>
         </div>
@@ -58,21 +72,48 @@
     </div>
   <hr class="line">
   <p class="title">わたしのお気に入り一覧</p>
-    <% @help_likes.each do |help_like| %>
-      <% help_post = HelpPost.find_by(id: help_like.help_post_id) %>
-        <div class="post-content">
-          <div class="post-image">
-            <%= link_to help_post_path(help_post) do %>
-              <%= attachment_image_tag help_post, :post_image, size: "300x200" %>
-              <p><%= help_post.user.address %>
-            ♡<%= help_post.help_likes.count %></p>
-            <% end %><br>
+    <div class="post-index">
+      <% @help_likes.each do |help_like| %>
+        <% help_post = HelpPost.find_by(id: help_like.help_post_id) %>
+          <div class="post-content">
+            <div class="post-image">
+              <%= link_to help_post_path(help_post) do %>
+                <%= attachment_image_tag help_post, :post_image, size: "350x210" %>
+                <p>
+                  <i class="fas fa-location-arrow"></i>
+                  <%= help_post.user.address %>
+                  ♡<%= help_post.help_likes.count %>
+                </p>
+              <% end %><br>
+            </div>
+            <div class="post-body">
+              <a class="post-title"><%= link_to help_post.title, help_post_path(help_post) %></a><br>
+              <a class="post-user"><%= attachment_image_tag help_post.user, :profile_image, size: "30x30", fallback: "profile_image.jpg" %>
+              <a><%= link_to help_post.user.nickname, profile_path(help_post.user), data: {"turbolinks" => false} %></a><br>
+            </div>
           </div>
-          <div class="post-body">
-            <a class="post-title"><%= link_to help_post.title, help_post_path(help_post) %></a><br>
-            <a class="post-user"><%= attachment_image_tag help_post.user, :profile_image, size: "50x50" %>
-            <a><%= link_to help_post.user.nickname, profile_path(help_post.user), data: {"turbolinks" => false} %></a><br>
+      <% end %>
+    </div>
+    <div class="post-index">
+      <% @want_likes.each do |want_like| %>
+        <% want_post = WantPost.find_by(id: want_like.want_post_id) %>
+          <div class="post-content">
+            <div class="post-image">
+              <%= link_to want_post_path(want_post) do %>
+                <%= attachment_image_tag want_post, :post_image, size: "350x210" %>
+                <p>
+                  <i class="fas fa-location-arrow"></i>
+                  <%= want_post.user.address %>
+                  ♡<%= want_post.want_likes.count %>
+                </p>
+              <% end %><br>
+            </div>
+            <div class="post-body">
+              <a class="post-title"><%= link_to want_post.title, want_post_path(want_post) %></a><br>
+              <a class="post-user"><%= attachment_image_tag want_post.user, :profile_image, size: "30x30", fallback: "profile_image.jpg" %>
+              <a><%= link_to want_post.user.nickname, profile_path(want_post.user), data: {"turbolinks" => false} %></a><br>
+            </div>
           </div>
-        </div>
-    <% end %>
+      <% end %>
+    </div>
 </div>

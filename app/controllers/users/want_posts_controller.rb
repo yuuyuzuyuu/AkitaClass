@@ -1,7 +1,9 @@
 class Users::WantPostsController < ApplicationController
   
   def index
-    @want_posts = WantPost.all
+    @q = WantPost.ransack(params[:q])
+    @want_posts = @q.result(distinct: true)
+    @genres = Genre.all
   end
 
   def show
@@ -34,20 +36,32 @@ class Users::WantPostsController < ApplicationController
     end
   end
 
-  def destroy    
+  def destroy
     @want_post = WantPost.find(params[:id])
     @want_post.destroy
     redirect_to want_posts_path
+  end
+  
+  def tag
+    @tags = WantPost.tag_counts_on(:tags).order('count DESC')
+    if params[:tag].present?
+      @tag = params[:tag]
+      @want_posts = WantPost.tagged_with(params[:tag])
+    else
+      @want_posts = WantPost.all
+    end
+  end
+  
+  def town
+    @want_posts = WantPost.all
+    @town = Town.find(params[:id]) if params[:id]
+    @towns = Town.all
   end
 
   private
 
   def want_post_params
-    params.require(:want_post).permit(:title, :body, :post_image, :genre_id, :requirement)
-  end
-  
-  def post_params
-    params.require(:post).permit(:title, :body, :tag_list)
+    params.require(:want_post).permit(:title, :body, :post_image, :genre_id, :town_id, :requirement, :tag_list)
   end
   
 end
