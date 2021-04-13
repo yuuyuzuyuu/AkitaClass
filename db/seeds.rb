@@ -34,6 +34,14 @@ User.create!(
   birth_date: "1970.10.12",
   withdraw_status: true
     )
+    
+  Genre.create!(
+    name: "求人"
+    )
+    
+  Genre.create!(
+    name: "住まい"
+    )
   
   Town.create!(
     name: "秋田市"

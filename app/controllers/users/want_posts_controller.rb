@@ -51,6 +51,12 @@ class Users::WantPostsController < ApplicationController
       @want_posts = WantPost.all
     end
   end
+  
+  def town
+    @want_posts = WantPost.all
+    @town = Town.find(params[:id]) if params[:id]
+    @towns = Town.all
+  end
 
   private
 
