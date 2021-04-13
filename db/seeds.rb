@@ -9,7 +9,7 @@
 Admin.create!(
   email: "1@1",
   password: "111111"
-  )
+    )
   
 User.create!(
   email: "a@a",
@@ -21,7 +21,7 @@ User.create!(
   nickname: "剣士",
   birth_date: "1990.12.22",
   withdraw_status: true
-  )
+    )
   
   User.create!(
   email: "b@b",
@@ -33,4 +33,112 @@ User.create!(
   nickname: "ゴム人間",
   birth_date: "1970.10.12",
   withdraw_status: true
-  )
+    )
+    
+  Genre.create!(
+    name: "求人"
+    )
+    
+  Genre.create!(
+    name: "住まい"
+    )
+  
+  Town.create!(
+    name: "秋田市"
+    )
+    
+  Town.create!(
+    name: "能代市"
+    )
+    
+  Town.create!(
+    name: "横手市"
+    )
+    
+  Town.create!(
+    name: "大館市"
+    )
+    
+  Town.create!(
+    name: "男鹿市"
+    )
+    
+  Town.create!(
+    name: "湯沢市"
+    )
+    
+  Town.create!(
+    name: "鹿角市"
+    )
+    
+  Town.create!(
+    name: "由利本荘市"
+    )
+    
+  Town.create!(
+    name: "潟上市"
+    )
+    
+  Town.create!(
+    name: "大仙市"
+    )
+    
+  Town.create!(
+    name: "北秋田市"
+    )
+    
+  Town.create!(
+    name: "にかほ市"
+    )
+    
+  Town.create!(
+    name: "仙北市"
+    )
+    
+  Town.create!(
+    name: "小坂町"
+    )
+    
+  Town.create!(
+    name: "上小阿仁村"
+    )
+    
+  Town.create!(
+    name: "藤里町"
+    )
+    
+  Town.create!(
+    name: "三種町"
+    )
+    
+  Town.create!(
+    name: "八峰町"
+    )
+    
+  Town.create!(
+    name: "五城目町"
+    )
+    
+  Town.create!(
+    name: "八郎潟町"
+    )
+    
+  Town.create!(
+    name: "井川町"
+    )
+    
+  Town.create!(
+    name: "大潟村"
+    )
+    
+  Town.create!(
+    name: "美郷町"
+    )
+    
+  Town.create!(
+    name: "羽後町"
+    )
+    
+  Town.create!(
+    name: "東成瀬村"
+    )

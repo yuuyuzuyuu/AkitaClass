@@ -1,20 +1,15 @@
 class Users::HelpPostsController < ApplicationController
 
   def index
-    @tags = HelpPost.tag_counts_on(:tags).order('count DESC')
-    if params[:tag].present?
-      @tag = params[:tag]
-      @help_posts = HelpPost.tagged_with(params[:tag])
-    else
-      @help_posts = HelpPost.all
-    end
+    @q = HelpPost.ransack(params[:q])
+    @help_posts = @q.result(distinct: true)
+    @genres = Genre.all
   end
 
   def show
     @help_post = HelpPost.find(params[:id])
     @help_comment = HelpComment.new
     @help_comments = HelpComment.all
-    @tags = @help_post.tag_counts_on(:tags)
   end
 
   def new
@@ -41,16 +36,26 @@ class Users::HelpPostsController < ApplicationController
     end
   end
 
-  def destroy    
+  def destroy
     @help_post = HelpPost.find(params[:id])
     @help_post.destroy
     redirect_to help_posts_path
+  end
+  
+  def tag
+    @tags = HelpPost.tag_counts_on(:tags).order('count DESC')
+    if params[:tag].present?
+      @tag = params[:tag]
+      @help_posts = HelpPost.tagged_with(params[:tag])
+    else
+      @help_posts = HelpPost.all
+    end
   end
 
   private
 
   def help_post_params
-    params.require(:help_post).permit(:title, :body, :post_image, :genre_id, :tag_list)
+    params.require(:help_post).permit(:title, :user_id, :body, :post_image, :genre_id, :tag_list)
   end
-  
+
 end

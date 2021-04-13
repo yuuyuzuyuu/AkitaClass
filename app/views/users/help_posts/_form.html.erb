@@ -13,8 +13,8 @@
       <td><%= f.text_area :body, size: "53x5" %></td>
     </tr>
     <tr>
-      <td>ラベル</td>
-      <td><%= f.text_field :tag_list, value: @help_post.tag_list.join(','), size: 53 %></td>
+      <td>タグ</td>
+      <td><%= f.text_field :tag_list, value: @help_post.tag_list.join(','), size: 53, placeholder: "複数登録することができます（例:秋田市,建築）" %></td>
     </tr>
     <tr>
       <td>ジャンル</td>

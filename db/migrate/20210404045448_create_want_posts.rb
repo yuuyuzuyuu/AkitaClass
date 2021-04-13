@@ -4,6 +4,7 @@ class CreateWantPosts < ActiveRecord::Migration[5.2]
       
       t.integer :user_id, null: false
       t.integer :genre_id
+      t.integer :town_id
       t.string :title, null: false
       t.text :body, null: false
       t.text :requirement

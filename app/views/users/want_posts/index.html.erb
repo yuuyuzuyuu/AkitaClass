@@ -1,6 +1,16 @@
 <div class="index">
-  <p class="title">秋田に、住んでほしい人へ</p>
-  <p>検索機能</p>
+  <p class="title">秋田に、住んでみたい人へ</p>
   <%= link_to '新規登録', new_want_post_path, data: {"turbolinks" => false} %>
-  <%= render 'index', want_posts: @want_posts %>
+  
+  <div class="search text-center">
+    <%= search_form_for @q do |f| %>
+      <%= f.search_field :body_or_title_cont, placeholder:"キーワード検索", size: 50 %>
+      <%= f.collection_select :genre_id_eq, @genres, :id, :name, :include_blank => 'ジャンル' %>
+      <button type="submit">
+        <i class="fas fa-search"></i>
+      </button>
+    <% end %>
+  </div>
+    <%= render 'index', want_posts: @want_posts %>
+    <br>
 </div>

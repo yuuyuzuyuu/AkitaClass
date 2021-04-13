@@ -25,7 +25,7 @@
     right: -120%;
 	width:100%;
     height: 100vh;/*ナビの高さ*/
-	background:#bbdfc8;
+	background:#fcd1d1;
     /*動き*/
 	transition: all 0.6s;
 }
@@ -91,7 +91,7 @@
   left: 14px;
   height: 3px;
   border-radius: 2px;
-	background-color: #75cfb8;
+	background-color: #aee1e1;
   width: 45%;
   }
 
@@ -127,43 +127,51 @@
 
 // 全体
 
-p, a, table {
+p, a, table, .search {
   font-family: 'Kiwi Maru', serif;
 }
 
 a:link, a:visited, a:hover, a:active {
-  color: #000000;
+  color: #000;
 }
 
 .line {
+  margin: 40px 0;
   border-width: 1px 0 0 0;
   border-style: dashed;
-  border-color: #bbdfc8;
+  border-color: #fcd1d1;
 }
 
 // トップページ
 
 .wrapper {
+  margin: 50px 0;
+  background-color: #ece2e1;
   display: flex;
 }
 
 .top-want {
   width: 100%;
-  padding: 10px;
-  background-color: #f0e5d8;
+  padding: 30px 10px;
 }
 
 .top-help {
   width: 100%;
-  padding: 10px;
-  background-color: #bbdfc8;
+  padding: 30px 10px;
+}
+
+.divider {
+  margin: 0 5px;
+  width: 1px;
+  background-color: #fff;
 }
 
 .main-visual {
   width: 100%;
   height: 500px;
-  background-size: cover;
-  background-color: #ffc478;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: image-url("top.png");
 }
 
 .main-visual-content {
@@ -176,9 +184,19 @@ a:link, a:visited, a:hover, a:active {
   display: flex;
 }
 
-.new-post-content, .popular-post-content {
+.new-post-content, {
   background: #fff;
-  width: 90%;
+  height: 254px;
+  width: 220px;
+  padding: 10px;
+  margin: 0 1% 17px;
+  border-radius: 9px;
+}
+
+.popular-post-content {
+  background: #fff;
+  height: 284px;
+  width: 220px;
   padding: 10px;
   margin: 0 1% 17px;
   border-radius: 9px;
@@ -234,11 +252,15 @@ a:link, a:visited, a:hover, a:active {
 
 .post-like {
   text-align: center;
-  padding: 0.2em 0.5em;
-  margin: 2em 0;
-  background: #f0e5d8;
-  box-shadow: 0px 0px 0px 10px #f0e5d8;
+  padding: 2px 5px;
+  margin: 50px 0;
+  background: #fcd1d1;
+  box-shadow: 0px 0px 0px 10px #fcd1d1;
   border: dashed 2px white;
+}
+
+.post-contents {
+  margin: 80px;
 }
 
 .comment-delete {
@@ -249,13 +271,22 @@ a:link, a:visited, a:hover, a:active {
 
 .index {
   width: 80%;
-  margin: 0 auto;
+  margin: 40px auto;
 }
 
 .post-content {
+  width: 350px;
   margin: 10px;
   display: inline-block;
   background: #f0e5d8;
+}
+
+.post-body {
+  height: 80px;
+}
+
+.search {
+  padding: 20px 0;
 }
 
 // プロフィール
@@ -282,9 +313,9 @@ a:link, a:visited, a:hover, a:active {
   margin: 0 auto;
 }
 
-// 新規登録、ログイン、プロフィール編集、新規投稿、投稿編集、ジャンル一覧、（管理者）ユーザー一覧・詳細、
+// 新規登録、ログイン、プロフィール編集、新規投稿、投稿編集、【管理者】ジャンル一覧、ユーザー一覧・詳細、市町村一覧
 
-.registrations-new, .sessions-new, .member-edit, .post-new, .post-edit, .genre-index, .admin-user-index {
+.registrations-new, .sessions-new, .member-edit, .post-new, .post-edit, .genre-index, .admin-user-index, .town-index {
   width: 50%;
   margin: 50px auto;
   padding: 10px 10px;

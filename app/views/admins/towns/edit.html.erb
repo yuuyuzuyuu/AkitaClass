@@ -1,0 +1,14 @@
+<div class="town-index">
+  <p class="title">市町村編集</p>
+    <%= form_with model: [:admins, @town], local:true do |f| %>
+    <table class="table table-borderless">
+      <tbody>
+        <tr>
+          <td style="width: 30%"><%= f.text_field :name, placeholder: "市町村名" %></td>
+          <td><%= f.submit "編集" %></td>
+        </tr>
+      </tbody>
+    </table>
+    <% end %>
+    <p class="text-right"><i class="fas fa-hand-point-right"><%= link_to "市町村一覧にもどる", admins_towns_path, data: {"turbolinks" => false} %></i></p>
+</div>

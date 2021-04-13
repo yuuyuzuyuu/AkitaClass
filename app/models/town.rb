@@ -1,6 +1,5 @@
-class Genre < ApplicationRecord
-  
-  has_many :help_posts
+class Town < ApplicationRecord
+    
   has_many :want_posts
   
   validates :name, presence: true
