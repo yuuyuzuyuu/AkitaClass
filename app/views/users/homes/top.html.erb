@@ -26,7 +26,7 @@
                   <%= attachment_image_tag want_post, :post_image, size: "200x160" %>
                   <p>
                     <i class="fas fa-location-arrow"></i>
-                    <%= want_post.user.address %>
+                    <%= want_post.town.name %>
                     ♡<%= want_post.want_likes.count %>
                   </p>
                 <% end %><br>
@@ -49,7 +49,7 @@
                 <%= attachment_image_tag want_post, :post_image, size: "200x160" %>
                 <p>
                   <i class="fas fa-location-arrow"></i>
-                  <%= want_post.user.address %>
+                  <%= want_post.town.name %>
                   ♡<%= want_post.want_likes.count %>
                 </p>
               <% end %><br>
