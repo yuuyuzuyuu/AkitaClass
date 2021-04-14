@@ -1,17 +1,18 @@
+<div class="index">
 <div class="profile">
-  <p class="title">プロフィール</p>
+  <p class="title">＼プロフィール／</p>
     <div class="user">
       <%= attachment_image_tag @user, :profile_image, size: "250x250", fallback: "profile_image.jpeg" %>
       <p class="nickname"><%= @user.nickname %></p>
       <div class="user-content">
-        <p><%= simple_format(@user.introduce) %></p><br>
+        <div class="introduce"><p><%= simple_format(@user.introduce) %></p></div>
         <p>Name:<%= @user.last_name+@user.first_name %>(<%= @user.last_name_kana+@user.first_name_kana %>)</p>
         <p>Address:<%= @user.address %></p>
         <p>Email:<%= @user.email %></p>
         <p>Telephone:<%= @user.phone_number %></p>
         <p>Birthday:<%= @user.birth_date.strftime('%Y/%m/%d') %></p>
         <% if @user == current_user %>
-          <p class="text-center"><%= link_to '編集', members_mypage_edit_path, data: {"turbolinks" => false} %></p>
+          <p class="link"><%= link_to '編集', members_mypage_edit_path, data: {"turbolinks" => false} %></p>
         <% end %>
       </div>
     </div>
@@ -22,8 +23,10 @@
     <hr class="line">
     <div class="new-post-link">
       <p class="title">投稿する</p>
-      <%= link_to '地域', new_want_post_path, data: {"turbolinks" => false} %>
-      <%= link_to '新規登録', new_help_post_path, data: {"turbolinks" => false} %>
+      <div class="post-link">
+        <div class="link"><%= link_to '自分をPRする', new_want_post_path, data: {"turbolinks" => false} %></div>
+        <div class="link"><%= link_to '地域に呼ぶ', new_help_post_path, data: {"turbolinks" => false} %></div>
+      </div>
     </div>
   <% end %>
   <hr class="line">
@@ -42,7 +45,7 @@
             <% end %><br>
           </div>
           <div class="post-body">
-            <a class="post-title"><%= link_to help_post.title, help_post_path(help_post) %></a><br>
+            <a class="post-title"><%= link_to help_post.title.truncate(45), help_post_path(help_post) %></a><br>
             <a class="post-user"><%= attachment_image_tag help_post.user, :profile_image, size: "30x30", fallback: "profile_image.jpg" %>
             <a><%= link_to help_post.user.nickname, profile_path(help_post.user), data: {"turbolinks" => false} %></a><br>
           </div>
@@ -63,7 +66,7 @@
             <% end %><br>
           </div>
           <div class="post-body">
-            <a class="post-title"><%= link_to want_post.title, want_post_path(want_post) %></a><br>
+            <a class="post-title"><%= link_to want_post.title.truncate(45), want_post_path(want_post) %></a><br>
             <a class="post-user"><%= attachment_image_tag want_post.user, :profile_image, size: "30x30", fallback: "profile_image.jpg" %>
             <a><%= link_to want_post.user.nickname, profile_path(want_post.user), data: {"turbolinks" => false} %></a><br>
           </div>
@@ -87,7 +90,7 @@
               <% end %><br>
             </div>
             <div class="post-body">
-              <a class="post-title"><%= link_to help_post.title, help_post_path(help_post) %></a><br>
+              <a class="post-title"><%= link_to help_post.title.truncate(45), help_post_path(help_post) %></a><br>
               <a class="post-user"><%= attachment_image_tag help_post.user, :profile_image, size: "30x30", fallback: "profile_image.jpg" %>
               <a><%= link_to help_post.user.nickname, profile_path(help_post.user), data: {"turbolinks" => false} %></a><br>
             </div>
@@ -109,11 +112,12 @@
               <% end %><br>
             </div>
             <div class="post-body">
-              <a class="post-title"><%= link_to want_post.title, want_post_path(want_post) %></a><br>
+              <a class="post-title"><%= link_to want_post.title.truncate(45), want_post_path(want_post) %></a><br>
               <a class="post-user"><%= attachment_image_tag want_post.user, :profile_image, size: "30x30", fallback: "profile_image.jpg" %>
               <a><%= link_to want_post.user.nickname, profile_path(want_post.user), data: {"turbolinks" => false} %></a><br>
             </div>
           </div>
       <% end %>
     </div>
+</div>
 </div>
