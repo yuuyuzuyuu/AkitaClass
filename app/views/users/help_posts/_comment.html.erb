@@ -1,6 +1,6 @@
   <p>コメントを残す</p>
     <%= form_with model:[help_post, help_comment], local: true do |f| %>
-      <%= f.text_area :comment, size: "50" %>
+      <%= f.text_area :comment, size: "50" %><br>
       <%= f.submit '送信'%>
     <% end %>
       <p><%= help_post.help_comments.count %> comments!</p>
