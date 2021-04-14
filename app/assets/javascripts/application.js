@@ -31,8 +31,3 @@ $("#g-nav a").click(function () {//ナビゲーションのリンクがクリッ
     $("#g-nav").removeClass('panelactive');//ナビゲーションのpanelactiveクラスも除去
 });
 });
-
-
-$(function() {
-  $('img[usemap]').rwdImageMaps();　//地図表示のズレをなくす
-})
