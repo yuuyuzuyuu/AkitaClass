@@ -86,8 +86,8 @@
       </map>
   </div>
   
-  <% if @town %>
   <div class="post-index">
+    <% if @town %>
     <p><%= @town.name %>の記事一覧</p>
     <% @town.want_posts.each do |want_post| %>
       <div class="post-content">
