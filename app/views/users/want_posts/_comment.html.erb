@@ -5,7 +5,7 @@
     <% end %>
       <p><%= want_post.want_comments.count %> comments!</p>
     <hr class="line">
-    <p>
+    <div class="comment">
       <% want_post.want_comments.each do |want_comment| %>
         <%= attachment_image_tag want_comment.user, :profile_image, size: "30x30", fallback: "profile_image.jpg" %>
         <%= link_to want_comment.user.nickname, profile_path(want_comment.user), data: {"turbolinks" => false} %>
@@ -18,5 +18,5 @@
         </p>
         <hr class="line">
       <% end %>
-    </p>
+    </div>
   
