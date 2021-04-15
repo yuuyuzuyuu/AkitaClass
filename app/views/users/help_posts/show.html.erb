@@ -22,7 +22,7 @@
 　<p><%= link_to '投稿一覧にもどる', help_posts_path %></p>
   <p class="post-edit-delete">
     <% if @help_post.user == current_user %>
-      <%= link_to '編集', edit_help_post_path(@help_post), data: {"turbolinks" => false} %>/
+      <%= link_to '編集', edit_help_post_path(@help_post) %>/
       <%= link_to '削除', help_post_path(@help_post), method: :delete %>
       <hr class="line">
     <% end %>
