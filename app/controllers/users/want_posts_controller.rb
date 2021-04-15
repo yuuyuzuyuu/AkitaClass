@@ -52,6 +52,11 @@ class Users::WantPostsController < ApplicationController
     end
   end
   
+  # nameカラムがparams[:key]から始まる、Tagsテーブルのレコードを全取得
+  def get_tag_search
+    @tags = WantPost.tag_counts_on(:tags).where('name LIKE(?)', "%#{params[:key]}%")
+  end
+  
   def town
     @want_posts = WantPost.all
     @town = Town.find(params[:id]) if params[:id]
