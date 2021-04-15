@@ -1,11 +1,12 @@
 <div class="registrations-new">
   <p class="title">新規ユーザー登録</p>
+  <p>*=入力必須項目</p>
     <%= form_with model: @user, url: user_registration_path, local: true do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
       <table class="table table-borderless">
         <tbody>
           <tr>
-            <td style="width: 25%">名前</td>
+            <td style="width: 26%">名前</td>
             <td><%= f.text_field :last_name, autofocus: true, placeholder: "秋田" %></td>
             <td><%= f.text_field :first_name, autofocus: true, placeholder: "犬太" %></td>
           </tr>
@@ -15,11 +16,11 @@
             <td><%= f.text_field :first_name_kana, placeholder: "イヌタ" %></td>
           </tr>
           <tr>
-            <td>メールアドレス</td>
+            <td>メールアドレス*</td>
             <td colspan="2"><%= f.email_field :email, autocomplete: "email", size: 53 %></td>
           </tr>
           <tr>
-            <td>表示名</td>
+            <td>表示名*</td>
             <td colspan="2"><%= f.text_field :nickname, placeholder: "わんこ", size: 53 %></td>
           </tr>
           <tr>
@@ -32,7 +33,7 @@
           </tr>
           <tr>
             <td>生年月日</td>
-            <td colspan="2"><%= f.date_select(:birth_date, start_year: 1900, end_year: (Time.now.year), default: Date.new(1990, 1, 1)) %></td>
+            <td colspan="2"><%= f.date_select(:birth_date, start_year: 1900, end_year: (Time.now.year), prompt:"--") %></td>
           </tr>
           <tr>
             <td>電話番号</td>
@@ -43,11 +44,11 @@
             <td colspan="2"><%= f.text_field :address, placeholder: "東京都", size: 53 %></td>
           </tr>
           <tr>
-            <td>パスワード</td>
+            <td>パスワード*</td>
             <td colspan="2"><%= f.password_field :password, autocomplete: "new-password", placeholder: "#{@minimum_password_length}文字以上", size: 53 %></td>
           </tr>
           <tr>
-            <td>パスワード（確認）</td>
+            <td>パスワード（確認）*</td>
             <td colspan="2"><%= f.password_field :password_confirmation, autocomplete: "new-password", size: 53 %></td>
           </tr>
           <tr>

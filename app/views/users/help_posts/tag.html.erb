@@ -1,14 +1,18 @@
 <div class="index">
-  <p class="title">秋田に、住んでみたい人へ</p>
-  <%= link_to '新規登録', new_help_post_path, data: {"turbolinks" => false} %><br>
-  <% if @tags.present? %>
-    <% @tags.each do |tag| %>
-      <%= link_to "##{tag.name}(#{tag.taggings_count})", help_posts_tag_path(tag: tag.name) %>
-    <% end %>
-  <% else %>
-      <p>登録されているタグはありません</p>
-  <% end %>
-    <br>
-    <%= render 'index', help_posts: @help_posts %>
-    <br>
+  <p class="title">＼秋田に、住んでほしい人へ／</p>
 </div>
+  <div class="wrapper2">
+    <div class="tag">
+      <p class="title">タグ一覧</p>
+      <% if @tags.present? %>
+        <% @tags.each do |tag| %>
+          <%= link_to "##{tag.name}(#{tag.taggings_count})", help_posts_tag_path(tag: tag.name) %>
+        <% end %>
+      <% else %>
+          <p>登録されているタグはありません</p>
+      <% end %>
+    </div>
+    <div class="post-index">
+      <%= render 'index', help_posts: @help_posts %>
+    </div>
+  </div>
