@@ -2,7 +2,7 @@
   <% help_posts.each do |help_post| %>
     <div class="post-content">
       <div class="post-image">
-        <%= link_to help_post_path(help_post), data: {"turbolinks" => false} do %>
+        <%= link_to help_post_path(help_post) do %>
           <%= attachment_image_tag help_post, :post_image, size: "350x210" %>
           <p>
             <i class="fas fa-location-arrow"></i>
@@ -14,7 +14,7 @@
       <div class="post-body">
         <a class="post-title"><%= link_to help_post.title.truncate(45), help_post_path(help_post) %></a><br>
         <a class="post-user"><%= attachment_image_tag help_post.user, :profile_image, size: "30x30", fallback: "profile_image.jpg" %>
-        <a><%= link_to help_post.user.nickname, profile_path(help_post.user), data: {"turbolinks" => false} %></a><br>
+        <a><%= link_to help_post.user.nickname, profile_path(help_post.user) %></a><br>
       </div>
     </div>
   <% end %>

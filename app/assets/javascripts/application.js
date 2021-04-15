@@ -31,3 +31,4 @@ $("#g-nav a").click(function () {//ナビゲーションのリンクがクリッ
     $("#g-nav").removeClass('panelactive');//ナビゲーションのpanelactiveクラスも除去
 });
 });
+

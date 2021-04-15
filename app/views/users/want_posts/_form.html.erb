@@ -6,19 +6,19 @@
     </tr>
     <tr>
       <td>タイトル</td>
-      <td><%= f.text_field :title, size: 53 %></td>
+      <td><%= f.text_field :title, size: 53, placeholder: "湖畔のカフェでアルバイトしてみませんか？" %></td>
     </tr>
     <tr>
       <td>本文</td>
-      <td><%= f.text_area :body, size: "53x5" %></td>
+      <td><%= f.text_area :body, size: "53x5", placeholder: "夏休み期間中のアルバイトを募集しています！元気がある人大歓迎！" %></td>
     </tr>
     <tr>
       <td>募集要項</td>
-      <td><%= f.text_area :requirement, size: "53x5" %></td>
+      <td><%= f.text_area :requirement, size: "53x5", placeholder: "時給／交通費補助／勤務地住所　など" %></td>
     </tr>
     <tr>
        <td>タグ</td>
-      <td><%= f.text_field :tag_list, value: @want_post.tag_list.join(','), size: 53, placeholder: "複数登録することができます（例:秋田市,建築）" %></td>
+      <td><%= f.text_field :tag_list, value: @want_post.tag_list.join(','), size: 53, placeholder: "複数登録することができます（例:カフェ,建築）" %></td>
    </tr>
     <tr>
       <td>ジャンル</td>
