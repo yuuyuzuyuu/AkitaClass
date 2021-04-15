@@ -12,10 +12,11 @@
 
     <div class="top-want">
       <p class="title">＼住んでみたい方はこちら／</p>
-      <p class="text-center">
-        <%= link_to "市町村別", want_posts_town_path %>
-        <%= link_to "タグ検索", want_posts_tag_path %>
-      </p>
+        <div class="post-link">
+          <div class="link"><%= link_to "市町村別", want_posts_town_path %></div>
+          <div class="link"><%= link_to "タグ検索", want_posts_tag_path %></div>
+          <div class="link"><%= link_to "キーワード検索", want_posts_path %></div>
+        </div>
       <p class="top-title">人気投稿</p>
       <div class="popular-post">
         <% @want_ranks.each_with_index do |want_post, idx| %>
@@ -69,7 +70,10 @@
 
     <div class="top-help">
       <p class="title">＼地域の方はこちら／</p>
-      <p class="text-center"><%= link_to "かんたん検索", help_posts_tag_path %></p>
+        <div class="post-link">
+          <div class="link"><%= link_to "タグ検索", help_posts_tag_path %></div>
+          <div class="link"><%= link_to "キーワード検索", help_posts_path %></div>
+        </div>
       <p class="top-title">人気投稿</p>
       <div class="popular-post">
         <% @help_ranks.each_with_index do |help_post, idx| %>
