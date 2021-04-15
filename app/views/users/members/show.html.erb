@@ -44,7 +44,7 @@
             <% end %><br>
           </div>
           <div class="post-body">
-            <a class="post-title"><%= link_to help_post.title.truncate(45), help_post_path(help_post) %></a><br>
+            <a class="post-title"><%= link_to help_post.title.truncate(44), help_post_path(help_post) %></a><br>
             <a class="post-user"><%= attachment_image_tag help_post.user, :profile_image, size: "30x30", fallback: "profile_image.jpg" %>
             <a><%= link_to help_post.user.nickname, profile_path(help_post.user) %></a><br>
           </div>
@@ -59,13 +59,13 @@
               <%= attachment_image_tag want_post, :post_image, size: "350x210" %>
               <p>
                 <i class="fas fa-location-arrow"></i>
-                <%= want_post.user.address %>
+                <%= want_post.town.name %>
                 ♡<%= want_post.want_likes.count %>
               </p>
             <% end %><br>
           </div>
           <div class="post-body">
-            <a class="post-title"><%= link_to want_post.title.truncate(45), want_post_path(want_post) %></a><br>
+            <a class="post-title"><%= link_to want_post.title.truncate(44), want_post_path(want_post) %></a><br>
             <a class="post-user"><%= attachment_image_tag want_post.user, :profile_image, size: "30x30", fallback: "profile_image.jpg" %>
             <a><%= link_to want_post.user.nickname, profile_path(want_post.user) %></a><br>
           </div>
@@ -89,7 +89,7 @@
               <% end %><br>
             </div>
             <div class="post-body">
-              <a class="post-title"><%= link_to help_post.title.truncate(45), help_post_path(help_post) %></a><br>
+              <a class="post-title"><%= link_to help_post.title.truncate(44), help_post_path(help_post) %></a><br>
               <a class="post-user"><%= attachment_image_tag help_post.user, :profile_image, size: "30x30", fallback: "profile_image.jpg" %>
               <a><%= link_to help_post.user.nickname, profile_path(help_post.user) %></a><br>
             </div>
@@ -105,13 +105,13 @@
                 <%= attachment_image_tag want_post, :post_image, size: "350x210" %>
                 <p>
                   <i class="fas fa-location-arrow"></i>
-                  <%= want_post.user.address %>
+                  <%= want_post.town.name %>
                   ♡<%= want_post.want_likes.count %>
                 </p>
               <% end %><br>
             </div>
             <div class="post-body">
-              <a class="post-title"><%= link_to want_post.title.truncate(45), want_post_path(want_post) %></a><br>
+              <a class="post-title"><%= link_to want_post.title.truncate(44), want_post_path(want_post) %></a><br>
               <a class="post-user"><%= attachment_image_tag want_post.user, :profile_image, size: "30x30", fallback: "profile_image.jpg" %>
               <a><%= link_to want_post.user.nickname, profile_path(want_post.user) %></a><br>
             </div>

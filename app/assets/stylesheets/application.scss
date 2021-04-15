@@ -140,8 +140,13 @@ footer {
 
 // 全体
 
-p, a, table, .search, .comment {
-  font-family: 'Kiwi Maru', serif;
+@font-face {
+  font-family: "font";
+  src: font-url('timemachine-wa.ttf') format('truetype');
+}
+
+body {
+  font-family: 'font';
 }
 
 a:link, a:visited, a:hover, a:active {
