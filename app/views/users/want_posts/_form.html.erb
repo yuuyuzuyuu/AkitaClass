@@ -18,7 +18,7 @@
     </tr>
     <tr>
        <td>タグ</td>
-      <td><%= f.text_field :tag_list, value: @want_post.tag_list.join(','), size: 53, placeholder: "複数登録することができます（例:カフェ,建築）" %></td>
+      <td><%= f.text_field :tag_list, value: @want_post.tag_list.join(","), size: 53, class: "tag_form tagit-hidden-field", name: "want_post[tag_list]", id: "want_post_tag_list" %></td>
    </tr>
     <tr>
       <td>ジャンル</td>

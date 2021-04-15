@@ -51,6 +51,11 @@ class Users::HelpPostsController < ApplicationController
       @help_posts = HelpPost.all
     end
   end
+  
+    # nameカラムがparams[:key]から始まる、Tagsテーブルのレコードを全取得
+  def get_tag_search
+    @tags = HelpPost.tag_counts_on(:tags).where('name LIKE(?)', "%#{params[:key]}%")
+  end
 
   private
 
