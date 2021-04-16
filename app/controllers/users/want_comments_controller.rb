@@ -1,4 +1,5 @@
 class Users::WantCommentsController < ApplicationController
+  before_action :authenticate_user!
   
   def create
     want_post = WantPost.find(params[:want_post_id])

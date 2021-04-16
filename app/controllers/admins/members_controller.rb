@@ -1,4 +1,6 @@
 class Admins::MembersController < ApplicationController
+  before_action :authenticate_admin!
+  
   def index
     @users = User.all
   end
@@ -6,4 +8,5 @@ class Admins::MembersController < ApplicationController
   def show
     @user = User.find(params[:id])
   end
+  
 end

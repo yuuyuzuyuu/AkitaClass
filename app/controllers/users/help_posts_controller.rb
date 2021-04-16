@@ -1,4 +1,5 @@
 class Users::HelpPostsController < ApplicationController
+  before_action :authenticate_user!
 
   def index
     @q = HelpPost.ransack(params[:q])
