@@ -1,4 +1,5 @@
 class Admins::TownsController < ApplicationController
+  before_action :authenticate_admin!
   
   def index
     @towns = Town.all

@@ -35,9 +35,12 @@ Rails.application.routes.draw do
       resources :help_comments, only: [:create, :destroy]
       resource :help_likes, only: [:create, :destroy]
     end
+    
     resources :want_posts do
       resources :want_comments, only: [:create, :destroy]
       resource :want_likes, only: [:create, :destroy]
+      get 'get_tag_search', on: :collection, defaults: { format: 'json' }
+      get 'get_tag_search', on: :member, defaults: { format: 'json' }
     end
     
   end

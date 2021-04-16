@@ -1,4 +1,5 @@
 class Users::HelpLikesController < ApplicationController
+  before_action :authenticate_user!
 
   def create
     help_post = HelpPost.find(params[:help_post_id])
