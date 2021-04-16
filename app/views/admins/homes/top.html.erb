@@ -1,5 +1,15 @@
 <div class="index">
-  <p>現在の会員数：<%= @users.count %></p>
-  <p>地域側の投稿数：<%= @want_posts.count %></p>
-  <p>移住者側の投稿数：<%= @help_posts.count %></p>
+  <table class="table table-borderless">
+    <tr>
+      <td>現在の会員数</td>
+      <td><%= @users.count %></td>
+    </tr>
+    <tr>
+      <td>地域側の投稿数</td>
+      <td><%= @want_posts.count %></td>
+    </tr>
+      <td>移住者側の投稿数</td>
+      <td><%= @help_posts.count %></td>
+    </tr>
+  </table>
 </div>

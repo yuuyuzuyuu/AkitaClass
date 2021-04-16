@@ -6,7 +6,7 @@
       <p class="title">タグ一覧</p>
       <% if @tags.present? %>
         <% @tags.each do |tag| %>
-          <%= link_to "##{tag.name}(#{tag.taggings_count})", help_posts_tag_path(tag: tag.name) %>
+          <%= link_to "##{tag.name}", help_posts_tag_path(tag: tag.name) %>
         <% end %>
       <% else %>
           <p>登録されているタグはありません</p>
