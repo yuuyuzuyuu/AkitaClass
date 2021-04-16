@@ -28,8 +28,15 @@
       <hr class="line">
     <% end %>
   </p>
-  <p class="post-comment">
-    <%= render "users/help_posts/comment", help_post: @help_post, help_comment: @help_comment %>
-　<p class="link"><%= link_to '投稿一覧', help_posts_path %></p>
-  </p>
+  <div class="post-comment-area">
+    <p>コメントを残す</p>
+      <%= form_with model:[@help_post, @help_comment], remote: true do |f| %>
+        <%= f.text_area :comment, size: "50" %><br>
+        <%= f.submit '送信' %>
+      <% end %>
+    <p class="comment-count"><%= @help_post.help_comments.count %> comments!</p>
+    <hr class="line">
+    <div class="post-comment"><%= render "users/help_comments/index", help_post: @help_post, help_comment: @help_comment %></div>
+  </div>
+  　<p class="link"><%= link_to '投稿一覧', help_posts_path %></p>
 </div>
