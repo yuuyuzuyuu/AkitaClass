@@ -25,15 +25,15 @@ ActiveRecord::Schema.define(version: 2021_04_11_062519) do
   end
 
   create_table "genres", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "help_comments", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "help_post_id"
-    t.text "comment"
+    t.integer "user_id", null: false
+    t.integer "help_post_id", null: false
+    t.text "comment", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 2021_04_11_062519) do
 
   create_table "help_posts", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.integer "genre_id"
+    t.integer "genre_id", null: false
     t.string "title", null: false
     t.text "body", null: false
     t.string "post_image_id"
@@ -83,7 +83,7 @@ ActiveRecord::Schema.define(version: 2021_04_11_062519) do
   end
 
   create_table "towns", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -100,11 +100,10 @@ ActiveRecord::Schema.define(version: 2021_04_11_062519) do
     t.string "first_name_kana"
     t.string "nickname", null: false
     t.string "introduce"
-    t.date "birth_date", null: false
+    t.date "birth_date"
     t.string "profile_image_id"
     t.string "phone_number"
     t.string "address"
-    t.boolean "withdraw_status", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
@@ -112,9 +111,9 @@ ActiveRecord::Schema.define(version: 2021_04_11_062519) do
   end
 
   create_table "want_comments", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "want_post_id"
-    t.text "comment"
+    t.integer "user_id", null: false
+    t.integer "want_post_id", null: false
+    t.text "comment", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -128,11 +127,12 @@ ActiveRecord::Schema.define(version: 2021_04_11_062519) do
 
   create_table "want_posts", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.integer "genre_id"
-    t.integer "town_id"
+    t.integer "genre_id", null: false
+    t.integer "town_id", null: false
     t.string "title", null: false
     t.text "body", null: false
     t.text "requirement"
+    t.string "url"
     t.string "post_image_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

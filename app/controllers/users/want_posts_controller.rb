@@ -20,8 +20,11 @@ class Users::WantPostsController < ApplicationController
   def create
     @want_post = WantPost.new(want_post_params)
     @want_post.user_id = current_user.id
-    @want_post.save
-    redirect_to want_post_path(@want_post.id)
+    if @want_post.save
+      redirect_to want_post_path(@want_post.id)
+    else
+      render :new
+    end
   end
 
   def edit
@@ -67,7 +70,7 @@ class Users::WantPostsController < ApplicationController
   private
 
   def want_post_params
-    params.require(:want_post).permit(:title, :body, :post_image, :genre_id, :town_id, :requirement, :tag_list)
+    params.require(:want_post).permit(:title, :body, :post_image, :genre_id, :town_id, :url, :requirement, :tag_list)
   end
   
 end

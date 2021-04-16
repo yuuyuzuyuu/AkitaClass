@@ -38,12 +38,11 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string :first_name_kana
       t.string :nickname, null: false
       t.string :introduce
-      t.date :birth_date, null: false
+      t.date :birth_date
       t.string :email, null: false
       t.string :profile_image_id
       t.string :phone_number
       t.string :address
-      t.boolean :withdraw_status, null: false, default: true
 
       t.timestamps null: false
     end
