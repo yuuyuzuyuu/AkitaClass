@@ -1,4 +1,5 @@
 class Users::WantPostsController < ApplicationController
+  before_action :authenticate_user!
   
   def index
     @q = WantPost.ransack(params[:q])

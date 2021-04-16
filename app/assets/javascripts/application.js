@@ -56,16 +56,16 @@ $(document).on('turbolinks:load', "keyup", '.tagit', function() {
   let input = $(".ui-widget-content.ui-autocomplete-input").val();  // 変数inputに、入力値を格納
   $.ajax({
     type: 'GET',
-    url: 'get_tag_search',    // ルーティングで設定したurl
-    data: { key: input },     // 入力値を:keyとして、コントローラーに渡す
+    url: 'get_tag_search',  // ルーティングで設定したurl
+    data: { key: input },  // 入力値を:keyとして、コントローラーに渡す
     dataType: 'json'
   })
 
   .done(function(data){
-    if(input.length) {               // 入力値がある時のみ
-      let tag_list = [];             // 空の配列を準備
+    if(input.length) {  // 入力値がある時のみ
+      let tag_list = [];  // 空の配列を準備
       data.forEach(function(tag) {   // 取得したdataのnameを配列に格納
-        tag_list.push(tag.name);     // 1つずつ追加。 tag_list = ["タグ名1", "タグ名2", ..]
+        tag_list.push(tag.name);  // 1つずつ追加。 tag_list = ["タグ名1", "タグ名2", ..]
       });
       $(".tag_form").tagit({
         availableTags: tag_list
@@ -75,49 +75,48 @@ $(document).on('turbolinks:load', "keyup", '.tagit', function() {
 });
 
 // ページトップリンク
-
 //スクロールした際の動きを関数でまとめる
-
 $(document).on('turbolinks:load', function () {
 
 function PageTopAnime() {
 	var scroll = $(window).scrollTop();
-	if (scroll >= 100){//上から100pxスクロールしたら
-		$('#page-top').removeClass('DownMove');//#page-topについているDownMoveというクラス名を除く
-		$('#page-top').addClass('UpMove');//#page-topについているUpMoveというクラス名を付与
+	if (scroll >= 100){ //上から100pxスクロールしたら
+		$('#page-top').removeClass('DownMove'); //#page-topについているDownMoveというクラス名を除く
+		$('#page-top').addClass('UpMove');  //#page-topについているUpMoveというクラス名を付与
 	}else{
-		if($('#page-top').hasClass('UpMove')){//すでに#page-topにUpMoveというクラス名がついていたら
-			$('#page-top').removeClass('UpMove');//UpMoveというクラス名を除き
-			$('#page-top').addClass('DownMove');//DownMoveというクラス名を#page-topに付与
+		if($('#page-top').hasClass('UpMove')){  //すでに#page-topにUpMoveというクラス名がついていたら
+			$('#page-top').removeClass('UpMove'); //UpMoveというクラス名を除き
+			$('#page-top').addClass('DownMove');  //DownMoveというクラス名を#page-topに付与
 		}
 	}
 }
 
-// 画面をスクロールをしたら動かしたい場合の記述
+//画面をスクロールをしたら動かしたい場合の記述
 $(window).scroll(function () {
-	PageTopAnime();/* スクロールした際の動きの関数を呼ぶ*/
+	PageTopAnime(); //スクロールした際の動きの関数を呼ぶ
 });
 
 // ページが読み込まれたらすぐに動かしたい場合の記述
 $(window).on('load', function () {
-	PageTopAnime();/* スクロールした際の動きの関数を呼ぶ*/
+	PageTopAnime(); //スクロールした際の動きの関数を呼ぶ
 });
 
 
-// #page-topをクリックした際の設定
+//#page-topをクリックした際の設定
 $('#page-top').click(function () {
 	var scroll = $(window).scrollTop(); //スクロール値を取得
 	if(scroll > 0){
-		$(this).addClass('floatAnime');//クリックしたらfloatAnimeというクラス名が付与
+		$(this).addClass('floatAnime'); //クリックしたらfloatAnimeというクラス名が付与
         $('body,html').animate({
             scrollTop: 0
-        }, 2000,function(){//スクロールの速さ。数字が大きくなるほど遅くなる
-            $('#page-top').removeClass('floatAnime');//上までスクロールしたらfloatAnimeというクラス名を除く
+        }, 2000,function(){ //スクロールの速さ。数字が大きくなるほど遅くなる
+            $('#page-top').removeClass('floatAnime'); //上までスクロールしたらfloatAnimeというクラス名を除く
         });	
 	}
-    return false;//リンク自体の無効化
+    return false; //リンク自体の無効化
 });
 
+// トップ画像にslick導入
 $(function() {
   $('.top-image').slick({
     dots: true,
@@ -127,4 +126,3 @@ $(function() {
   });
 });
 });
-
