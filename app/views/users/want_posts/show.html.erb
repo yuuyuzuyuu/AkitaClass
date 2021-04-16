@@ -11,7 +11,9 @@
       <%= link_to @want_post.user.nickname,  data: {"turbolinks" => false} %>
     <% end %>
   </p>
-  <p class="post-like">気になる！<%= render "users/want_likes/like", want_post: @want_post %></p>
+  <div class="want_post_<%= @want_post.id %>">
+    <%= render "users/want_likes/like", want_post: @want_post %>
+  </div>
   <div class="post-contents">
     <p class="title">内容</p>
     <p><%= simple_format(@want_post.body) %></p>
@@ -36,5 +38,6 @@
   </p>
   <p class="post-comment">
     <%= render "users/want_posts/comment", want_post: @want_post, want_comment: @want_comment %>
+　<p class="link"><%= link_to '投稿一覧', want_posts_path %></p>
   </p>
 </div>
