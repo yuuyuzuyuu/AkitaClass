@@ -31,13 +31,20 @@
   <hr class="line">
   <p class="post-edit-delete">
     <% if @want_post.user == current_user %>
-      <%= link_to '編集', edit_want_post_path %>/
+      <%= link_to '編集', edit_want_post_path(@want_post) %>/
       <%= link_to '削除', want_post_path(@want_post), method: :delete %>
       <hr class="line">
     <% end %>
   </p>
-  <p class="post-comment">
-    <%= render "users/want_posts/comment", want_post: @want_post, want_comment: @want_comment %>
-　<p class="link"><%= link_to '投稿一覧', want_posts_path %></p>
-  </p>
+  <div class="post-comment-area">
+    <p>コメントを残す</p>
+      <%= form_with model:[@want_post, @want_comment], remote: true do |f| %>
+        <%= f.text_area :comment, size: "50" %><br>
+        <%= f.submit '送信' %>
+      <% end %>
+    <p class="comment-count"><%= @want_post.want_comments.count %> comments!</p>
+    <hr class="line">
+    <div class="post-comment"><%= render "users/want_comments/index", want_post: @want_post, want_comment: @want_comment %></div>
+  </div>
+  　<p class="link"><%= link_to '投稿一覧', want_posts_path %></p>
 </div>
