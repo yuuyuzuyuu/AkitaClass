@@ -1,9 +1,9 @@
   <% if want_post.liked_by?(current_user) %>
-    <%= link_to want_post_want_likes_path(want_post), method: :delete do %>
+    <%= link_to want_post_want_likes_path(want_post), method: :delete, remote: true do %>
       ♥<%= want_post.want_likes.count %>
     <% end %>
   <% else %>
-    <%= link_to want_post_want_likes_path(want_post), method: :post do %>
+    <%= link_to want_post_want_likes_path(want_post), method: :post, remote: true do %>
       ♡<%= want_post.want_likes.count %>
     <% end %>
   <% end %>

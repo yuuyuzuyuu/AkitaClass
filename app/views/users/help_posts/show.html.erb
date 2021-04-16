@@ -10,7 +10,9 @@
       <%= @help_post.user.nickname %>
     <% end %>
   </p>
-  <p class="post-like">気になる！<%= render "users/help_likes/like", help_post: @help_post %></p>
+  <div class="help_post_<%= @help_post.id %>">
+    <%= render "users/help_likes/like", help_post: @help_post %>
+  </div>
   <div class="post-contents">
     <p class="title">内容</p>
     <p><%= simple_format(@help_post.body) %></p>
@@ -19,7 +21,6 @@
     <p>紹介文：<%= simple_format(@help_post.user.introduce) %></p>
   </div>
 　<hr class="line">
-　<p><%= link_to '投稿一覧にもどる', help_posts_path %></p>
   <p class="post-edit-delete">
     <% if @help_post.user == current_user %>
       <%= link_to '編集', edit_help_post_path(@help_post) %>/
@@ -29,5 +30,6 @@
   </p>
   <p class="post-comment">
     <%= render "users/help_posts/comment", help_post: @help_post, help_comment: @help_comment %>
+　<p class="link"><%= link_to '投稿一覧', help_posts_path %></p>
   </p>
 </div>
