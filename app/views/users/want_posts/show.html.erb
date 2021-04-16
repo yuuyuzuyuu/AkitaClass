@@ -24,6 +24,7 @@
   </div>
   <div class="post-contents">
     <p class="title">連絡先</p>
+    <p>URL：<%= @want_post.url %></p>
     <p>紹介文：<%= simple_format(@want_post.user.introduce) %></p>
     <p>メールアドレス：<%= @want_post.user.email %></p>
     <p>電話番号：<%= @want_post.user.phone_number %></p>

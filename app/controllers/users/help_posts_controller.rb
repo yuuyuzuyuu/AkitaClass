@@ -20,8 +20,11 @@ class Users::HelpPostsController < ApplicationController
   def create
     @help_post = HelpPost.new(help_post_params)
     @help_post.user_id = current_user.id
-    @help_post.save
-    redirect_to help_post_path(@help_post.id)
+    if @help_post.save
+      redirect_to help_post_path(@help_post.id)
+    else
+      render :new
+    end
   end
 
   def edit
