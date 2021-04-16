@@ -1,4 +1,5 @@
 class Users::WantPostsController < ApplicationController
+  before_action :authenticate_user!
   
   def index
     @q = WantPost.ransack(params[:q])
@@ -50,6 +51,11 @@ class Users::WantPostsController < ApplicationController
     else
       @want_posts = WantPost.all
     end
+  end
+  
+  # nameカラムがparams[:key]から始まる、Tagsテーブルのレコードを全取得
+  def get_tag_search
+    @tags = WantPost.tag_counts_on(:tags).where('name LIKE(?)', "%#{params[:key]}%")
   end
   
   def town
