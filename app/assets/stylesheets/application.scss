@@ -273,11 +273,22 @@ a:link, a:visited, a:hover, a:active {
 }
 
 .post-contents {
-  margin: 80px;
+  margin: 80px 0;
+}
+
+.post .title {
+  text-align: left;
 }
 
 .comment-delete {
   text-align: right;
+}
+
+.post .post-title {
+  font-size: 40px;
+  text-align: center;
+  font-weight: bold;
+  color: #ffb6b9;
 }
 
 // 投稿一覧
@@ -520,6 +531,8 @@ a:link, a:visited, a:hover, a:active {
   width: 80%;
   height: 500px;
 }
+
+// タグ
 
 .tag_area {
 	display: inline-block;
