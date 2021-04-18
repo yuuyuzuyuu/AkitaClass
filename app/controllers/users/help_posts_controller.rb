@@ -23,6 +23,7 @@ class Users::HelpPostsController < ApplicationController
     if @help_post.save
       redirect_to help_post_path(@help_post.id)
     else
+      flash[:notice] = "※必須項目を入力してください"
       render :new
     end
   end
