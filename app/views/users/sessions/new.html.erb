@@ -1,7 +1,7 @@
 <div class="sessions-new">
   <p class="title">会員ログイン</p>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <%= render "devise/shared/error_messages", resource: resource %>
+      <%= render "users/shared/error_messages", resource: resource %>
       <table class="table table-borderless">
         <tbody>
           <tr>
