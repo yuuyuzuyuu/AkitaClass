@@ -35,7 +35,7 @@
         <div class="post-content">
           <div class="post-image">
             <%= link_to help_post_path(help_post) do %>
-              <%= attachment_image_tag help_post, :post_image, size: "350x210" %>
+              <%= attachment_image_tag help_post, :post_image, size: "350x210", fallback: "post.png" %>
               <p>
                 <i class="fas fa-location-arrow"></i>
                 <%= help_post.user.address %>
@@ -56,7 +56,7 @@
         <div class="post-content">
           <div class="post-image">
             <%= link_to want_post_path(want_post) do %>
-              <%= attachment_image_tag want_post, :post_image, size: "350x210" %>
+              <%= attachment_image_tag want_post, :post_image, size: "350x210", fallback: "post.png" %>
               <p>
                 <i class="fas fa-location-arrow"></i>
                 <%= want_post.town.name %>
@@ -80,7 +80,7 @@
           <div class="post-content">
             <div class="post-image">
               <%= link_to help_post_path(help_post) do %>
-                <%= attachment_image_tag help_post, :post_image, size: "350x210" %>
+                <%= attachment_image_tag help_post, :post_image, size: "350x210", fallback: "post.png" %>
                 <p>
                   <i class="fas fa-location-arrow"></i>
                   <%= help_post.user.address %>
@@ -102,7 +102,7 @@
           <div class="post-content">
             <div class="post-image">
               <%= link_to want_post_path(want_post) do %>
-                <%= attachment_image_tag want_post, :post_image, size: "350x210" %>
+                <%= attachment_image_tag want_post, :post_image, size: "350x210", fallback: "post.png" %>
                 <p>
                   <i class="fas fa-location-arrow"></i>
                   <%= want_post.town.name %>

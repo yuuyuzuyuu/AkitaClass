@@ -11,11 +11,12 @@
           <% elsif user_signed_in? %>
             <li><%= link_to 'トップ', root_path, class: 'nav-link text-light' %></li>
             <li><%= link_to 'マイページ', profile_path(current_user), class: 'nav-link text-light' %></li>
-            <li><%= link_to 'help投稿一覧', help_posts_path, class: 'nav-link text-light' %></li>
-            <li><%= link_to 'want投稿一覧', want_posts_path, class: 'nav-link text-light' %></li>
+            <li><%= link_to 'Akita Class？', homes_about_path, class: 'nav-link text-light' %></li>
+            <li><%= link_to '地域の人はこちら', help_posts_path, class: 'nav-link text-light' %></li>
+            <li><%= link_to '住みたい人はこちら', want_posts_path, class: 'nav-link text-light' %></li>
             <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link text-light' %></li>
           <% else %>
-            <li><%= link_to 'このサイトについて', homes_about_path, class: 'nav-link text-light' %></li>
+            <li><%= link_to 'Akita Class？', homes_about_path, class: 'nav-link text-light' %></li>
             <li><%= link_to '会員登録', new_user_registration_path, class: 'nav-link text-light' %></li>
             <li><%= link_to 'ログイン', user_session_path, class: 'nav-link text-light' %></li>
           <% end %>

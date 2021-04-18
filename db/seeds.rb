@@ -20,7 +20,6 @@ User.create!(
   first_name_kana: "ゾロ",
   nickname: "剣士",
   birth_date: "1990.12.22",
-  withdraw_status: true
     )
   
   User.create!(
@@ -32,7 +31,6 @@ User.create!(
   first_name_kana: "ルフィ",
   nickname: "ゴム人間",
   birth_date: "1970.10.12",
-  withdraw_status: true
     )
     
   Genre.create!(

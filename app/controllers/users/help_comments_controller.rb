@@ -2,16 +2,16 @@ class Users::HelpCommentsController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    help_post = HelpPost.find(params[:help_post_id])
-    comment = current_user.help_comments.new(help_comment_params)
-    comment.help_post_id = help_post.id
-    comment.save
-    redirect_to help_post_path(help_post)
+    @help_post = HelpPost.find(params[:help_post_id])
+    @help_comment = current_user.help_comments.new(help_comment_params)
+    @help_comment.help_post_id = @help_post.id
+    @help_comment.save
   end
 
   def destroy
-    HelpComment.find_by(id: params[:id], help_post_id: params[:help_post_id]).destroy
-    redirect_to help_post_path(params[:help_post_id])
+    @help_post = HelpPost.find(params[:help_post_id])
+    help_comment = @help_post.help_comments.find(params[:id])
+    help_comment.destroy
   end
 
   private
