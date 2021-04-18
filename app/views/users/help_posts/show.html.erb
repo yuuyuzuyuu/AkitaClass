@@ -2,6 +2,9 @@
   <p class="post-image"><%= attachment_image_tag @help_post, :post_image, size: "900x500", fallback: "post.png" %></p>
   <p class="post-created-at">公開日：<%= @help_post.created_at.strftime('%Y/%m/%d') %></p>
   <p class="post-genre"><%= @help_post.genre.name %></p>
+  <% @help_post.tag_list.each do |tag| %>
+    <%= link_to tag, help_posts_tag_path(tag: tag) %>
+  <% end %>
   <p class="title"><%= @help_post.title %></p>
   <p class="post-user-image">
      投稿者：
