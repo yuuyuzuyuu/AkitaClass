@@ -8,6 +8,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def new
   #   super
   # end
+  
+  def after_sign_up_path_for(resource)
+    root_path
+  end
 
   # POST /resource
   # def create
@@ -38,9 +42,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
   
-  def after_sign_up_path_for(resource)
-    root_path
-  end
 
   # protected
 
