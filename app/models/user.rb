@@ -11,8 +11,16 @@ class User < ApplicationRecord
   has_many :help_likes, dependent: :destroy
   has_many :want_likes, dependent: :destroy
 
+  validates :last_name, presence: true
+  validates :first_name, presence: true
+  validates :last_name_kana, presence: true
+  validates :first_name_kana, presence: true
   validates :nickname, presence: true
+  validates :introduce, presence: true
+  validates :birth_date, presence: true
   validates :email, presence: true, uniqueness: true
   attachment :profile_image
+  validates :phone_number, presence: true
+  validates :address, presence: true
   
 end
