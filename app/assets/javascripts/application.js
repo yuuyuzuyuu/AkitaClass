@@ -48,31 +48,10 @@ $(document).on('turbolinks:load', function() {
 });
 
 // タグ入力で、placeholder を変更
-$(document).on('turbolinks:load', "keyup", '.tagit', function() {
+$(document).on("keyup", '.tagit', function() {
   let tag_count = 10 - $(".tagit-choice").length
   $(".ui-widget-content.ui-autocomplete-input").attr(
   'placeholder','あと' + tag_count + '個登録できます');
-
-  // Ajaxで、タグ一覧を取得
-  let input = $(".ui-widget-content.ui-autocomplete-input").val();  // 変数inputに、入力値を格納
-  $.ajax({
-    type: 'GET',
-    url: 'get_tag_search',  // ルーティングで設定したurl
-    data: { key: input },  // 入力値を:keyとして、コントローラーに渡す
-    dataType: 'json'
-  })
-
-  .done(function(data){
-    if(input.length) {  // 入力値がある時のみ
-      let tag_list = [];  // 空の配列を準備
-      data.forEach(function(tag) {   // 取得したdataのnameを配列に格納
-        tag_list.push(tag.name);  // 1つずつ追加。 tag_list = ["タグ名1", "タグ名2", ..]
-      });
-      $(".tag_form").tagit({
-        availableTags: tag_list
-      });
-    }
-  });
 });
 
 // ページトップリンク
