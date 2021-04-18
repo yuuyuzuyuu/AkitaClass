@@ -2,6 +2,9 @@
   <p class="post-image"><%= attachment_image_tag @want_post, :post_image, size: "900x500", fallback: "post.png" %></p>
   <p class="post-created-at">公開日：<%= @want_post.created_at.strftime('%Y/%m/%d') %></p>
   <p class="post-genre"><%= @want_post.genre.name %></p>
+  <% @want_post.tag_list.each do |tag| %>
+    <a><%= link_to tag, want_posts_tag_path(tag: tag) %></a>
+  <% end %>
   <p class="title"><%= @want_post.title %></p>
   <p><%= @want_post.town.name %></p>
   <p class="post-user-image">
