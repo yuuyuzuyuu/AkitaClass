@@ -3,7 +3,7 @@
   <p class="post-created-at">公開日：<%= @help_post.created_at.strftime('%Y/%m/%d') %></p>
   <p class="post-genre"><%= @help_post.genre.name %></p>
   <% @help_post.tag_list.each do |tag| %>
-    <%= link_to tag, help_posts_tag_path(tag: tag) %>
+    <%= link_to "##{tag}", help_posts_tag_path(tag: tag), class: "tag_area" %>
   <% end %>
   <p class="title"><%= @help_post.title %></p>
   <p class="post-user-image">

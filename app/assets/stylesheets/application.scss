@@ -536,3 +536,10 @@ a:link, a:visited, a:hover, a:active {
 	border: 1px solid #bbded6;
 	border-radius: 2em;
 }
+
+.tag_area:hover {
+  background-color: #bbded6;
+  border: 1px solid #bbded6;
+  color: #fff;
+  text-decoration: none;
+}
