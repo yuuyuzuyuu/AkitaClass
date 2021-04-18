@@ -34,9 +34,7 @@
               <% end %><br>
             </div>
             <div class="popular-post-body">
-              <div class="post-title">
-                <%= link_to want_post.title.truncate(26), want_post_path(want_post) %>
-              </div>
+              <%= link_to want_post.title.truncate(26), want_post_path(want_post) %>
               <div class="post-user">
                 <%= link_to profile_path(want_post.user) do %>
                   <%= attachment_image_tag want_post.user, :profile_image, size: "30x30", fallback: "profile_image.jpg" %>
@@ -62,9 +60,7 @@
               <% end %><br>
             </div>
             <div class="new-post-body">
-              <div class="post-title">
-                <%= link_to want_post.title.truncate(26), want_post_path(want_post) %>
-              </div>
+              <%= link_to want_post.title.truncate(26), want_post_path(want_post) %>
               <div class="post-user">
                 <%= link_to profile_path(want_post.user) do %>
                   <%= attachment_image_tag want_post.user, :profile_image, size: "30x30", fallback: "profile_image.jpg" %>
@@ -102,9 +98,7 @@
               <% end %><br>
             </div>
             <div class="popular-post-body">
-              <div class="post-title">
-                <%= link_to help_post.title.truncate(26), help_post_path(help_post) %>
-              </div>
+              <%= link_to help_post.title.truncate(26), help_post_path(help_post) %>
               <div class="post-user">
                 <%= link_to profile_path(help_post.user) do %>
                   <%= attachment_image_tag help_post.user, :profile_image, size: "30x30", fallback: "profile_image.jpg" %>
@@ -130,9 +124,7 @@
               <% end %><br>
             </div>
             <div class="new-post-body">
-              <div class="post-title">
-                <%= link_to help_post.title.truncate(26), help_post_path(help_post) %>
-              </div>
+              <%= link_to help_post.title.truncate(26), help_post_path(help_post) %>
               <div class="post-user">
                 <%= link_to profile_path(help_post.user) do %>
                   <%= attachment_image_tag help_post.user, :profile_image, size: "30x30", fallback: "profile_image.jpg" %>

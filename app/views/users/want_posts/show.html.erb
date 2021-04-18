@@ -6,7 +6,7 @@
     <%= link_to "##{tag}", want_posts_tag_path(tag: tag), class: "tag_area" %>
   <% end %>
   <p class="title"><%= @want_post.title %></p>
-  <p><%= @want_post.town.name %></p>
+  <p><%= link_to @want_post.town.name, want_posts_town_path(id: @want_post.town.id) %></p>
   <p class="post-user-image">
     投稿者：
     <%= link_to profile_path do %>
