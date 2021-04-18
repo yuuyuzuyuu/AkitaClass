@@ -1,7 +1,7 @@
 <div class="registrations-new">
   <p class="title">新規ユーザー登録</p>
   <p>*=入力必須項目</p>
-  <%= render "devise/shared/error_messages", resource: resource %>
+  <%= render "users/shared/error_messages", resource: resource %>
     <%= form_with model: @user, url: user_registration_path, local: true do |f| %>
       <table class="table table-borderless">
         <tbody>
