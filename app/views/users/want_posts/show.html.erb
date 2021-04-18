@@ -5,7 +5,6 @@
   <% @want_post.tag_list.each do |tag| %>
     <%= link_to "##{tag}", want_posts_tag_path(tag: tag), class: "tag_area" %>
   <% end %>
-  <p class="title"><%= @want_post.title %></p>
   <p><%= link_to @want_post.town.name, want_posts_town_path(id: @want_post.town.id) %></p>
   <p class="post-user-image">
     投稿者：
@@ -17,6 +16,7 @@
   <div class="want_post_<%= @want_post.id %>">
     <%= render "users/want_likes/like", want_post: @want_post %>
   </div>
+  <p class="post-title"><%= @want_post.title %></p>
   <div class="post-contents">
     <p class="title">内容</p>
     <p><%= simple_format(@want_post.body) %></p>

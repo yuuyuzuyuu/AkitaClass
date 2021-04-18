@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   namespace :admins do
     get 'members/index'
   end
+  
   devise_for :admins, controllers: {
     sessions: 'admins/sessions',
   }
@@ -40,7 +41,6 @@ Rails.application.routes.draw do
       get 'get_tag_search', on: :collection, defaults: { format: 'json' }
       get 'get_tag_search', on: :member, defaults: { format: 'json' }
     end
-    
   end
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  
 end

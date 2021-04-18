@@ -5,7 +5,6 @@
   <% @help_post.tag_list.each do |tag| %>
     <%= link_to "##{tag}", help_posts_tag_path(tag: tag), class: "tag_area" %>
   <% end %>
-  <p class="title"><%= @help_post.title %></p>
   <p class="post-user-image">
      投稿者：
     <%= link_to profile_path do %>
@@ -16,6 +15,7 @@
   <div class="help_post_<%= @help_post.id %>">
     <%= render "users/help_likes/like", help_post: @help_post %>
   </div>
+  <p class="post-title"><%= @help_post.title %></p>
   <div class="post-contents">
     <p class="title">内容</p>
     <p><%= simple_format(@help_post.body) %></p>
