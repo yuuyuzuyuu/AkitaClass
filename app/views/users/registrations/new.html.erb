@@ -1,12 +1,12 @@
 <div class="registrations-new">
   <p class="title">新規ユーザー登録</p>
   <p>*=入力必須項目</p>
+  <%= render "devise/shared/error_messages", resource: resource %>
     <%= form_with model: @user, url: user_registration_path, local: true do |f| %>
-      <%= render "devise/shared/error_messages", resource: resource %>
       <table class="table table-borderless">
         <tbody>
           <tr>
-            <td style="width: 26%">名前</td>
+            <td style="width: 30%">名前</td>
             <td><%= f.text_field :last_name, autofocus: true, placeholder: "秋田" %></td>
             <td><%= f.text_field :first_name, autofocus: true, placeholder: "犬太" %></td>
           </tr>
@@ -17,11 +17,11 @@
           </tr>
           <tr>
             <td>メールアドレス*</td>
-            <td colspan="2"><%= f.email_field :email, autocomplete: "email", size: 53 %></td>
+            <td colspan="2"><%= f.email_field :email, autocomplete: "email", size: 51 %></td>
           </tr>
           <tr>
             <td>表示名*</td>
-            <td colspan="2"><%= f.text_field :nickname, placeholder: "わんこ", size: 53 %></td>
+            <td colspan="2"><%= f.text_field :nickname, placeholder: "わんこ", size: 51 %></td>
           </tr>
           <tr>
             <td>プロフィール画像</td>
@@ -29,7 +29,7 @@
           </tr>
           <tr>
             <td>自己紹介</td>
-            <td colspan="2"><%= f.text_area :introduce, placeholder: "秋田の雪がだいすきです。", size: "53x5" %></td>
+            <td colspan="2"><%= f.text_area :introduce, placeholder: "秋田の雪がだいすきです。", size: "51x5" %></td>
           </tr>
           <tr>
             <td>生年月日</td>
@@ -37,19 +37,19 @@
           </tr>
           <tr>
             <td>電話番号</td>
-            <td colspan="2"><%= f.text_field :phone_number, placeholder: "000-0000-0000", size: 53 %></td>
+            <td colspan="2"><%= f.text_field :phone_number, placeholder: "000-0000-0000", size: 51 %></td>
           </tr>
           <tr>
             <td>お住まいの都道府県</td>
-            <td colspan="2"><%= f.text_field :address, placeholder: "東京都", size: 53 %></td>
+            <td colspan="2"><%= f.text_field :address, placeholder: "東京都", size: 51 %></td>
           </tr>
           <tr>
             <td>パスワード*</td>
-            <td colspan="2"><%= f.password_field :password, autocomplete: "new-password", placeholder: "#{@minimum_password_length}文字以上", size: 53 %></td>
+            <td colspan="2"><%= f.password_field :password, autocomplete: "new-password", placeholder: "#{@minimum_password_length}文字以上", size: 51 %></td>
           </tr>
           <tr>
             <td>パスワード（確認）*</td>
-            <td colspan="2"><%= f.password_field :password_confirmation, autocomplete: "new-password", size: 53 %></td>
+            <td colspan="2"><%= f.password_field :password_confirmation, autocomplete: "new-password", size: 51 %></td>
           </tr>
           <tr>
             <td></td>

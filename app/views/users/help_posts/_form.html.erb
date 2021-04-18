@@ -1,4 +1,7 @@
 <p>*=入力必須項目</p>
+  <% @help_post.errors.full_messages.each do |message| %>
+    <p class="text-color">※<%= message %></p>
+  <% end %>
 <%= form_with model:help_post, local:true do |f| %>
   <table class="table table-borderless">
     <tr>

@@ -22,12 +22,6 @@ class Users::MembersController < ApplicationController
     end
   end
 
-  def unsubscribe
-  end
-
-  def withdraw
-  end
-
   private
 
   def user_params
