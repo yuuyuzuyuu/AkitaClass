@@ -11,6 +11,8 @@
  * It is generally better to create a new file per style scope.
  *
  *= require_tree .
+ *= require jquery.tagit
+ *= require tagit.ui-zendesk
  *= require_self
  */
 @import "bootstrap";
@@ -151,6 +153,10 @@ a:link, a:visited, a:hover, a:active {
   border-width: 1px 0 0 0;
   border-style: dashed;
   border-color: #ffb6b9;
+}
+
+.text-color {
+  color: #ffb6b9;
 }
 
 // トップページ

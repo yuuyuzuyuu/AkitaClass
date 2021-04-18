@@ -35,6 +35,7 @@ $("#g-nav a").click(function () {   //ナビゲーションのリンククリッ
 });
 
 // タグ追加の際のTag it導入
+
 $(document).on('turbolinks:load', function() {
   $(".tag_form").tagit({  // 指定のセレクタに、tag-itを反映
     tagLimit:10,    // タグの最大数

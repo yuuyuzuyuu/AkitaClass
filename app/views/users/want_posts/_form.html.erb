@@ -1,8 +1,11 @@
 <p>*=入力必須項目</p>
+  <% @want_post.errors.full_messages.each do |message| %>
+    <p class="text-color">※<%= message %></p>
+  <% end %>
 <%= form_with model:want_post, local:true do |f| %>
   <table class="table table-borderless">
     <tr>
-      <td style="width: 20%">投稿画像</td>
+      <td style="width: 20%">PR画像</td>
       <td><%= f.attachment_field :post_image %></td>
     </tr>
     <tr>
