@@ -19,7 +19,10 @@ User.create!(
   last_name_kana: "ロロノア",
   first_name_kana: "ゾロ",
   nickname: "剣士",
+  introduce: "何でも切ります！！！",
   birth_date: "1990.12.22",
+  phone_number: "000-0000-0000",
+  address: "日本"
     )
   
   User.create!(
@@ -30,7 +33,10 @@ User.create!(
   last_name_kana: "モンキーD",
   first_name_kana: "ルフィ",
   nickname: "ゴム人間",
+  introduce: "手が伸びます！！！",
   birth_date: "1970.10.12",
+  phone_number: "000-0000-0000",
+  address: "日本"
     )
     
   Genre.create!(
