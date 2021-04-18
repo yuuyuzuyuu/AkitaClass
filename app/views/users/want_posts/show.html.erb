@@ -3,7 +3,7 @@
   <p class="post-created-at">公開日：<%= @want_post.created_at.strftime('%Y/%m/%d') %></p>
   <p class="post-genre"><%= @want_post.genre.name %></p>
   <% @want_post.tag_list.each do |tag| %>
-    <a><%= link_to tag, want_posts_tag_path(tag: tag) %></a>
+    <%= link_to "##{tag}", want_posts_tag_path(tag: tag), class: "tag_area" %>
   <% end %>
   <p class="title"><%= @want_post.title %></p>
   <p><%= @want_post.town.name %></p>
