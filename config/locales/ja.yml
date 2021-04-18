@@ -4,7 +4,7 @@ ja:
       user: ユーザー
     attributes:
       user:
-        name: 名前
+        nickname: 表示名
         email: メールアドレス
       want_post:
         title: タイトル
