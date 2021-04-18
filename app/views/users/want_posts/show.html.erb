@@ -1,5 +1,5 @@
 <div class="post">
-  <p class="post-image"><%= attachment_image_tag @want_post, :post_image, size: "900x500" %></p>
+  <p class="post-image"><%= attachment_image_tag @want_post, :post_image, size: "900x500", fallback: "post.png" %></p>
   <p class="post-created-at">公開日：<%= @want_post.created_at.strftime('%Y/%m/%d') %></p>
   <p class="post-genre"><%= @want_post.genre.name %></p>
   <p class="title"><%= @want_post.title %></p>
@@ -11,7 +11,9 @@
       <%= link_to @want_post.user.nickname,  data: {"turbolinks" => false} %>
     <% end %>
   </p>
-  <p class="post-like">気になる！<%= render "users/want_likes/like", want_post: @want_post %></p>
+  <div class="want_post_<%= @want_post.id %>">
+    <%= render "users/want_likes/like", want_post: @want_post %>
+  </div>
   <div class="post-contents">
     <p class="title">内容</p>
     <p><%= simple_format(@want_post.body) %></p>
@@ -22,6 +24,7 @@
   </div>
   <div class="post-contents">
     <p class="title">連絡先</p>
+    <p>URL：<%= @want_post.url %></p>
     <p>紹介文：<%= simple_format(@want_post.user.introduce) %></p>
     <p>メールアドレス：<%= @want_post.user.email %></p>
     <p>電話番号：<%= @want_post.user.phone_number %></p>
@@ -29,12 +32,20 @@
   <hr class="line">
   <p class="post-edit-delete">
     <% if @want_post.user == current_user %>
-      <%= link_to '編集', edit_want_post_path %>/
+      <%= link_to '編集', edit_want_post_path(@want_post) %>/
       <%= link_to '削除', want_post_path(@want_post), method: :delete %>
       <hr class="line">
     <% end %>
   </p>
-  <p class="post-comment">
-    <%= render "users/want_posts/comment", want_post: @want_post, want_comment: @want_comment %>
-  </p>
+  <div class="post-comment-area">
+    <p>コメントを残す</p>
+      <%= form_with model:[@want_post, @want_comment], remote: true do |f| %>
+        <%= f.text_area :comment, size: "50" %><br>
+        <%= f.submit '送信' %>
+      <% end %>
+    <p class="comment-count"><%= @want_post.want_comments.count %> comments!</p>
+    <hr class="line">
+    <div class="post-comment"><%= render "users/want_comments/index", want_post: @want_post, want_comment: @want_comment %></div>
+  </div>
+  　<p class="link"><%= link_to '投稿一覧', want_posts_path %></p>
 </div>

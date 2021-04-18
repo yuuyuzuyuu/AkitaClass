@@ -1,3 +1,4 @@
+<p>*=入力必須項目</p>
 <%= form_with model:help_post, local:true do |f| %>
   <table class="table table-borderless">
     <tr>
@@ -5,11 +6,11 @@
       <td><%= f.attachment_field :post_image %></td>
     </tr>
     <tr>
-      <td>タイトル</td>
+      <td>タイトル*</td>
       <td><%= f.text_field :title, size: 53, placeholder: "あなたの会社のHPを作ります！" %></td>
     </tr>
     <tr>
-      <td>本文</td>
+      <td>本文*</td>
       <td><%= f.text_area :body, size: "53x5", placeholder: "プログラマーとして５年間、東京の企業で働いていました。" %></td>
     </tr>
     <tr>
@@ -17,7 +18,7 @@
       <td><%= f.text_field :tag_list, value: @help_post.tag_list.join(','), size: 53, class: "tag_form tagit-hidden-field", name: "help_post[tag_list]", id: "help_post_tag_list" %></td>
     </tr>
     <tr>
-      <td>ジャンル</td>
+      <td>ジャンル*</td>
       <td><%= f.collection_select :genre_id, Genre.all, :id, :name,:prompt => "選択してください", size: 50 %></td>
     </tr>
     <tr>
