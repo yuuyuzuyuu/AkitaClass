@@ -23,8 +23,6 @@ Rails.application.routes.draw do
     root to: "homes#top"
     get 'homes/about'
     get "/profile/:id" => "members#show", as: :profile
-    get "/members/unsubscribe" => "members#unsubscribe"
-    patch "/members/withdraw" => "members#withdraw"
     get "/members/mypage/edit" => "members#edit"
     patch "/members/mypage" => "members#update"
     get "help_posts/tag" => "help_posts#tag"

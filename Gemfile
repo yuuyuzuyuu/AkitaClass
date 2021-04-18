@@ -74,3 +74,6 @@ group :production do
   gem 'mysql2'
 end
 gem 'jquery-ui-rails' #Tag-itのGem
+gem 'rails-i18n'
+gem 'devise-i18n'
+gem 'devise-i18n-views'

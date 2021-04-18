@@ -1,6 +1,6 @@
 class Users::WantPostsController < ApplicationController
   before_action :authenticate_user!
-  
+
   def index
     @q = WantPost.ransack(params[:q])
     @want_posts = @q.result(distinct: true)
@@ -23,6 +23,7 @@ class Users::WantPostsController < ApplicationController
     if @want_post.save
       redirect_to want_post_path(@want_post.id)
     else
+      flash[:message] = "※必須項目を入力してください"
       render :new
     end
   end
@@ -45,7 +46,7 @@ class Users::WantPostsController < ApplicationController
     @want_post.destroy
     redirect_to want_posts_path
   end
-  
+
   def tag
     @tags = WantPost.tag_counts_on(:tags).order('count DESC')
     if params[:tag].present?
@@ -55,12 +56,12 @@ class Users::WantPostsController < ApplicationController
       @want_posts = WantPost.all
     end
   end
-  
+
   # nameカラムがparams[:key]から始まる、Tagsテーブルのレコードを全取得
   def get_tag_search
     @tags = WantPost.tag_counts_on(:tags).where('name LIKE(?)', "%#{params[:key]}%")
   end
-  
+
   def town
     @want_posts = WantPost.all
     @town = Town.find(params[:id]) if params[:id]
@@ -72,5 +73,5 @@ class Users::WantPostsController < ApplicationController
   def want_post_params
     params.require(:want_post).permit(:title, :body, :post_image, :genre_id, :town_id, :url, :requirement, :tag_list)
   end
-  
+
 end
