@@ -2,7 +2,7 @@
 <div class="profile">
   <p class="title">＼プロフィール／</p>
     <div class="user">
-      <%= attachment_image_tag @user, :profile_image, size: "250x250", fallback: "profile_image.jpeg" %>
+      <%= attachment_image_tag @user, :profile_image, size: "250x250", fallback: "/assets/profile_image.jpeg" %>
       <p class="nickname"><%= @user.nickname %></p>
       <div class="user-content">
         <div class="introduce"><p><%= simple_format(@user.introduce) %></p></div>
