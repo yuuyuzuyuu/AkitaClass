@@ -1,11 +1,27 @@
 <div class="post">
-  <p class="post-image"><%= attachment_image_tag @want_post, :post_image, size: "900x500", fallback: image_url("post.png") %></p>
-  <p class="post-created-at">公開日：<%= @want_post.created_at.strftime('%Y/%m/%d') %></p>
-  <p class="post-genre"><%= @want_post.genre.name %></p>
+  <div class="main-post-image">
+    <%= attachment_image_tag @want_post, :post_image, size: "790x500", fallback: image_url("post.png") %>
+    <p2>
+      <% if @want_post.active_status == true %>
+        募集中
+      <% else %>
+        募集終了
+      <% end %>
+    </p2>
+  </div>
+  <div class="main-second-content">
+    <div class="want_post_<%= @want_post.id %>">
+      <%= render "users/want_likes/like", want_post: @want_post %>
+    </div>
+    <div class="post-right">
+      <p class="post-created-at">公開日：<%= @want_post.created_at.strftime('%Y/%m/%d') %></p>
+      <p class="post-genre"><%= @want_post.genre.name %></p>
+    </div>
+  </div>
   <% @want_post.tag_list.each do |tag| %>
     <%= link_to "##{tag}", want_posts_tag_path(tag: tag), class: "tag_area" %>
   <% end %>
-  <p><%= link_to @want_post.town.name, want_posts_town_path(id: @want_post.town.id) %></p>
+  <%= link_to @want_post.town.name, want_posts_town_path(id: @want_post.town.id), class: "tag_area" %>
   <p class="post-user-image">
     投稿者：
     <%= link_to profile_path do %>
@@ -13,12 +29,12 @@
       <%= link_to @want_post.user.nickname,  data: {"turbolinks" => false} %>
     <% end %>
   </p>
-  <div class="want_post_<%= @want_post.id %>">
-    <%= render "users/want_likes/like", want_post: @want_post %>
-  </div>
   <p class="post-title"><%= @want_post.title %></p>
   <div class="post-contents">
     <p class="title">内容</p>
+    
+
+    
     <p><%= simple_format(@want_post.body) %></p>
   </div>
   <div class="post-contents">
@@ -27,8 +43,11 @@
   </div>
   <div class="post-contents">
     <p class="title">連絡先</p>
+    <div class="introduce"><%= simple_format(@want_post.user.introduce) %></div>
+    <%= link_to profile_path do %>
+      <p><%= attachment_image_tag @want_post.user, :profile_image, size: "30x30", fallback: image_url('profile_image.jpeg') %><%= @want_post.user.nickname %></p>
+    <% end %>
     <p>URL：<%= @want_post.url %></p>
-    <p>紹介文：<%= simple_format(@want_post.user.introduce) %></p>
     <p>メールアドレス：<%= @want_post.user.email %></p>
     <p>電話番号：<%= @want_post.user.phone_number %></p>
   </div>
@@ -36,7 +55,7 @@
   <p class="post-edit-delete">
     <% if @want_post.user == current_user %>
       <%= link_to '編集', edit_want_post_path(@want_post) %>/
-      <%= link_to '削除', want_post_path(@want_post), method: :delete %>
+      <%= link_to '削除', want_post_path(@want_post), method: :delete, data: {confirm: '本当に削除しますか？'} %>
       <hr class="line">
     <% end %>
   </p>

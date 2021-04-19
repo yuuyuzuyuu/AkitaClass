@@ -6,12 +6,12 @@
       <table class="table table-borderless">
         <tbody>
           <tr>
-            <td style="width: 30%">名前</td>
+            <td style="width: 30%">名前*</td>
             <td><%= f.text_field :last_name, autofocus: true, placeholder: "秋田" %></td>
             <td><%= f.text_field :first_name, autofocus: true, placeholder: "犬太" %></td>
           </tr>
           <tr>
-            <td>フリガナ</td>
+            <td>フリガナ*</td>
             <td><%= f.text_field :last_name_kana, placeholder: "アキタ" %></td>
             <td><%= f.text_field :first_name_kana, placeholder: "イヌタ" %></td>
           </tr>
@@ -28,11 +28,11 @@
             <td colspan="2"><%= f.attachment_field :profile_image %></td>
           </tr>
           <tr>
-            <td>自己紹介</td>
+            <td>自己紹介*</td>
             <td colspan="2"><%= f.text_area :introduce, placeholder: "秋田の雪がだいすきです。", size: "51x5" %></td>
           </tr>
           <tr>
-            <td>生年月日</td>
+            <td>生年月日*</td>
             <td colspan="2"><%= f.date_select(:birth_date, start_year: 1900, end_year: (Time.now.year), prompt:"--") %></td>
           </tr>
           <tr>
@@ -40,7 +40,11 @@
             <td colspan="2"><%= f.text_field :phone_number, placeholder: "000-0000-0000", size: 51 %></td>
           </tr>
           <tr>
-            <td>お住まいの都道府県</td>
+            <td>その他連絡先</td>
+            <td colspan="2"><%= f.text_field :contact, placeholder: "連絡しやすい連絡先をご記入ください。", size: 51 %></td>
+          </tr>
+          <tr>
+            <td>お住まいの都道府県*</td>
             <td colspan="2"><%= f.text_field :address, placeholder: "東京都", size: 51 %></td>
           </tr>
           <tr>
@@ -53,9 +57,8 @@
           </tr>
           <tr>
             <td></td>
-            <td colspan="2"><%= f.submit "新規登録" %></td>
+            <td colspan="2"><%= f.submit "保存" %></td>
           </tr>
-
         </tbody>
       </table>
     <% end %>
