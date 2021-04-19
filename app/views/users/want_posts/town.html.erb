@@ -104,7 +104,7 @@
         </div>
         <div class="post-body">
           <a class="post-title"><%= link_to want_post.title.truncate(45), want_post_path(want_post)  %></a><br>
-          <a class="post-user"><%= attachment_image_tag want_post.user, :profile_image, size: "30x30", fallback: "profile_image.jpg" %>
+          <a class="post-user"><%= attachment_image_tag want_post.user, :profile_image, size: "30x30", fallback: image_url("profile_image.jpg") %>
           <a><%= link_to want_post.user.nickname, profile_path(want_post.user) %></a><br>
         </div>
       </div>
