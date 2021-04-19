@@ -1,5 +1,5 @@
 <div class="post">
-  <p class="post-image"><%= attachment_image_tag @want_post, :post_image, size: "900x500", fallback: "post.png" %></p>
+  <p class="post-image"><%= attachment_image_tag @want_post, :post_image, size: "900x500", fallback: image_url("post.png") %></p>
   <p class="post-created-at">公開日：<%= @want_post.created_at.strftime('%Y/%m/%d') %></p>
   <p class="post-genre"><%= @want_post.genre.name %></p>
   <% @want_post.tag_list.each do |tag| %>
@@ -9,7 +9,7 @@
   <p class="post-user-image">
     投稿者：
     <%= link_to profile_path do %>
-      <%= attachment_image_tag @want_post.user, :profile_image, size: "30x30", fallback: "profile_image.jpg" %>
+      <%= attachment_image_tag @want_post.user, :profile_image, size: "30x30", fallback: image_url("profile_image.jpg") %>
       <%= link_to @want_post.user.nickname,  data: {"turbolinks" => false} %>
     <% end %>
   </p>

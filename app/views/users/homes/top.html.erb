@@ -25,7 +25,7 @@
             <div class="ranking text-center"><i class="fas fa-crown"></i><%= "#{idx+1}" %></div>
             <div class="post-image">
               <%= link_to want_post_path(want_post) do %>
-                <%= attachment_image_tag want_post, :post_image, size: "200x140", fallback: "post.png" %>
+                <%= attachment_image_tag want_post, :post_image, size: "200x140", fallback: image_url("post.png") %>
                 <p>
                   <i class="fas fa-location-arrow"></i>
                   <%= want_post.town.name %>
@@ -37,7 +37,7 @@
               <%= link_to want_post.title.truncate(26), want_post_path(want_post) %>
               <div class="post-user">
                 <%= link_to profile_path(want_post.user) do %>
-                  <%= attachment_image_tag want_post.user, :profile_image, size: "30x30", fallback: "profile_image.jpg" %>
+                  <%= attachment_image_tag want_post.user, :profile_image, size: "30x30", fallback: image_url("profile_image.jpg") %>
                   <%= want_post.user.nickname %>
                 <% end %>
               </div>
@@ -51,7 +51,7 @@
           <div class="new-post-content">
             <div class="post-image">
               <%= link_to want_post_path(want_post) do %>
-                <%= attachment_image_tag want_post, :post_image, size: "200x140", fallback: "post.png" %>
+                <%= attachment_image_tag want_post, :post_image, size: "200x140", fallback: image_url("post.png") %>
                 <p>
                   <i class="fas fa-location-arrow"></i>
                   <%= want_post.town.name %>
@@ -63,7 +63,7 @@
               <%= link_to want_post.title.truncate(26), want_post_path(want_post) %>
               <div class="post-user">
                 <%= link_to profile_path(want_post.user) do %>
-                  <%= attachment_image_tag want_post.user, :profile_image, size: "30x30", fallback: "profile_image.jpg" %>
+                  <%= attachment_image_tag want_post.user, :profile_image, size: "30x30", fallback: image_url("profile_image.jpg") %>
                   <%= want_post.user.nickname %> 
                 <% end %>
               </div>
@@ -89,7 +89,7 @@
             <div class="ranking text-center"><i class="fas fa-crown"></i><%= "#{idx+1}" %></div>
             <div class="post-image">
               <%= link_to help_post_path(help_post) do %>
-                <%= attachment_image_tag help_post, :post_image, size: "200x140", fallback: "post.png" %>
+                <%= attachment_image_tag help_post, :post_image, size: "200x140", fallback: image_url("post.png") %>
                 <p>
                   <i class="fas fa-location-arrow"></i>
                   <%= help_post.user.address %>
@@ -101,7 +101,7 @@
               <%= link_to help_post.title.truncate(26), help_post_path(help_post) %>
               <div class="post-user">
                 <%= link_to profile_path(help_post.user) do %>
-                  <%= attachment_image_tag help_post.user, :profile_image, size: "30x30", fallback: "profile_image.jpg" %>
+                  <%= attachment_image_tag help_post.user, :profile_image, size: "30x30", fallback: image_url("profile_image.jpg") %>
                   <%= help_post.user.nickname %>
                 <% end %>
               </div>
@@ -115,7 +115,7 @@
           <div class="new-post-content">
             <div class="post-image">
               <%= link_to help_post_path(help_post) do %>
-                <%= attachment_image_tag help_post, :post_image, size: "200x140", fallback: "post.png" %>
+                <%= attachment_image_tag help_post, :post_image, size: "200x140", fallback: image_url("post.png") %>
                 <p>
                   <i class="fas fa-location-arrow"></i>
                   <%= help_post.user.address %>
@@ -127,7 +127,7 @@
               <%= link_to help_post.title.truncate(26), help_post_path(help_post) %>
               <div class="post-user">
                 <%= link_to profile_path(help_post.user) do %>
-                  <%= attachment_image_tag help_post.user, :profile_image, size: "30x30", fallback: "profile_image.jpg" %>
+                  <%= attachment_image_tag help_post.user, :profile_image, size: "30x30", fallback: image_url("profile_image.jpg") %>
                   <%= help_post.user.nickname %> 
                 <% end %>
               </div>
