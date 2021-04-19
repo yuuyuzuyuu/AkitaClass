@@ -9,7 +9,13 @@
             <%= help_post.user.address %>
             ♡<%= help_post.help_likes.count %>
           </p>
-        <% end %><br>
+          <p2>
+            <% if help_post.active_status == false %>
+              募集終了
+            <% end %>
+          </p2>          
+        <% end %>
+        <br>
       </div>
       <div class="post-body">
         <div class="post-title">

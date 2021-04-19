@@ -22,7 +22,8 @@ User.create!(
   introduce: "何でも切ります！！！",
   birth_date: "1990.12.22",
   phone_number: "000-0000-0000",
-  address: "日本"
+  address: "日本",
+  withdraw_status: "false"
     )
   
   User.create!(
@@ -36,7 +37,8 @@ User.create!(
   introduce: "手が伸びます！！！",
   birth_date: "1970.10.12",
   phone_number: "000-0000-0000",
-  address: "日本"
+  address: "日本",
+  withdraw_status: "false"
     )
     
   Genre.create!(
