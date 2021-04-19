@@ -23,7 +23,6 @@ class Users::WantPostsController < ApplicationController
     if @want_post.save
       redirect_to want_post_path(@want_post.id)
     else
-      flash[:message] = "※必須項目を入力してください"
       render :new
     end
   end
