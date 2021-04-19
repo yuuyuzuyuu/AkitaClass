@@ -1,7 +1,16 @@
 <div class="post">
-  <p class="post-image"><%= attachment_image_tag @help_post, :post_image, size: "900x500", fallback: image_url("post.png") %></p>
-  <p class="post-created-at">公開日：<%= @help_post.created_at.strftime('%Y/%m/%d') %></p>
-  <p class="post-genre"><%= @help_post.genre.name %></p>
+  <div class="main-post-image">
+    <%= attachment_image_tag @help_post, :post_image, size: "790x500", fallback: image_url("post.png") %>
+  </div>
+  <div class="main-second-content">
+    <div class="help_post_<%= @help_post.id %>">
+      <%= render "users/help_likes/like", help_post: @help_post %>
+    </div>
+    <div class="post-right">
+      <p class="post-created-at">公開日：<%= @help_post.created_at.strftime('%Y/%m/%d') %></p>
+      <p class="post-genre"><%= @help_post.genre.name %></p>
+    </div>
+  </div>
   <% @help_post.tag_list.each do |tag| %>
     <%= link_to "##{tag}", help_posts_tag_path(tag: tag), class: "tag_area" %>
   <% end %>
@@ -12,16 +21,18 @@
       <%= @help_post.user.nickname %>
     <% end %>
   </p>
-  <div class="help_post_<%= @help_post.id %>">
-    <%= render "users/help_likes/like", help_post: @help_post %>
-  </div>
   <p class="post-title"><%= @help_post.title %></p>
   <div class="post-contents">
     <p class="title">内容</p>
     <p><%= simple_format(@help_post.body) %></p>
   </div>
   <div class="post-contents">
-    <p>紹介文：<%= simple_format(@help_post.user.introduce) %></p>
+    <p class="title">連絡先</p>
+    <div class="introduce"><%= simple_format(@help_post.user.introduce) %></div>
+    <%= link_to profile_path do %>
+      <p><%= attachment_image_tag @help_post.user, :profile_image, size: "30x30", fallback: image_url('profile_image.jpeg') %><%= @help_post.user.nickname %></p>
+    <% end %>
+    <p>メールアドレス：<%= @help_post.user.email %></p>
   </div>
 　<hr class="line">
   <p class="post-edit-delete">

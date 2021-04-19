@@ -1,9 +1,9 @@
   <% if help_post.liked_by?(current_user) %>
-    <%= link_to help_post_help_likes_path(help_post), method: :delete, remote: true do %>
-      ♥<%= help_post.help_likes.count %>
+    <%= link_to help_post_help_likes_path(help_post), method: :delete, class: "like_area", remote: true do %>
+      いいね！♥<%= help_post.help_likes.count %>
     <% end %>
   <% else %>
-    <%= link_to help_post_help_likes_path(help_post), method: :post, remote: true do %>
-      ♡<%= help_post.help_likes.count %>
+    <%= link_to help_post_help_likes_path(help_post), method: :post, class: "like_area", remote: true do %>
+      いいね！♡<%= help_post.help_likes.count %>
     <% end %>
   <% end %>
