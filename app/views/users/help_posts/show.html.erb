@@ -8,7 +8,7 @@
   <p class="post-user-image">
      投稿者：
     <%= link_to profile_path do %>
-      <%= attachment_image_tag @help_post.user, :profile_image, size: "30x30", fallback: "profile_image.jpg" %>
+      <%= attachment_image_tag @help_post.user, :profile_image, size: "30x30", fallback: "/assetprofile_image.jpg" %>
       <%= @help_post.user.nickname %>
     <% end %>
   </p>
