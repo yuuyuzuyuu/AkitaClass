@@ -36,12 +36,8 @@
             <td colspan="2"><%= f.date_select(:birth_date, start_year: 1900, end_year: (Time.now.year), prompt:"--") %></td>
           </tr>
           <tr>
-            <td>電話番号</td>
-            <td colspan="2"><%= f.text_field :phone_number, placeholder: "000-0000-0000", size: 51 %></td>
-          </tr>
-          <tr>
-            <td>その他連絡先</td>
-            <td colspan="2"><%= f.text_field :contact, placeholder: "連絡しやすい連絡先をご記入ください。", size: 51 %></td>
+            <td>連絡先</td>
+            <td colspan="2"><%= f.text_field :contact, placeholder: "公開する連絡先（例：電話番号、メールアドレス）", size: 51 %></td>
           </tr>
           <tr>
             <td>お住まいの都道府県*</td>
@@ -62,4 +58,5 @@
         </tbody>
       </table>
     <% end %>
+    <p class="text-right"><i class="fas fa-hand-point-right"></i><%= link_to "ログイン", user_session_path %></p>
 </div>
