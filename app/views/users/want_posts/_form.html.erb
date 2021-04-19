@@ -37,6 +37,15 @@
       <td><%= f.collection_select :town_id, Town.all, :id, :name, :prompt => "選択してください", size: 50 %></td>
     </tr>
     <tr>
+      <td>公開</td>
+      <td>
+        <%= f.radio_button :active_status, true, checked: true %>
+        <%= f.label :active_status, "募集中" %>
+        <%= f.radio_button :active_status, false %>
+        <%= f.label :active_status, "募集終了" %>
+      </td>
+    </tr>
+    <tr>
       <td></td>
       <td><%= f.submit '投稿' %></td>
     </tr>

@@ -9,7 +9,13 @@
             <%= want_post.town.name %>
             ♡<%= want_post.want_likes.count %>
           </p>
-        <% end %><br>
+          <p2>
+            <% if want_post.active_status == false %>
+              募集終了
+            <% end %>
+          </p2>          
+        <% end %>
+        <br>
       </div>
       <div class="post-body">
         <div class="post-title">

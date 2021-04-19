@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 2021_04_11_062519) do
     t.string "title", null: false
     t.text "body", null: false
     t.string "post_image_id"
+    t.boolean "active_status", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -89,7 +90,7 @@ ActiveRecord::Schema.define(version: 2021_04_11_062519) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "email", null: false
+    t.string "email"
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -102,8 +103,10 @@ ActiveRecord::Schema.define(version: 2021_04_11_062519) do
     t.string "introduce", null: false
     t.date "birth_date", null: false
     t.string "profile_image_id"
-    t.string "phone_number", null: false
-    t.string "address", null: false
+    t.string "phone_number"
+    t.string "address"
+    t.string "contact"
+    t.boolean "withdraw_status", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
@@ -134,6 +137,7 @@ ActiveRecord::Schema.define(version: 2021_04_11_062519) do
     t.text "requirement"
     t.string "url"
     t.string "post_image_id"
+    t.boolean "active_status", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

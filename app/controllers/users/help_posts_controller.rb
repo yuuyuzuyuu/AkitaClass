@@ -45,7 +45,7 @@ class Users::HelpPostsController < ApplicationController
     @help_post.destroy
     redirect_to help_posts_path
   end
-  
+
   def tag
     @tags = HelpPost.tag_counts_on(:tags).order('count DESC')
     if params[:tag].present?
@@ -55,7 +55,7 @@ class Users::HelpPostsController < ApplicationController
       @help_posts = HelpPost.all
     end
   end
-  
+
     # nameカラムがparams[:key]から始まる、Tagsテーブルのレコードを全取得
   def get_tag_search
     @tags = HelpPost.tag_counts_on(:tags).where('name LIKE(?)', "%#{params[:key]}%")
@@ -64,7 +64,7 @@ class Users::HelpPostsController < ApplicationController
   private
 
   def help_post_params
-    params.require(:help_post).permit(:title, :user_id, :body, :post_image, :genre_id, :tag_list)
+    params.require(:help_post).permit(:title, :user_id, :body, :post_image, :genre_id, :tag_list, :active_status)
   end
 
 end

@@ -7,6 +7,7 @@ class CreateHelpPosts < ActiveRecord::Migration[5.2]
       t.string :title, null: false
       t.text :body, null: false
       t.string :post_image_id
+      t.boolean :active_status, default: true, null: false
 
       t.timestamps
     end
