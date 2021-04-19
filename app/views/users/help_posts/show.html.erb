@@ -1,6 +1,13 @@
 <div class="post">
   <div class="main-post-image">
     <%= attachment_image_tag @help_post, :post_image, size: "790x500", fallback: image_url("post.png") %>
+    <p2>
+      <% if @help_post.active_status == true %>
+        募集中
+      <% else %>
+        募集終了
+      <% end %>
+    </p2>
   </div>
   <div class="main-second-content">
     <div class="help_post_<%= @help_post.id %>">
@@ -38,7 +45,7 @@
   <p class="post-edit-delete">
     <% if @help_post.user == current_user %>
       <%= link_to '編集', edit_help_post_path(@help_post) %>/
-      <%= link_to '削除', help_post_path(@help_post), method: :delete %>
+      <%= link_to '削除', help_post_path(@help_post), method: :delete, data: {confirm: '本当に削除しますか？'} %>
       <hr class="line">
     <% end %>
   </p>

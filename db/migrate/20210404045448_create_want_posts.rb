@@ -10,6 +10,7 @@ class CreateWantPosts < ActiveRecord::Migration[5.2]
       t.text :requirement
       t.string :url
       t.string :post_image_id
+      t.boolean :active_status, default: true, null: false
 
       t.timestamps
     end

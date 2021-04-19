@@ -37,12 +37,16 @@
         <td colspan="2"><%= f.text_field :phone_number, placeholder: "000-0000-0000", size: 53 %></td>
       </tr>
       <tr>
+        <td>その他連絡先</td>
+        <td colspan="2"><%= f.text_field :contact, placeholder: "連絡しやすい連絡先をご記入ください。", size: 53 %></td>
+      </tr>      
+      <tr>
         <td>お住まいの都道府県</td>
         <td colspan="2"><%= f.text_field :address, placeholder: "東京都", size: 53 %></td>
       </tr>
       <tr>
         <td></td>
-        <td><%= f.submit "編集内容を保存" %></td>
+        <td><%= f.submit "保存" %></td>
       </tr>
     </table>
     <% end %>
