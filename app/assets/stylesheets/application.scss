@@ -262,14 +262,41 @@ a:link, a:visited, a:hover, a:active {
   background: image-url("about.png") no-repeat center;
 }
 
-.about-main-content {
-  text-align: center;
-}
-
 .about-main-title {
   padding: 10px 0;
   font-size: 35px;
   background: image-url("title-background.png") no-repeat center;
+}
+
+section{
+  padding: 30px;
+}
+
+#page-link{
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+#page-link li{
+  list-style: none;
+}
+
+#page-link li a{
+  color: #333;
+  padding:0 20px;
+  text-decoration: none;
+}
+
+#page-link li a::before{
+  content:'▼';
+  font-size:0.8rem;
+  padding:0 10px 0 0;
+  color: #fae3d9;
+}
+
+#area-1, #area-2 {
+  text-align: center;
 }
 
 // 投稿詳細
