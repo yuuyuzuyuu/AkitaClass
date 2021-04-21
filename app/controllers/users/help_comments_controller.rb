@@ -19,5 +19,4 @@ class Users::HelpCommentsController < ApplicationController
   def help_comment_params
     params.require(:help_comment).permit(:comment)
   end
-
 end

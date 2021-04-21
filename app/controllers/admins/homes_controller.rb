@@ -6,5 +6,4 @@ class Admins::HomesController < ApplicationController
     @want_posts = WantPost.all
     @help_posts = HelpPost.all
   end
-  
 end
