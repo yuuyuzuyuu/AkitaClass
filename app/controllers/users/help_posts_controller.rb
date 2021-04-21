@@ -11,6 +11,7 @@ class Users::HelpPostsController < ApplicationController
     @help_post = HelpPost.find(params[:id])
     @help_comment = HelpComment.new
     @help_comments = HelpComment.all
+    @help_likes = HelpLike.where(help_post_id: @help_post.id)
   end
 
   def new
