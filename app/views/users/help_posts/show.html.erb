@@ -47,6 +47,15 @@
       <%= link_to '編集', edit_help_post_path(@help_post) %>/
       <%= link_to '削除', help_post_path(@help_post), method: :delete, data: {confirm: '本当に削除しますか？'} %>
       <hr class="line">
+      <p class="title">記事にいいねした人</p>
+      <% if @help_likes.exists? %>
+        <% @help_likes.each do |like| %>
+          ♡<%= link_to like.user.nickname, profile_path(like.user) %>
+        <% end %>
+      <% else %>
+        いいねした人はいません
+      <% end %>
+      <hr class="line">
     <% end %>
   </p>
   <div class="post-comment-area">

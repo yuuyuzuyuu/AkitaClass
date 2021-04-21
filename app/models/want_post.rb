@@ -4,7 +4,7 @@ class WantPost < ApplicationRecord
   belongs_to :town
   has_many :want_comments, dependent: :destroy
   has_many :want_likes, dependent: :destroy
-
+  
   validates :title, presence: true
   validates :body, presence: true
   attachment :post_image

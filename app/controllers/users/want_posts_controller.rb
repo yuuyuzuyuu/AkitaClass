@@ -11,6 +11,7 @@ class Users::WantPostsController < ApplicationController
     @want_post = WantPost.find(params[:id])
     @want_comment = WantComment.new
     @want_comments = WantComment.all
+    @want_likes = WantLike.where(want_post_id: @want_post.id)
   end
 
   def new
