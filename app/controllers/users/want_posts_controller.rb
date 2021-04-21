@@ -70,7 +70,7 @@ class Users::WantPostsController < ApplicationController
   private
 
   def want_post_params
-    params.require(:want_post).permit(:title, :body, :post_image, :genre_id, :town_id, :url, :requirement, :tag_list, :active_status)
+    params.require(:want_post).permit(:title, :body, :post_image, :genre_id, :town_id, :url, :requirement, :tag_list, :active_status, :contact)
   end
 
 end
