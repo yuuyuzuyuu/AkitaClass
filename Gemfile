@@ -77,3 +77,4 @@ gem 'jquery-ui-rails' #Tag-itのGem
 gem 'rails-i18n'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
+gem 'impressionist', '~>1.6.1'

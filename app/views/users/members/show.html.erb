@@ -1,6 +1,8 @@
 <div class="index">
 <div class="profile">
   <p class="title">＼プロフィール／</p>
+  ＼<%= number_with_delimiter(@page_views) %> visitors／
+  
     <div class="user">
       <%= attachment_image_tag @user, :profile_image, size: "250x250", fallback: image_url('profile_image.jpeg') %>
       <p class="nickname"><%= @user.nickname %></p>
