@@ -8,7 +8,6 @@ class Users::HelpPostsController < ApplicationController
   end
 
   def show
-    
     @help_post = HelpPost.find(params[:id])
     @help_comment = HelpComment.new
     @help_comments = HelpComment.all
