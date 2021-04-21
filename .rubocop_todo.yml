@@ -7,7 +7,7 @@
 # versions of RuboCop, may require this file to be generated again.
 
 # Offense count: 3
- Configuration parameters: IgnoredMethods, CountRepeatedAttributes.
+# Configuration parameters: IgnoredMethods, CountRepeatedAttributes.
 Metrics/AbcSize:
   Max: 29
 
@@ -28,10 +28,10 @@ Metrics/MethodLength:
   Max: 32
 
 # Offense count: 2
-#Naming/AccessorMethodName:
- # Exclude:
-  #  - 'app/controllers/users/help_posts_controller.rb'
-   # - 'app/controllers/users/want_posts_controller.rb'
+Naming/AccessorMethodName:
+  Exclude:
+    - 'app/controllers/users/help_posts_controller.rb'
+    - 'app/controllers/users/want_posts_controller.rb'
 
 # Offense count: 6
 # Configuration parameters: AllowedChars.
