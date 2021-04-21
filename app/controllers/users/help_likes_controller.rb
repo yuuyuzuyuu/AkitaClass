@@ -12,5 +12,4 @@ class Users::HelpLikesController < ApplicationController
     help_like = current_user.help_likes.find_by(help_post_id: @help_post.id)
     help_like.destroy
   end
-
 end
