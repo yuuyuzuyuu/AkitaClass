@@ -26,7 +26,7 @@
     投稿者：
     <%= link_to profile_path(@want_post.user) do %>
       <%= attachment_image_tag @want_post.user, :profile_image, size: "30x30", fallback: image_url("profile_image.jpg") %>
-      <%= link_to @want_post.user.nickname,  data: {"turbolinks" => false} %>
+      <%= link_to @want_post.user.nickname %>
     <% end %>
   </p>
   <p class="post-title"><%= @want_post.title %></p>
