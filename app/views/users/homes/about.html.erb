@@ -1,11 +1,63 @@
-<div class="about-main-visual">
-</div>
-  <div class="about-main-content">
-    <p class="about-main-title">ようこそ、秋田くらすへ。</p>
-
-    <p class="about-main-title">「秋田くらす」って？</p>
-    
-    <br>
-    <p class="about-main-title">サイトの使い方</p>
-    <p></p>
+<div class="about-main-visual"></div>
+  <ul id="page-link">
+    <li><a href="#area-1">「秋田くらす」って？</a></li>
+    <li><a href="#area-2">サイトの使い方</a></li>
+  </ul>
+  <div class="area">
+    <section id="area-1">
+      <p class="about-main-title">「秋田くらす」って？</p>
+      <p>年々人口減少がすすむ日本。</p>
+      <p>秋田県の人口減少率はトップクラスです。</p><br>
+      <p>そんな中、地方の在り方が見直され始めています。</p>
+      <p>都会とは違った、空気、空、景色、人の温かみ・・・</p><br>
+      <p>そんな生活を求めるあなたと、</p>
+      <p>そんな生活の中に人材を求めるあなた。</p><br>
+      <p>秋田への移住者と、地域。</p>
+      <p>双方をつなぐための、サイトです。</p><br>
+      <p>※このサイトは会員制です。※</p>
+      <p>会員登録がお済みでない方は、<%= link_to "こちら", new_user_registration_path %>から登録してください。</p><br>
+    </section>
+    <section id="area-2">
+      <p class="about-main-title">サイトの使い方</p>
+      <p class="about-main-subtitle">step.01 投稿記事を見る</p>
+      <div class="about-main-content">
+        <div class="left">
+          <%= image_tag 'about1.png' %>
+        </div>
+        <div class="right">
+          <p>記事は「移住者側」と「地域側」に分かれています。</p>
+          <p>▶︎<%= link_to "移住したい人", want_posts_path %>/<%= link_to "地域の人", help_posts_path %></p>
+          <p>・<%= link_to "トップページ", root_path %>からは、タグ検索や地図検索を利用していただけます。</p>
+          <p>・記事に“いいね♡”を押すと、マイページから一覧をみることができます。</p>
+        </div>
+      </div>
+      <hr class="line">
+      <p class="about-main-subtitle">step.02 自分をPRする</p>
+       <div class="about-main-content">
+        <div class="left">
+          <%= image_tag 'about2.png' %>
+        </div>
+        <div class="right">
+          <p>いよいよ、自分のことを発信していきましょう。</p>
+          <p>▶︎<%= link_to '自分をPRする', new_help_post_path %>/<%= link_to '地域に呼ぶ', new_want_post_path %></p>
+          <p>・自分のPRポイントを、できるだけ詳しく記載しましょう。</p>
+          <p>・たくさんの人の目に留まるような写真やタイトルにしましょう。</p>
+          <p>素敵な出会いがありますように。</p>
+        </div>
+      </div>
+      <hr class="line">
+      <p class="about-main-subtitle">step.03 連絡をとってみる</p>
+       <div class="about-main-content">
+        <div class="left">
+          <%= image_tag 'about3.png' %>
+        </div>
+        <div class="right">
+          <p>コメントをしたり、連絡をとったりしてみましょう。</p>
+          <p>●コメント欄から質問したり、連絡したりできます。</p>
+          <p>●記載してある連絡先に、積極的に連絡してみましょう。</p>
+          <p>コミュニケーションを取り、お互いの理解を深めてみてくださいね。</p>
+        </div>
+      </div>
+      <hr class="line">
+    </section>
   </div>

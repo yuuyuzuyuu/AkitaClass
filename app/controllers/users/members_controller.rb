@@ -7,6 +7,9 @@ class Users::MembersController < ApplicationController
     @want_posts = WantPost.all
     @help_likes = HelpLike.where(user_id: @user.id)
     @want_likes = WantLike.where(user_id: @user.id)
+    
+    impressionist(@user)  #プレビュー数を数える
+    @page_views = @user.impressionist_count
   end
 
   def edit

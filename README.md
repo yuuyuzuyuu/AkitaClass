@@ -29,3 +29,7 @@
 - JSライブラリ：jQuery
 - IDE：Cloud9
 
+## 使用素材
+- 地図素材　https://www.map-ac.com/
+- アイコン素材　https://www.designevo.com/
+- フォント素材　http://modi.jpn.org/
