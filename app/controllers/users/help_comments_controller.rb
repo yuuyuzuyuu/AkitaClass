@@ -5,6 +5,7 @@ class Users::HelpCommentsController < ApplicationController
     @help_post = HelpPost.find(params[:help_post_id])
     @help_comment = current_user.help_comments.new(help_comment_params)
     @help_comment.help_post_id = @help_post.id
+    @help_comment_post = @help_comment.help_post
     @help_comment.save
   end
 
