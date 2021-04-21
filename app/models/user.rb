@@ -22,7 +22,6 @@ class User < ApplicationRecord
   validates :birth_date, presence: true
   validates :email, presence: true, uniqueness: true
   attachment :profile_image
-  validates :phone_number, presence: true
   validates :address, presence: true
   
 end
