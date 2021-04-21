@@ -29,6 +29,8 @@ Rails.application.routes.draw do
     get 'want_posts/tag' => 'want_posts#tag'
     get 'want_posts/town' => 'want_posts#town'
 
+    resources :notifications, only: :index
+
     resources :help_posts do
       resources :help_comments, only: %i[create destroy]
       resource :help_likes, only: %i[create destroy]

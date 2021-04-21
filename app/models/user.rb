@@ -23,4 +23,5 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
   attachment :profile_image
   validates :address, presence: true
+  
 end

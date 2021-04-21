@@ -26,15 +26,12 @@
     投稿者：
     <%= link_to profile_path(@want_post.user) do %>
       <%= attachment_image_tag @want_post.user, :profile_image, size: "30x30", fallback: image_url("profile_image.jpg") %>
-      <%= link_to @want_post.user.nickname %>
+      <%= @want_post.user.nickname %>
     <% end %>
   </p>
   <p class="post-title"><%= @want_post.title %></p>
   <div class="post-contents">
     <p class="title">内容</p>
-    
-
-    
     <p><%= simple_format(@want_post.body) %></p>
   </div>
   <div class="post-contents">
@@ -55,6 +52,15 @@
     <% if @want_post.user == current_user %>
       <%= link_to '編集', edit_want_post_path(@want_post) %>/
       <%= link_to '削除', want_post_path(@want_post), method: :delete, data: {confirm: '本当に削除しますか？'} %>
+      <hr class="line">
+      <p class="title">記事にいいねした人</p>
+      <% if @want_likes.exists? %>
+        <% @want_likes.each do |like| %>
+          ♡<%= link_to like.user.nickname, profile_path(like.user) %>
+        <% end %>
+      <% else %>
+        いいねした人はいません
+      <% end %>
       <hr class="line">
     <% end %>
   </p>
