@@ -56,7 +56,7 @@ class Users::HelpPostsController < ApplicationController
     end
   end
 
-    # nameカラムがparams[:key]から始まる、Tagsテーブルのレコードを全取得
+  # nameカラムがparams[:key]から始まる、Tagsテーブルのレコードを全取得
   def get_tag_search
     @tags = HelpPost.tag_counts_on(:tags).where('name LIKE(?)', "%#{params[:key]}%")
   end
@@ -64,7 +64,7 @@ class Users::HelpPostsController < ApplicationController
   private
 
   def help_post_params
-    params.require(:help_post).permit(:title, :user_id, :body, :post_image, :genre_id, :tag_list, :contact, :active_status)
+    params.require(:help_post).permit(:title, :user_id, :body, :post_image, :genre_id, :tag_list, :contact,
+                                      :active_status)
   end
-
 end

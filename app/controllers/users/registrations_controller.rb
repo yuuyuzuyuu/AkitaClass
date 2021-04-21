@@ -8,8 +8,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def new
   #   super
   # end
-  
-  def after_sign_up_path_for(resource)
+
+  def after_sign_up_path_for(_resource)
     root_path
   end
 
@@ -41,7 +41,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def cancel
   #   super
   # end
-  
 
   # protected
 
