@@ -29,6 +29,6 @@ class Users::MembersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :nickname, :email,
-                                 :introduce, :birth_date, :phone_number, :address, :profile_image, :contact, :withdraw_status)
+                                 :introduce, :birth_date, :address, :profile_image, :contact, :withdraw_status, :instagram, :twitter, :facebook)
   end
 end
