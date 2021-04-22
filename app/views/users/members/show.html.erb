@@ -12,6 +12,17 @@
         <p>居住地:<%= @user.address %></p>
         <p>連絡先:<%= @user.contact %></p>
         <p>誕生日:<%= @user.birth_date.strftime('%Y/%m/%d') %></p>
+        <div class="sns">
+          <%= link_to @user.instagram do %>
+            <i class="fab fa-instagram"></i>
+          <% end %>
+          <%= link_to @user.twitter do %>
+            <i class="fab fa-twitter"></i>
+          <% end %>
+          <%= link_to @user.facebook do %>
+            <i class="fab fa-facebook-f"></i>
+          <% end %>
+        </div>
         <% if @user == current_user %>
           <p class="link"><%= link_to '編集', members_mypage_edit_path %></p>
         <% end %>
