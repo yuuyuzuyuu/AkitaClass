@@ -41,9 +41,11 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.date :birth_date, null: false
       t.string :profile_image_id
       t.string :email
-      t.string :phone_number
       t.string :address
       t.string :contact
+      t.string :instagram
+      t.string :twitter
+      t.string :facebook
       t.boolean :withdraw_status, default: false, null: false
 
       t.timestamps null: false

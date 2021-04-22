@@ -36,12 +36,24 @@
             <td colspan="2"><%= f.date_select(:birth_date, start_year: 1900, end_year: (Time.now.year), prompt:"--") %></td>
           </tr>
           <tr>
+            <td>instagram</td>
+            <td colspan="2"><%= f.text_field :instagram, placeholder: "https://www.instagram.com/〇〇", size: 51 %></td>
+          </tr>
+          <tr>
+            <td>Twitter</td>
+            <td colspan="2"><%= f.text_field :twitter, placeholder: "https://twitter.com/〇〇", size: 51 %></td>
+          </tr>
+          <tr>
+            <td>Facebook</td>
+            <td colspan="2"><%= f.text_field :facebook, placeholder: "https://www.facebook.com/〇〇", size: 51 %></td>
+          </tr>
+          <tr>
             <td>連絡先</td>
             <td colspan="2"><%= f.text_field :contact, placeholder: "公開する連絡先（例：電話番号、メールアドレス）", size: 51 %></td>
           </tr>
           <tr>
             <td>お住まいの都道府県*</td>
-            <td colspan="2"><%= f.text_field :address, placeholder: "東京都", size: 51 %></td>
+            <td colspan="2"><%= f.text_field :address, placeholder: "東京", size: 51 %></td>
           </tr>
           <tr>
             <td>パスワード*</td>
