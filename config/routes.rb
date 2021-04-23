@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
   namespace :admins do
+    get 'want_posts/index'
+  end
+  namespace :admins do
+    get 'help_posts/index'
+  end
+  namespace :admins do
     get 'members/index'
   end
 
@@ -12,6 +18,8 @@ Rails.application.routes.draw do
     resources :members, only: %i[index show]
     resources :genres, only: %i[index create edit update destroy]
     resources :towns, only: %i[index create edit update destroy]
+    resources :help_posts, only: %i[index show destroy]
+    resources :want_posts, only: %i[index show destroy]
   end
 
   devise_for :users, controllers: {
