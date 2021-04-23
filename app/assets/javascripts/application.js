@@ -113,4 +113,23 @@ $('#page-link a[href*="#"]').click(function () {
   $('body,html').animate({scrollTop: pos}, 500);  //取得した位置にスクロール。数値が大きくなるほどゆっくりスクロール
   return false;
 });
+
+$(function(){
+  //オーバーレイとコンテンツの表示
+  $(".modal-open").click(function(){
+    $(this).blur() ; //ボタンからフォーカスを外す
+    if($( ".modal-overlay")[0]) return false; //新たにオーバーレイが追加されるのを防ぐ
+    $("body").append('<div class="modal-overlay"></div>'); //オーバーレイ用のHTMLをbody内に追加
+    $(".modal-overlay").fadeIn("slow"); //オーバーレイの表示
+    $(".modal").fadeIn("slow"); //モーダルウインドウの表示
+    
+    //モーダルウインドウの終了
+    $(".modal-overlay,.modal-close").unbind().click(function(){
+      $( ".modal,.modal-overlay" ).fadeOut( "slow" , function(){ //閉じるボタンかオーバーレイ部分クリックでフェードアウト
+        $('.modal-overlay').remove(); //フェードアウト後、オーバーレイをHTMLから削除
+      });
+    });
+  });
+});
+
 });
