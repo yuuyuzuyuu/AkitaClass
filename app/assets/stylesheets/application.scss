@@ -166,6 +166,11 @@ a:link, a:visited, a:hover, a:active {
   text-decoration: none;
 }
 
+a:hover {
+  color: #61c0bf;
+  text-decoration: none;
+}
+
 a {
   color: #000;
   text-decoration: none;
@@ -545,7 +550,7 @@ section{
 
 // 新規登録、ログイン、プロフィール編集、新規投稿、投稿編集、【管理者】ジャンル一覧、ユーザー一覧・詳細、市町村一覧、トップ、投稿一覧・詳細
 
-.registrations-new, .sessions-new, .member-edit, .post-new, .post-edit, .genre-index, 
+.registrations-new, .sessions-new, .member-edit, .post-new, .post-edit, .genre-index,
 .admin-user-index, .town-index, .admin-top, .admin-post-index, .admin-post-show  {
   width: 50%;
   margin: 50px auto;
@@ -731,4 +736,28 @@ section{
   border: 1px solid #ffb6b9;
   color: #fff;
   text-decoration: none;
+}
+
+// 退会画面
+.withdraw-index {
+  text-align: center;
+  width: 30%;
+  height: 400px;
+}
+
+.withdraw-link {
+  margin: 0 auto;
+  border-radius: 50%;
+  line-height: 100px;
+  width: 100px;
+  height: 100px;
+  padding: 0;
+  background: #61c0bf;
+  text-align: center;
+  font-size: 14px;
+}
+
+.withdraw-links {
+  margin: 40px 0;
+  display: flex;
 }

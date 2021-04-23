@@ -24,4 +24,8 @@ class User < ApplicationRecord
   attachment :profile_image
   validates :address, presence: true
   
+  def active_for_authentication?
+    super && (self.withdraw_status == false)
+  end
+  
 end

@@ -24,4 +24,14 @@ class Users::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
+  
+  def reject_withdraw_user
+    @user = Customer.find_by(email: params[:user][:email].downcase)
+    if @user
+      if (@user.valid_password?(params[:user][:password]) && (@user.active_for_authentication? == false))
+        flash[:notice] = "退会済みのためログインできません。"
+        redirect_to new_user_session_path
+      end
+    end
+  end
 end
