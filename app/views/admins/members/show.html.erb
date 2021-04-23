@@ -1,60 +1,60 @@
 <div class="admin-user-index">
   <p class="title">ユーザー詳細</p>
-      <table class="table table-borderless table-hover">
-        <tbody>
-          <tr>
-            <td>プロフィール画像</td>
-            <td><%= attachment_image_tag @user, :profile_image, size: "150x150" %></td>
-          </tr>
-          <tr>
-            <td>名前(フリガナ)</td>
-            <td><%= @user.last_name+@user.first_name %>(<%= @user.last_name_kana+@user.first_name_kana %>)</td>
-          </tr>
-          <tr>
-            <td>表示名</td>
-            <td><%= @user.nickname %></td>
-          </tr>
-          <tr>
-            <td>自己紹介</td>
-            <td><%= simple_format(@user.introduce) %></td>
-          </tr>
-          <tr>
-            <td>メールアドレス</td>
-            <td><%= @user.email %></td>
-          </tr>
-          <tr>
-            <td>生年月日</td>
-            <td><%= @user.birth_date.strftime('%Y/%m/%d') %></td>
-          </tr>
-          <tr>
-            <td>instagram</td>
-            <td><%= @user.instagram %></td>
-          </tr>
-          <tr>
-            <td>Twitter</td>
-            <td><%= @user.twitter %></td>
-          </tr>
-          <tr>
-            <td>Facebook</td>
-            <td><%= @user.facebook %></td>
-          </tr>
-          <tr>
-            <td>連絡先</td>
-            <td><%= @user.contact %></td>
-          </tr>
-          <tr>
-            <td>都道府県</td>
-            <td><%= @user.address %></td>
-          </tr>
-          <tr>
-            <td>登録日時</td>
-            <td><%= @user.created_at.strftime('%Y/%m/%d %H:%M') %></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-          </tr>
-        </tbody>
-      </table>
-    <p class="text-right"><i class="fas fa-hand-point-right"></i><%= link_to "トップに戻る", admins_top_path %></p>
+    <table class="table table-borderless table-hover">
+      <tbody>
+        <tr>
+          <td>プロフィール画像</td>
+          <td><%= attachment_image_tag @user, :profile_image, size: "150x150" %></td>
+        </tr>
+        <tr>
+          <td>名前(フリガナ)</td>
+          <td><%= @user.last_name+@user.first_name %>(<%= @user.last_name_kana+@user.first_name_kana %>)</td>
+        </tr>
+        <tr>
+          <td>表示名</td>
+          <td><%= @user.nickname %></td>
+        </tr>
+        <tr>
+          <td>自己紹介</td>
+          <td><%= simple_format(@user.introduce) %></td>
+        </tr>
+        <tr>
+          <td>メールアドレス</td>
+          <td><%= @user.email %></td>
+        </tr>
+        <tr>
+          <td>生年月日</td>
+          <td><%= @user.birth_date.strftime('%Y/%m/%d') %></td>
+        </tr>
+        <tr>
+          <td>instagram</td>
+          <td><%= @user.instagram %></td>
+        </tr>
+        <tr>
+          <td>Twitter</td>
+          <td><%= @user.twitter %></td>
+        </tr>
+        <tr>
+          <td>Facebook</td>
+          <td><%= @user.facebook %></td>
+        </tr>
+        <tr>
+          <td>連絡先</td>
+          <td><%= @user.contact %></td>
+        </tr>
+        <tr>
+          <td>都道府県</td>
+          <td><%= @user.address %></td>
+        </tr>
+        <tr>
+          <td>登録日時</td>
+          <td><%= @user.created_at.strftime('%Y/%m/%d %H:%M') %></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  <p class="text-right"><i class="fas fa-hand-point-right"></i><%= link_to "トップに戻る", admins_top_path %></p>
 </div>
