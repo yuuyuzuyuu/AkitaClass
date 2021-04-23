@@ -24,6 +24,18 @@ class Users::MembersController < ApplicationController
       render 'edit'
     end
   end
+  
+  def unsubscribe
+  end
+  
+  def withdraw
+    @user = current_user
+    @user.withdraw_status = true
+    if @user.save
+      reset_session
+      redirect_to root_path
+    end
+  end
 
   private
 
