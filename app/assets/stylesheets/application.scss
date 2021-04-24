@@ -307,10 +307,16 @@ a {
 }
 
 // アバウトページ
-.about-main-visual {
+.about-main-visual-1 {
   width: 100%;
   height: 350px;
   background: image-url("about.png") no-repeat center;
+}
+
+.about-main-visual-2 {
+  width: 100%;
+  height: 350px;
+  background: image-url("about-2.png") no-repeat center;
 }
 
 .about-main-title {
