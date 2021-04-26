@@ -12,14 +12,20 @@
         <p>連絡先:<%= @user.contact %></p>
         <p>誕生日:<%= @user.birth_date.strftime('%Y/%m/%d') %></p>
         <div class="sns">
-          <%= link_to @user.instagram do %>
-            <i class="fab fa-instagram"></i>
+          <% if @user.instagram.present? %>
+            <%= link_to @user.instagram do %>
+              <i class="fab fa-instagram"></i>
+            <% end %>
           <% end %>
-          <%= link_to @user.twitter do %>
-            <i class="fab fa-twitter"></i>
+          <% if @user.twitter.present? %>
+            <%= link_to @user.twitter do %>
+              <i class="fab fa-twitter"></i>
+            <% end %>
           <% end %>
-          <%= link_to @user.facebook do %>
-            <i class="fab fa-facebook-f"></i>
+          <% if @user.facebook.present? %>
+            <%= link_to @user.facebook do %>
+              <i class="fab fa-facebook-f"></i>
+            <% end %>
           <% end %>
         </div>
         <% if @user == current_user %>

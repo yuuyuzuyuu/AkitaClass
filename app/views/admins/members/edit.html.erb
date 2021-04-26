@@ -1,7 +1,7 @@
 <div class="member-edit">
   <p class="title">会員情報編集<p>
   <p>*=入力必須項目</p>
-    <%= form_with model: @user, url: members_mypage_path, local: true do |f| %>
+    <%= form_with model: @user, url: admins_member_path, local: true do |f| %>
     <table class="table table-borderless">
       <tr>
         <td style="width: 30%">名前*</td>
@@ -54,10 +54,18 @@
         <td colspan="2"><%= f.text_field :address, placeholder: "東京都", size: 51 %></td>
       </tr>
       <tr>
+        <td>会員ステータス</td>
+        <td>
+          <%= f.radio_button :withdraw_status, :false %>
+          <%= f.label :withdraw_status, "会員" %>
+          <%= f.radio_button :withdraw_status, :true %>
+          <%= f.label :withdraw_status, "退会" %>
+        </td>
+      </tr>
+      <tr>
         <td></td>
         <td><%= f.submit "保存" %></td>
       </tr>
     </table>
     <% end %>
-    <p class="text-right"><i class="fas fa-hand-point-right"></i><%= link_to "退会画面", members_unsubscribe_path %></p>
 </div>

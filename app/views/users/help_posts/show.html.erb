@@ -36,10 +36,29 @@
   <div class="post-contents">
     <p class="title">連絡先</p>
     <div class="introduce"><%= simple_format(@help_post.user.introduce) %></div>
-    <%= link_to profile_path(@help_post.user) do %>
-      <p><%= attachment_image_tag @help_post.user, :profile_image, size: "30x30", fallback: image_url('profile_image.jpeg') %><%= @help_post.user.nickname %></p>
+    <p>
+      <%= link_to profile_path(@help_post.user) do %>
+        <%= attachment_image_tag @help_post.user, :profile_image, size: "30x30", fallback: image_url('profile_image.jpeg') %><%= @help_post.user.nickname %>
+      <% end %>
+      <% if @help_post.user.instagram.present? %>
+        <%= link_to @help_post.user.instagram do %>
+          <i class="fab fa-instagram"></i>
+        <% end %>
+      <% end %>
+      <% if @help_post.user.twitter.present? %>
+        <%= link_to @help_post.user.twitter do %>
+          <i class="fab fa-twitter"></i>
+        <% end %>
+      <% end %>
+      <% if @help_post.user.facebook.present? %>
+        <%= link_to @help_post.user.facebook do %>
+          <i class="fab fa-facebook-f"></i>
+        <% end %>
+      <% end %>
+    </p>
+    <% if @help_post.user.contact.present? %>
+      <p>連絡先：<%= @help_post.user.contact %></p>
     <% end %>
-    <p>連絡先：<%= @help_post.user.contact %></p>
   </div>
 　<hr class="line">
   <p class="post-edit-delete">

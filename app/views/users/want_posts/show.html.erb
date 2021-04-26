@@ -41,11 +41,32 @@
   <div class="post-contents">
     <p class="title">連絡先</p>
     <div class="introduce"><%= simple_format(@want_post.user.introduce) %></div>
-    <%= link_to profile_path(@want_post.user) do %>
-      <p><%= attachment_image_tag @want_post.user, :profile_image, size: "30x30", fallback: image_url('profile_image.jpeg') %><%= @want_post.user.nickname %></p>
-    <% end %>
-    <p>URL：<%= @want_post.url %></p>
-    <p>連絡先：<%= @want_post.user.contact %></p>
+    <p>
+      <%= link_to profile_path(@want_post.user) do %>
+        <%= attachment_image_tag @want_post.user, :profile_image, size: "30x30", fallback: image_url('profile_image.jpeg') %><%= @want_post.user.nickname %>
+      <% end %>
+      <% if @want_post.user.instagram.present? %>
+        <%= link_to @want_post.user.instagram do %>
+          <i class="fab fa-instagram"></i>
+        <% end %>
+      <% end %>
+      <% if @want_post.user.twitter.present? %>
+        <%= link_to @want_post.user.twitter do %>
+          <i class="fab fa-twitter"></i>
+        <% end %>
+      <% end %>
+      <% if @want_post.user.facebook.present? %>
+        <%= link_to @want_post.user.facebook do %>
+          <i class="fab fa-facebook-f"></i>
+        <% end %>
+      <% end %>
+      <% if @want_post.url.present? %>
+        <p>URL：<%= @want_post.url %></p>
+      <% end %>
+      <% if @want_post.user.contact.present? %>
+        <p>連絡先：<%= @want_post.user.contact %></p>
+      <% end %>
+    </p>
   </div>
   <hr class="line">
   <p class="post-edit-delete">

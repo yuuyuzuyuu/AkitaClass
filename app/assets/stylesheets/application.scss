@@ -163,6 +163,17 @@ body {
 
 a:link, a:visited, a:hover, a:active {
   color: #000;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #61c0bf;
+  text-decoration: none;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
 }
 
 .line {
@@ -178,8 +189,43 @@ a:link, a:visited, a:hover, a:active {
 
 // トップページ
 
+.modal {  //モーダルウィンドウで、アバウトページへ誘導
+  width: 500px;
+  height: 150px;
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 2;
+  text-align: center;
+  background: #fff;
+  padding: 30px;
+}
+
+.modal-overlay{
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120%;
+  background-color: rgba(0,0,0,0.65);
+  z-index: 1;
+}
+
+.modal-open,
+.modal-close {
+  cursor: pointer;
+}
+
+.hello {
+  padding: 25px 0;
+  text-align: center;
+  background: image-url("line.png") no-repeat center;
+}
+
 .wrapper {
-  margin-top: 50px;
   background-color: #fae3d9;
   display: flex;
 }
@@ -261,10 +307,16 @@ a:link, a:visited, a:hover, a:active {
 }
 
 // アバウトページ
-.about-main-visual {
+.about-main-visual-1 {
   width: 100%;
   height: 350px;
   background: image-url("about.png") no-repeat center;
+}
+
+.about-main-visual-2 {
+  width: 100%;
+  height: 350px;
+  background: image-url("about-2.png") no-repeat center;
 }
 
 .about-main-title {
@@ -502,9 +554,10 @@ section{
   font-size: 14px;
 }
 
-// 新規登録、ログイン、プロフィール編集、新規投稿、投稿編集、【管理者】ジャンル一覧、ユーザー一覧・詳細、市町村一覧、トップ
+// 新規登録、ログイン、プロフィール編集、新規投稿、投稿編集、【管理者】ジャンル一覧、ユーザー一覧・詳細、市町村一覧、トップ、投稿一覧・詳細
 
-.registrations-new, .sessions-new, .member-edit, .post-new, .post-edit, .genre-index, .admin-user-index, .town-index, .admin-top {
+.registrations-new, .sessions-new, .member-edit, .post-new, .post-edit, .genre-index,
+.admin-user-index, .town-index, .admin-top, .admin-post-index, .admin-post-show  {
   width: 50%;
   margin: 50px auto;
   padding: 10px 10px;
@@ -623,6 +676,7 @@ section{
   background-size: cover;
   background-repeat: no-repeat;
   background-image: image-url("top.png");
+  outline:none;
 }
 
 .top-image2 {
@@ -631,6 +685,7 @@ section{
   background-size: cover;
   background-repeat: no-repeat;
   background-image: image-url("top2.png");
+  outline:none;
 }
 
 .top-image3 {
@@ -639,6 +694,7 @@ section{
   background-size: cover;
   background-repeat: no-repeat;
   background-image: image-url("top3.png");
+  outline:none;
 }
 
 .slick-track {
@@ -688,3 +744,26 @@ section{
   text-decoration: none;
 }
 
+// 退会画面
+.withdraw-index {
+  text-align: center;
+  width: 30%;
+  height: 400px;
+}
+
+.withdraw-link {
+  margin: 0 auto;
+  border-radius: 50%;
+  line-height: 100px;
+  width: 100px;
+  height: 100px;
+  padding: 0;
+  background: #61c0bf;
+  text-align: center;
+  font-size: 14px;
+}
+
+.withdraw-links {
+  margin: 40px 0;
+  display: flex;
+}

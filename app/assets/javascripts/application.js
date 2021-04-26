@@ -91,7 +91,7 @@ $('#page-top').click(function () {
             scrollTop: 0
         }, 2000,function(){ //スクロールの速さ。数字が大きくなるほど遅くなる
             $('#page-top').removeClass('floatAnime'); //上までスクロールしたらfloatAnimeというクラス名を除く
-        });	
+        });
 	}
     return false; //リンク自体の無効化
 });
@@ -103,6 +103,7 @@ $(function() {
     autoplay: true,
     autoplaySpeed: 3000,
     fade: true,
+    arrows: true,
   });
 });
 
@@ -113,4 +114,24 @@ $('#page-link a[href*="#"]').click(function () {
   $('body,html').animate({scrollTop: pos}, 500);  //取得した位置にスクロール。数値が大きくなるほどゆっくりスクロール
   return false;
 });
+
+//モーダルウィンドー
+$(function(){
+  //オーバーレイとコンテンツの表示
+  $(".modal-open").click(function(){
+    $(this).blur() ; //ボタンからフォーカスを外す
+    if($( ".modal-overlay")[0]) return false; //新たにオーバーレイが追加されるのを防ぐ
+    $("body").append('<div class="modal-overlay"></div>'); //オーバーレイ用のHTMLをbody内に追加
+    $(".modal-overlay").fadeIn("slow"); //オーバーレイの表示
+    $(".modal").fadeIn("slow"); //モーダルウインドウの表示
+
+    //モーダルウインドウの終了
+    $(".modal-overlay,.modal-close").unbind().click(function(){
+      $( ".modal,.modal-overlay" ).fadeOut( "slow" , function(){ //閉じるボタンかオーバーレイ部分クリックでフェードアウト
+        $('.modal-overlay').remove(); //フェードアウト後、オーバーレイをHTMLから削除
+      });
+    });
+  });
+});
+
 });

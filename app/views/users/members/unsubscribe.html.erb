@@ -1,0 +1,10 @@
+<div class="index withdraw-index">
+  <p class="title">＼退会画面／</p>
+    <h4>退会しますか？</h4>
+    <div class="withdraw-links">
+      <div class="withdraw-link"><%= link_to "退会しない", root_path %></div>
+      <div class="link"><%= link_to "退会する", members_withdraw_path, method: :patch, data: { confirm: "本当に退会しますか？" } %></div>
+    </div>
+    <p>▲注意</p>
+    <p>退会すると、記事を見ることができなくなってしまいます。</p>
+</div>

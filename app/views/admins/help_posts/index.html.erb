@@ -1,0 +1,22 @@
+<div class="admin-post-index">
+  <p class="title">投稿一覧</p>
+  <table class="table table-borderless table-hover">
+    <thead>
+      <tr>
+        <th>タイトル</th>
+        <th>投稿者</th>
+        <th>投稿日</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @help_posts.each do |help_post| %>
+      <tr>
+        <td><%= link_to help_post.title, admins_help_post_path(help_post) %></td>
+        <td><%= help_post.user.nickname %></td>
+        <td><%= help_post.created_at.strftime('%Y/%m/%d  %H:%M') %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+  <p class="text-right"><i class="fas fa-hand-point-right"></i><%= link_to "トップに戻る", admins_top_path %></p>
+</div>
