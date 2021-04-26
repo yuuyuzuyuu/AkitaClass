@@ -1,14 +1,14 @@
 <div class="admin-top">
   <table class="table table-borderless">
     <tr>
-      <td>現在の会員数</td>
+      <td style="width: 50%"><%= link_to "現在の会員数", admins_members_path %></td>
       <td><%= @users.count %></td>
     </tr>
     <tr>
-      <td>地域側の投稿数</td>
+      <td><%= link_to "地域側の投稿数", admins_want_posts_path %></td>
       <td><%= @want_posts.count %></td>
     </tr>
-      <td>移住者側の投稿数</td>
+      <td><%= link_to "移住者側の投稿数", admins_help_posts_path %></td>
       <td><%= @help_posts.count %></td>
     </tr>
   </table>

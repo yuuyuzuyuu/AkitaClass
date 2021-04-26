@@ -1,7 +1,13 @@
 <header>
   <div class="logo-pan">
-    <%= link_to root_path do %>
-      <%= image_tag 'top-bird2.png', size: "50x50" %>
+    <% if current_admin %>
+      <%= link_to admins_top_path do %>
+        <%= image_tag 'top-bird2.png', size: "50x50" %>
+      <% end %>
+    <% else %>
+      <%= link_to root_path do %>
+        <%= image_tag 'top-bird2.png', size: "50x50" %>
+      <% end %>
     <% end %>
   </div>
   <div class="openbtn"><span></span><span></span><span></span></div>
@@ -11,6 +17,8 @@
           <% if admin_signed_in? %>
             <li><%= link_to 'トップ', admins_top_path, class: 'nav-link text-light' %></li>
             <li><%= link_to '会員一覧', admins_members_path, class: 'nav-link text-light' %></li>
+            <li><%= link_to '移住者側投稿', admins_help_posts_path, class: 'nav-link text-light' %></li>
+            <li><%= link_to '地域側投稿', admins_want_posts_path, class: 'nav-link text-light' %></li>
             <li><%= link_to 'ジャンル', admins_genres_path, class: 'nav-link text-light' %></li>
             <li><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class: 'nav-link text-light' %></li>
           <% elsif user_signed_in? %>
