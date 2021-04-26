@@ -5,6 +5,7 @@ class Users::HelpPostsController < ApplicationController
     @q = HelpPost.ransack(params[:q])
     @help_posts = @q.result(distinct: true)
     @genres = Genre.all
+    @help_post_all = @help_posts.page(params[:page]).per(9)
   end
 
   def show

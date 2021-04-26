@@ -9,6 +9,7 @@
       </button>
     <% end %>
   </div>
-    <%= render 'index', want_posts: @want_posts %>
+    <%= render 'index', want_post_all: @want_post_all %>
+    <%= paginate @want_post_all %>
     <br>
 </div>
