@@ -373,7 +373,7 @@ section{
   text-align: left;
 }
 
-#area-1, #area-2 {
+#area-1, #area-2, #area-3 {
   text-align: center;
 }
 
@@ -747,8 +747,7 @@ section{
 // 退会画面
 .withdraw-index {
   text-align: center;
-  width: 30%;
-  height: 400px;
+  width: 35%;
 }
 
 .withdraw-link {
@@ -766,4 +765,14 @@ section{
 .withdraw-links {
   margin: 40px 0;
   display: flex;
+}
+
+.caution {
+  padding: 0.5em 1em;
+  margin: 2em 0;
+  border: double 5px #bbded6;
+}
+.box5 p {
+  margin: 0; 
+  padding: 0;
 }
