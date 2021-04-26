@@ -33,8 +33,9 @@ Rails.application.routes.draw do
     get '/profile/:id' => 'members#show', as: :profile
     get '/members/mypage/edit' => 'members#edit'
     patch '/members/mypage' => 'members#update'
-    get "/members/unsubscribe" => "members#unsubscribe"
-    patch "/members/withdraw" => "members#withdraw"
+    get '/members/unsubscribe' => 'members#unsubscribe'
+    patch '/members/withdraw' => 'members#withdraw'
+    get '/members/withdrawed' => 'members#withdrawed'
     get 'help_posts/tag' => 'help_posts#tag'
     get 'want_posts/tag' => 'want_posts#tag'
     get 'want_posts/town' => 'want_posts#town'
