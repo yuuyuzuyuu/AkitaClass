@@ -5,8 +5,9 @@
       <div class="withdraw-link"><%= link_to "退会しない", root_path %></div>
       <div class="link"><%= link_to "退会する", members_withdraw_path, method: :patch, data: { confirm: "本当に退会しますか？" } %></div>
     </div>
-    <p>▲注意</p>
-    <p>退会すると、記事を見ることができなくなってしまいます。</p>
-    <p>退会しても、記事を残すことができます。</p>
-    <p>残したくない場合は、削除してから退会してください。</p>
+    <div class="caution">
+      <p>▲注意</p>
+      <p>退会しても、記事を残すことができます。</p>
+      <p>残したくない場合は、削除してから退会してください。</p>
+    </div>
 </div>
