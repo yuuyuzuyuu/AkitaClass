@@ -4,7 +4,6 @@ class Users::HelpPostsController < ApplicationController
   def index
     @q = HelpPost.ransack(params[:q])
     @help_posts = @q.result(distinct: true)
-    @help_posts_all = HelpPost.page(params[:page]).per(6).order('updated_at DESC')
     @genres = Genre.all
   end
 
