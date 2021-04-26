@@ -9,6 +9,7 @@
       </button>
     <% end %>
   </div>
-    <%= render 'index', help_posts: @help_posts %>
+    <%= render 'index', help_post_all: @help_post_all %>
+    <%= paginate @help_post_all %>
     <br>
 </div>
