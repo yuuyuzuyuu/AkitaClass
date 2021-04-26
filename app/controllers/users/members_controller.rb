@@ -3,13 +3,17 @@ class Users::MembersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @help_posts = HelpPost.all
-    @want_posts = WantPost.all
-    @help_likes = HelpLike.where(user_id: @user.id)
-    @want_likes = WantLike.where(user_id: @user.id)
-
-    impressionist(@user)  # プレビュー数を数える
-    @page_views = @user.impressionist_count
+    if @user.withdraw_status == true
+      redirect_to members_withdrawed_path
+    else
+      @help_posts = HelpPost.all
+      @want_posts = WantPost.all
+      @help_likes = HelpLike.where(user_id: @user.id)
+      @want_likes = WantLike.where(user_id: @user.id)
+  
+      impressionist(@user)  # プレビュー数を数える
+      @page_views = @user.impressionist_count
+    end
   end
 
   def edit
@@ -35,6 +39,9 @@ class Users::MembersController < ApplicationController
       reset_session
       redirect_to root_path
     end
+  end
+  
+  def withdrawed
   end
 
   private
