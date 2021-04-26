@@ -5,6 +5,7 @@ class Users::WantPostsController < ApplicationController
     @q = WantPost.ransack(params[:q])
     @want_posts = @q.result(distinct: true)
     @genres = Genre.all
+    @want_post_all = @want_posts.page(params[:page]).per(9)
   end
 
   def show

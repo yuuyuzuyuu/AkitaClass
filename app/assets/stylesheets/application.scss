@@ -187,6 +187,10 @@ a {
   color: #ffb6b9;
 }
 
+.pagination {
+  justify-content: center;
+}
+
 // トップページ
 
 .modal {  //モーダルウィンドウで、アバウトページへ誘導
@@ -773,6 +777,6 @@ section{
   border: double 5px #bbded6;
 }
 .box5 p {
-  margin: 0; 
+  margin: 0;
   padding: 0;
 }
