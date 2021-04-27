@@ -3,7 +3,7 @@ class Users::WantPostsController < ApplicationController
 
   def index
     @q = WantPost.ransack(params[:q])
-    @want_posts = @q.result(distinct: true).page(params[:page]).per(9)
+    @want_posts = @q.result(distinct: true).page(params[:page]).per(6)
     @genres = Genre.all
   end
 
