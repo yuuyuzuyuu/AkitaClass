@@ -3,9 +3,8 @@ class Users::WantPostsController < ApplicationController
 
   def index
     @q = WantPost.ransack(params[:q])
-    @want_posts = @q.result(distinct: true)
+    @want_posts = @q.result(distinct: true).page(params[:page]).per(9)
     @genres = Genre.all
-    @want_post_all = @want_posts.page(params[:page]).per(9)
   end
 
   def show
