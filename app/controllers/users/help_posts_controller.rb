@@ -51,9 +51,9 @@ class Users::HelpPostsController < ApplicationController
     @tags = HelpPost.tag_counts_on(:tags).order('count DESC')
     if params[:tag].present?
       @tag = params[:tag]
-      @help_posts = HelpPost.tagged_with(params[:tag])
+      @help_posts = HelpPost.tagged_with(params[:tag]).page(params[:page]).per(6)
     else
-      @help_posts = HelpPost.all
+      @help_posts = HelpPost.page(params[:page]).per(6)
     end
   end
 

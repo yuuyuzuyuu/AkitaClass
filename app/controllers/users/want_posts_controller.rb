@@ -51,9 +51,9 @@ class Users::WantPostsController < ApplicationController
     @tags = WantPost.tag_counts_on(:tags).order('count DESC')
     if params[:tag].present?
       @tag = params[:tag]
-      @want_posts = WantPost.tagged_with(params[:tag])
+      @want_posts = WantPost.tagged_with(params[:tag]).page(params[:page]).per(6)
     else
-      @want_posts = WantPost.all
+      @want_posts = WantPost.page(params[:page]).per(6)
     end
   end
 
@@ -63,7 +63,7 @@ class Users::WantPostsController < ApplicationController
   end
 
   def town
-    @want_posts = WantPost.all
+    @want_posts = WantPost.page(params[:page]).per(6)
     @town = Town.find(params[:id]) if params[:id]
     @towns = Town.all
   end
