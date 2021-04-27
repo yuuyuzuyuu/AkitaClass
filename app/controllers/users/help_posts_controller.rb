@@ -3,9 +3,8 @@ class Users::HelpPostsController < ApplicationController
 
   def index
     @q = HelpPost.ransack(params[:q])
-    @help_posts = @q.result(distinct: true)
+    @help_posts = @q.result(distinct: true).page(params[:page]).per(9)
     @genres = Genre.all
-    @help_post_all = @help_posts.page(params[:page]).per(9)
   end
 
   def show
