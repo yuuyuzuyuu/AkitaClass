@@ -12,6 +12,6 @@ class Admins::HelpPostsController < ApplicationController
   def destroy
     @help_post = HelpPost.find(params[:id])
     @help_post.destroy
-    redirect_to admins_help_posts_
+    redirect_to admins_help_posts_path
   end
 end

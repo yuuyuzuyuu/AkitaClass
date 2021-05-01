@@ -20,6 +20,7 @@ class Users::HelpPostsController < ApplicationController
 
   def create
     @help_post = HelpPost.new(help_post_params)
+    @help_post.score = Language.get_data(help_post_params[:body])
     @help_post.user_id = current_user.id
     if @help_post.save
       redirect_to help_post_path(@help_post.id)
