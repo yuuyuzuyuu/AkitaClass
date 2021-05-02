@@ -20,6 +20,7 @@ class Users::WantPostsController < ApplicationController
 
   def create
     @want_post = WantPost.new(want_post_params)
+    @want_post.score = Language.get_data(want_post_params[:body])
     @want_post.user_id = current_user.id
     if @want_post.save
       redirect_to want_post_path(@want_post.id)
