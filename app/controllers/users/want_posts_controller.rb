@@ -35,6 +35,7 @@ class Users::WantPostsController < ApplicationController
 
   def update
     @want_post = WantPost.find(params[:id])
+    @want_post.score = Language.get_data(want_post_params[:body])
     if @want_post.update(want_post_params)
       redirect_to want_post_path
     else
