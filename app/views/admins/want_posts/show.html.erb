@@ -35,7 +35,11 @@
           <td><%= @want_post.town.name %></td>
         </tr>
         <tr>
-          <td></td>
+          <td>本文評価</td>
+          <td><%= @want_post.score %></td>
+        </tr>
+        <tr>
+          <td>ステータス</td>
           <td>
             <% if @want_post.active_status == true %>
               募集中

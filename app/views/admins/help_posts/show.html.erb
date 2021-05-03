@@ -23,7 +23,11 @@
           <td><%= @help_post.genre.name %></td>
         </tr>
         <tr>
-          <td></td>
+          <td>本文評価</td>
+          <td><%= @help_post.score %></td>
+        </tr>
+        <tr>
+          <td>ステータス</td>
           <td>
             <% if @help_post.active_status == true %>
               募集中
