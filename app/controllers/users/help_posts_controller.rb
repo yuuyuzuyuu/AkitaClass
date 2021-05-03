@@ -35,6 +35,7 @@ class Users::HelpPostsController < ApplicationController
 
   def update
     @help_post = HelpPost.find(params[:id])
+    @help_post.score = Language.get_data(help_post_params[:body])
     if @help_post.update(help_post_params)
       redirect_to help_post_path
     else
