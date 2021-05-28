@@ -10,7 +10,7 @@
             ♡<%= want_post.want_likes.count %>
           </p>
           <p2>
-            <% if want_post.active_status == false %>
+            <% if !want_post.active_status %>
               募集終了
             <% end %>
           </p2>          
