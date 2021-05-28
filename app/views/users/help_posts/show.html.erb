@@ -2,7 +2,7 @@
   <div class="main-post-image">
     <%= attachment_image_tag @help_post, :post_image, size: "790x500", fallback: image_url("post.png") %>
     <p2>
-      <% if @help_post.active_status == true %>
+      <% if @help_post.active_status %>
         募集中
       <% else %>
         募集終了
