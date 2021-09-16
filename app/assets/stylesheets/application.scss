@@ -225,8 +225,13 @@ a {
 
 .hello {
   padding: 25px 0;
+  height: 70px;
   text-align: center;
-  background: image-url("line.png") no-repeat center;
+  background-color: #AEDEFC;
+}
+
+.top-image {
+  text-align: center;
 }
 
 .wrapper {
@@ -667,43 +672,30 @@ section{
   100% { transform: translateX(6px);opacity: 1; }
 }
 
-// スライドショー
+/*ドットナビゲーションの設定*/
 
-.top-image {
-  width: 90%;
-  margin: 0 auto;
+.slick-dots {
+    text-align:center;
+	margin:20px 0 0 0;
 }
 
-.top-image1 {
-  width: 80%;
-  height: 500px;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-image: image-url("top.png");
-  outline:none;
+.slick-dots li {
+    display:inline-block;
+	margin:0 5px;
 }
 
-.top-image2 {
-  width: 80%;
-  height: 500px;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-image: image-url("top2.png");
-  outline:none;
+.slick-dots button {
+    color: transparent;
+    outline: none;
+    width:8px;/*ドットボタンのサイズ*/
+    height:8px;/*ドットボタンのサイズ*/
+    display:block;
+    border-radius:50%;
+    background:#ccc;/*ドットボタンの色*/
 }
 
-.top-image3 {
-  width: 80%;
-  height: 500px;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-image: image-url("top3.png");
-  outline:none;
-}
-
-.slick-track {
-  width: 80%;
-  height: 500px;
+.slick-dots .slick-active button{
+    background:#333;/*ドットボタンの現在地表示の色*/
 }
 
 // タグ
