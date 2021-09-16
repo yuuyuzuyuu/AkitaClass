@@ -96,17 +96,6 @@ $('#page-top').click(function () {
     return false; //リンク自体の無効化
 });
 
-// トップ画像にslick導入
-$(function() {
-  $('.top-image').slick({
-    dots: true,
-    autoplay: true,
-    autoplaySpeed: 3000,
-    fade: true,
-    arrows: true,
-  });
-});
-
 // アバウトのページ内推移
 $('#page-link a[href*="#"]').click(function () {
   var elmHash = $(this).attr('href'); //ページ内リンクのHTMLタグhrefから、リンクされているエリアidの値を取得
