@@ -223,9 +223,14 @@ a {
   cursor: pointer;
 }
 
-.hello {
-  padding: 25px 0;
-  height: 70px;
+.first-content {
+  height: 600px;
+}
+
+.first-content-btn {
+  padding: 25px;
+  margin: 0 auto;
+  width: auto;
   text-align: center;
   background-color: #AEDEFC;
 }
