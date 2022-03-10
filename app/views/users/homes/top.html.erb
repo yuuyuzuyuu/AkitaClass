@@ -14,16 +14,16 @@
         </div>
     </div>
     <div class="first-content-btn">
-      <p>秋田に住みたい人</p>
+      <a href="#top-want">秋田に住みたい人</a>
     </div>
     <div class="first-content-btn">
-      <p>秋田に住んでほしい人</p>
+      <a href="#top-help">秋田に住んでほしい人</a>
     </div>
   </div>
 
   <div class="wrapper">
 
-    <div class="top-want">
+    <section id="top-want">
       <p class="title">＼住んでみたい方はこちら／</p>
         <div class="post-link">
           <div class="link"><%= link_to "市町村別", want_posts_town_path %></div>
@@ -104,11 +104,11 @@
         <% end %>
       </div>
       <p class="more"><i class="fas fa-hand-point-right"></i><%= link_to 'more', want_posts_path %></p>
-    </div>
+    </section>
 
     <div class="divider"></div>
 
-    <div class="top-help">
+    <section id="top-help">
       <p class="title">＼地域の方はこちら／</p>
         <div class="post-link">
           <div class="link"><%= link_to "タグ検索", help_posts_tag_path %></div>
@@ -188,7 +188,7 @@
         <% end %>
       </div>
       <p class="more"><i class="fas fa-hand-point-right"></i><%= link_to 'more', help_posts_path %></p>
-    </div>
+    </section>
 
     </div>
 
