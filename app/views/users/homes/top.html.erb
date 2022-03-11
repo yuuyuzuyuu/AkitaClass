@@ -1,171 +1,198 @@
-<div class="top-image">
-  <img src="/assets/top.png" alt="">
-</div>
-
 <main>
+  <div class="main-visual">
+    <div class="top-image"></div>
+  </div>
 
-  <div class="hello">
-  <a class="modal-open">＼はじめましてさんへ／</a>
-    <div class="modal">
-      <div class="modal-cont">
-        まずは<%= link_to "こちらから", homes_about_path %>、サイトの利用方法をご確認ください。
-      </div><br><br>
-      <div class="btn-modal-close"><a class="modal-close"><i class="fas fa-hand-point-right"></i>閉じる</a></div>
+  <div class="first-content">
+    <div class="first-content-btn">
+      <a class="modal-open">はじめまして？</a>
+        <div class="modal">
+          <div class="modal-cont">
+            まずは<%= link_to "こちらから", homes_about_path %>、サイトの利用方法をご確認ください。
+          </div><br><br>
+          <div class="btn-modal-close"><a class="modal-close"><i class="fas fa-hand-point-right"></i>閉じる</a></div>
+        </div>
+    </div>
+    <div class="first-content-btn">
+      <a href="#top-want">秋田に住みたい人</a>
+    </div>
+    <div class="first-content-btn">
+      <a href="#top-help">秋田に住んでほしい人</a>
     </div>
   </div>
 
   <div class="wrapper">
 
-    <div class="top-want">
+    <section id="top-want">
       <p class="title">＼住んでみたい方はこちら／</p>
-        <div class="post-link">
-          <div class="link"><%= link_to "市町村別", want_posts_town_path %></div>
-          <div class="link"><%= link_to "タグ検索", want_posts_tag_path %></div>
-          <div class="link"><%= link_to "キーワード検索", want_posts_path %></div>
+      <div class="post-link">
+        <div class="link"><%= link_to "市町村別", want_posts_town_path %></div>
+        <div class="link"><%= link_to "タグ検索", want_posts_tag_path %></div>
+        <div class="link"><%= link_to "キーワード検索", want_posts_path %></div>
+      </div>
+      <div class="post-list">
+        <p class="top-title">人気投稿</p>
+        <div class="popular-post">
+          <% if @want_ranks.present? %>
+            <% @want_ranks.each_with_index do |want_post, idx| %>
+              <div class="popular-post-content">
+                <div class="ranking text-center"><i class="fas fa-crown"></i><%= "#{idx+1}" %></div>
+                <div class="post-image">
+                  <%= link_to want_post_path(want_post) do %>
+                    <%= attachment_image_tag want_post, :post_image, size: "200x140", fallback: image_url("post.png") %>
+                    <p>
+                      <i class="fas fa-location-arrow"></i>
+                      <%= want_post.town.name %>
+                      ♡<%= want_post.want_likes.count %>
+                    </p>
+                    <p2>
+                      <% if want_post.active_status == false %>
+                        募集終了
+                      <% end %>
+                    </p2>
+                  <% end %>
+                  <br>
+                </div>
+                <div class="popular-post-body">
+                  <%= link_to want_post.title.truncate(26), want_post_path(want_post) %>
+                  <div class="post-user">
+                    <%= link_to profile_path(want_post.user) do %>
+                      <%= attachment_image_tag want_post.user, :profile_image, size: "30x30", fallback: image_url("profile_image.jpg") %>
+                      <%= want_post.user.nickname %>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          <% else %>
+            <p>投稿はありません</p>
+          <% end %>
         </div>
-      <p class="top-title">人気投稿</p>
-      <div class="popular-post">
-        <% @want_ranks.each_with_index do |want_post, idx| %>
-          <div class="popular-post-content">
-            <div class="ranking text-center"><i class="fas fa-crown"></i><%= "#{idx+1}" %></div>
-            <div class="post-image">
-              <%= link_to want_post_path(want_post) do %>
-                <%= attachment_image_tag want_post, :post_image, size: "200x140", fallback: image_url("post.png") %>
-                <p>
-                  <i class="fas fa-location-arrow"></i>
-                  <%= want_post.town.name %>
-                  ♡<%= want_post.want_likes.count %>
-                </p>
-                <p2>
-                  <% if want_post.active_status == false %>
-                    募集終了
+        <p class="top-title">最新投稿</p>
+        <div class="new-post">
+          <% if @want_posts.present? %>
+            <% @want_posts.each do |want_post| %>
+              <div class="new-post-content">
+                <div class="post-image">
+                  <%= link_to want_post_path(want_post) do %>
+                    <%= attachment_image_tag want_post, :post_image, size: "200x140", fallback: image_url("post.png") %>
+                    <p>
+                      <i class="fas fa-location-arrow"></i>
+                      <%= want_post.town.name %>
+                      ♡<%= want_post.want_likes.count %>
+                    </p>
+                    <p2>
+                      <% if want_post.active_status == false %>
+                        募集終了
+                      <% end %>
+                    </p2>
                   <% end %>
-                </p2>
-              <% end %>
-              <br>
-            </div>
-            <div class="popular-post-body">
-              <%= link_to want_post.title.truncate(26), want_post_path(want_post) %>
-              <div class="post-user">
-                <%= link_to profile_path(want_post.user) do %>
-                  <%= attachment_image_tag want_post.user, :profile_image, size: "30x30", fallback: image_url("profile_image.jpg") %>
-                  <%= want_post.user.nickname %>
-                <% end %>
+                  <br>
+                </div>
+                <div class="new-post-body">
+                  <%= link_to want_post.title.truncate(26), want_post_path(want_post) %>
+                  <div class="post-user">
+                    <%= link_to profile_path(want_post.user) do %>
+                      <%= attachment_image_tag want_post.user, :profile_image, size: "30x30", fallback: image_url("profile_image.jpg") %>
+                      <%= want_post.user.nickname %>
+                    <% end %>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-        <% end %>
+            <% end %>
+          <% else %>
+            <p>投稿はありません</p>
+          <% end %>
+        </div>
+        <p class="more"><i class="fas fa-hand-point-right"></i><%= link_to 'more', want_posts_path %></p>
       </div>
-      <p class="top-title">最新投稿</p>
-      <div class="new-post">
-        <% @want_posts.each do |want_post| %>
-          <div class="new-post-content">
-            <div class="post-image">
-              <%= link_to want_post_path(want_post) do %>
-                <%= attachment_image_tag want_post, :post_image, size: "200x140", fallback: image_url("post.png") %>
-                <p>
-                  <i class="fas fa-location-arrow"></i>
-                  <%= want_post.town.name %>
-                  ♡<%= want_post.want_likes.count %>
-                </p>
-                <p2>
-                  <% if want_post.active_status == false %>
-                    募集終了
-                  <% end %>
-                </p2>
-              <% end %>
-              <br>
-            </div>
-            <div class="new-post-body">
-              <%= link_to want_post.title.truncate(26), want_post_path(want_post) %>
-              <div class="post-user">
-                <%= link_to profile_path(want_post.user) do %>
-                  <%= attachment_image_tag want_post.user, :profile_image, size: "30x30", fallback: image_url("profile_image.jpg") %>
-                  <%= want_post.user.nickname %>
-                <% end %>
-              </div>
-            </div>
-          </div>
-        <% end %>
-      </div>
-      <p class="more"><i class="fas fa-hand-point-right"></i><%= link_to 'more', want_posts_path %></p>
-    </div>
+    </section>
 
     <div class="divider"></div>
 
-    <div class="top-help">
+    <section id="top-help">
       <p class="title">＼地域の方はこちら／</p>
         <div class="post-link">
           <div class="link"><%= link_to "タグ検索", help_posts_tag_path %></div>
           <div class="link"><%= link_to "キーワード検索", help_posts_path %></div>
         </div>
-            <p class="top-title">人気投稿</p>
-      <div class="popular-post">
-        <% @help_ranks.each_with_index do |help_post, idx| %>
-          <div class="popular-post-content">
-            <div class="ranking text-center"><i class="fas fa-crown"></i><%= "#{idx+1}" %></div>
-            <div class="post-image">
-              <%= link_to help_post_path(help_post) do %>
-                <%= attachment_image_tag help_post, :post_image, size: "200x140", fallback: image_url("post.png") %>
-                <p>
-                  <i class="fas fa-location-arrow"></i>
-                  <%= help_post.user.address %>
-                  ♡<%= help_post.help_likes.count %>
-                </p>
-                <p2>
-                  <% if help_post.active_status == false %>
-                    募集終了
-                  <% end %>
-                </p2>
+        <div class="post-list">
+          <p class="top-title">人気投稿</p>
+          <div class="popular-post">
+            <% if @help_ranks.present? %>
+              <% @help_ranks.each_with_index do |help_post, idx| %>
+                <div class="popular-post-content">
+                  <div class="ranking text-center"><i class="fas fa-crown"></i><%= "#{idx+1}" %></div>
+                  <div class="post-image">
+                    <%= link_to help_post_path(help_post) do %>
+                      <%= attachment_image_tag help_post, :post_image, size: "200x140", fallback: image_url("post.png") %>
+                      <p>
+                        <i class="fas fa-location-arrow"></i>
+                        <%= help_post.user.address %>
+                        ♡<%= help_post.help_likes.count %>
+                      </p>
+                      <p2>
+                        <% if help_post.active_status == false %>
+                          募集終了
+                        <% end %>
+                      </p2>
+                    <% end %>
+                    <br>
+                  </div>
+                  <div class="popular-post-body">
+                    <%= link_to help_post.title.truncate(26), help_post_path(help_post) %>
+                    <div class="post-user">
+                      <%= link_to profile_path(help_post.user) do %>
+                        <%= attachment_image_tag help_post.user, :profile_image, size: "30x30", fallback: image_url("profile_image.jpg") %>
+                        <%= help_post.user.nickname %>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
               <% end %>
-              <br>
-            </div>
-            <div class="popular-post-body">
-              <%= link_to help_post.title.truncate(26), help_post_path(help_post) %>
-              <div class="post-user">
-                <%= link_to profile_path(help_post.user) do %>
-                  <%= attachment_image_tag help_post.user, :profile_image, size: "30x30", fallback: image_url("profile_image.jpg") %>
-                  <%= help_post.user.nickname %>
-                <% end %>
-              </div>
-            </div>
+            <% else %>
+              <p>投稿はありません</p>
+            <% end %>
           </div>
-        <% end %>
-      </div>
-      <p class="top-title">最新投稿</p>
-      <div class="new-post">
-        <% @help_posts.each do |help_post| %>
-          <div class="new-post-content">
-            <div class="post-image">
-              <%= link_to help_post_path(help_post) do %>
-                <%= attachment_image_tag help_post, :post_image, size: "200x140", fallback: image_url("post.png") %>
-                <p>
-                  <i class="fas fa-location-arrow"></i>
-                  <%= help_post.user.address %>
-                  ♡<%= help_post.help_likes.count %>
-                </p>
-                <p2>
-                  <% if help_post.active_status == false %>
-                    募集終了
-                  <% end %>
-                </p2>
+          <p class="top-title">最新投稿</p>
+          <div class="new-post">
+            <% if @help_posts.present? %>
+              <% @help_posts.each do |help_post| %>
+                <div class="new-post-content">
+                  <div class="post-image">
+                    <%= link_to help_post_path(help_post) do %>
+                      <%= attachment_image_tag help_post, :post_image, size: "200x140", fallback: image_url("post.png") %>
+                      <p>
+                        <i class="fas fa-location-arrow"></i>
+                        <%= help_post.user.address %>
+                        ♡<%= help_post.help_likes.count %>
+                      </p>
+                      <p2>
+                        <% if help_post.active_status == false %>
+                          募集終了
+                        <% end %>
+                      </p2>
+                    <% end %>
+                    <br>
+                  </div>
+                  <div class="new-post-body">
+                    <%= link_to help_post.title.truncate(26), help_post_path(help_post) %>
+                    <div class="post-user">
+                      <%= link_to profile_path(help_post.user) do %>
+                        <%= attachment_image_tag help_post.user, :profile_image, size: "30x30", fallback: image_url("profile_image.jpg") %>
+                        <%= help_post.user.nickname %>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
               <% end %>
-              <br>
-            </div>
-            <div class="new-post-body">
-              <%= link_to help_post.title.truncate(26), help_post_path(help_post) %>
-              <div class="post-user">
-                <%= link_to profile_path(help_post.user) do %>
-                  <%= attachment_image_tag help_post.user, :profile_image, size: "30x30", fallback: image_url("profile_image.jpg") %>
-                  <%= help_post.user.nickname %>
-                <% end %>
-              </div>
-            </div>
+            <% else %>
+              <p>投稿はありません</p>
+            <% end %>
           </div>
-        <% end %>
-      </div>
-      <p class="more"><i class="fas fa-hand-point-right"></i><%= link_to 'more', help_posts_path %></p>
-    </div>
+          <p class="more"><i class="fas fa-hand-point-right"></i><%= link_to 'more', help_posts_path %></p>
+        </div>
+    </section>
 
     </div>
 
