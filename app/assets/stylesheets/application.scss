@@ -283,6 +283,7 @@ main {
 
 .new-post, .popular-post {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .new-post-content, {
