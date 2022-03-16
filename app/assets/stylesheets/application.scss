@@ -259,18 +259,12 @@ main {
 .wrapper {
 }
 
-#top-want {
+#top-want, #top-help {
   background-color: #fae3d9;
   width: 100%;
   margin: 50px 0;
   padding: 30px 10px;
-}
-
-#top-help {
-  background-color: #fae3d9;
-  width: 100%;
-  margin: 50px 0;
-  padding: 30px 10px;
+  border-radius: 10px;
 }
 
 .main-visual-content {
