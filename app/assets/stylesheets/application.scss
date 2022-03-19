@@ -231,6 +231,7 @@ a {
   padding: 25px;
   margin: 20px auto;
   width: auto;
+  display: inline-block;
   text-align: center;
   background-color: #AEDEFC;
 }
@@ -249,8 +250,6 @@ main {
   width: 100%;
   height: 500px;
   background: url(/assets/top.png);
-  // padding: 150px;
-  border: solid 1px;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
