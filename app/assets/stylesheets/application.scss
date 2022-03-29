@@ -229,8 +229,9 @@ a {
 
 .first-content-btn {
   padding: 25px;
-  margin: 0 auto;
+  margin: 20px auto;
   width: auto;
+  display: inline-block;
   text-align: center;
   background-color: #AEDEFC;
 }
@@ -247,28 +248,22 @@ main {
 
 .top-image {
   width: 100%;
-  height: 550px;
+  height: 500px;
   background: url(/assets/top.png);
-  // padding: 150px;
-  border: solid 2px;
-  background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .wrapper {
 }
 
-#top-want {
+#top-want, #top-help {
   background-color: #fae3d9;
   width: 100%;
   margin: 50px 0;
   padding: 30px 10px;
-}
-
-#top-help {
-  background-color: #fae3d9;
-  width: 100%;
-  margin: 50px 0;
-  padding: 30px 10px;
+  border-radius: 10px;
 }
 
 .main-visual-content {
@@ -283,6 +278,7 @@ main {
 
 .new-post, .popular-post {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .new-post-content, {
