@@ -225,11 +225,18 @@ a {
 
 .first-content {
   height: 600px;
+  // background: url(/assets/title-background.png);
+}
+
+.first-content-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .first-content-btn {
   padding: 25px;
-  margin: 20px auto;
+  margin: 250px auto;
   width: auto;
   display: inline-block;
   text-align: center;
